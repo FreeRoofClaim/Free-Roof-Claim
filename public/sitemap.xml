@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://www.freeroofpros.com/</loc>
+  <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/privacy-policy</loc>
+  <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/terms-of-service</loc>
+  <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+<!-- New City/Service Pages -->
+<url>
+  <loc>https://www.freeroofpros.com/dallas-hail-damage-roof</loc>
+  <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/houston-storm-damage-claims</loc>
+  <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/texas-roof-replacement</loc>
+  <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <priority>0.90</priority>
+</url>
+
+<!-- Service Pages -->
+<url>
+  <loc>https://www.freeroofpros.com/services/insurance-claims</loc>
+  <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/services/roof-replacement</loc>
+  <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/services/storm-damage-repair</loc>
+  <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <priority>0.85</priority>
+</url>
+
+</urlset>

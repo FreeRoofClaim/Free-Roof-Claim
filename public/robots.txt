@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /api/lead-create/
+Disallow: /api/place-details/
+Disallow: /api/places/
+
+Sitemap: https://www.freeroofpros.com/sitemap.xml
