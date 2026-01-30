@@ -281,6 +281,60 @@ export const moneyOnTableCards = [
     },
   ];
 
+//   FAQs
+export const faqs = [
+  {
+    question: "How fast can you repair storm-damaged roofs?",
+    answer:
+      "Our expert team can usually repair most storm-damaged roofs within 1–3 days, depending on the size and severity of the damage. We prioritize safety and quality, ensuring your home is protected quickly.",
+  },
+  {
+    question: "Do you handle insurance claims for roof damage?",
+    answer:
+      "Yes! Free Roof Pros assists homeowners with filing insurance claims for roof damage. We guide you through the process, document damages, and communicate with your insurance company to make sure you get the coverage you deserve.",
+  },
+  {
+    question: "What types of roofs do you repair or replace?",
+    answer:
+      "We work on asphalt shingles, metal roofs, tile roofs, and flat roofs. Whether it’s a minor repair or a full replacement, our licensed and insured contractors have the experience to handle it all.",
+  },
+  {
+    question: "Are your roofing services available in my city?",
+    answer:
+      "We proudly serve homeowners in Dallas, Plano, Fort Worth, Arlington, and surrounding areas. If you’re unsure whether we cover your area, just contact us and we’ll confirm.",
+  },
+  {
+    question: "How much does a roof replacement cost?",
+    answer:
+      "The cost depends on your roof size, materials, and extent of damage. We provide free, no-obligation quotes so you know exactly what to expect before any work begins.",
+  },
+  {
+    question: "Do you offer warranties on your work?",
+    answer:
+      "Absolutely! All our roofing repairs and replacements come with a comprehensive warranty for materials and labor, giving you peace of mind for years to come.",
+  },
+  {
+    question: "Can you repair hail damage on my roof?",
+    answer:
+      "Yes, we specialize in storm and hail damage repair. Our team will assess the damage, provide a detailed report, and restore your roof efficiently and professionally.",
+  },
+  {
+    question: "Is your team licensed and insured?",
+    answer:
+      "Yes. All our contractors are fully licensed and insured to protect your property and ensure professional-quality work every time.",
+  },
+  {
+    question: "Do you offer emergency roof repair services?",
+    answer:
+      "We do! Storm damage can’t wait. Our emergency roofing team is available 24/7 to address urgent repairs and prevent further damage to your home.",
+  },
+  {
+    question: "How do I get a free roof replacement quote?",
+    answer:
+      "Getting a free quote is simple! Just fill out our online form or call our office, and one of our roofing specialists will provide an accurate estimate within 24 hours.",
+  },
+];
+
 //   Footer
 export const footerServices = [
     'Hail Damage Inspection',

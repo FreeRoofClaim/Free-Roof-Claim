@@ -67,10 +67,10 @@ export default function Testimonials() {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="text-gray-900">Join 10,000+ Homeowners</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <span className="text-gray-900">Thousands of Homeowners Covered with</span>
             <br />
-            <span className="text-[#2563eb]">Who Got New Roofs for Free</span>
+            <span className="text-[#2563eb]">Free Roof Replacements</span>
           </h2>
 
           {/* Compact Stats Bar */}

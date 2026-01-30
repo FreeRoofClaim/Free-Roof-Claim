@@ -7,16 +7,22 @@ import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import LoginModal from '@/components/auth/LoginModal';
 import RegisterModal from '@/components/auth/RegisterModal';
+import { ChevronUp, ChevronDown } from 'lucide-react';
 
 export default function Header() {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [modalMode, setModalMode] = useState<'login' | 'register'>('login');
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(prevState => !prevState);
   };
 
   const openModal = (mode: 'login' | 'register') => {
@@ -66,13 +72,13 @@ export default function Header() {
 
             {/* Desktop Navigation Items */}
             <div className="hidden md:flex items-center space-x-4">
-            <button
+              <button
                 onClick={() => window.open(`${process.env.NEXT_PUBLIC_CONTRACTOR_URL}`, '_blank')}
                 className="flex items-center space-x-2 bg-[#122E5F] hover:bg-transparent hover:text-[#122E5F] border hover:border-[#122E5F] text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
               >
                 <span className="text-sm font-semibold">Contractor</span>
               </button>
-            <button
+              <button
                 onClick={() =>
                   scroller.scrollTo('how-it-works', {
                     duration: 800,
@@ -96,6 +102,44 @@ export default function Header() {
               >
                 <span className="text-sm font-semibold">Apply Now</span>
               </button>
+
+              <div className="relative">
+                <button
+                  onClick={toggleDropdown}
+                  className="flex items-center space-x-2 border border-[#122E5F] hover:bg-[#0f2347] hover:text-white text-[#122E5F] px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
+                >
+                  <span className="text-sm font-semibold">Services</span>
+                  {isDropdownOpen ? (
+                    <ChevronUp className="ml-2 text-[#122E5F] hover:text-white" />
+                  ) : (
+                    <ChevronDown className="ml-2 text-[#122E5F] hover:text-white" />
+                  )}
+                </button>
+
+                {isDropdownOpen && (
+                  <div className="absolute bg-white text-[#122E5F] rounded-xl shadow-xl mt-2 w-56 z-10 transition-all ease-in-out duration-300 transform scale-95 opacity-0.9 hover:scale-100 hover:opacity-100">
+                    <a
+                      href="/services/storm-damage-repair"
+                      className="flex items-center space-x-2 px-6 py-3 hover:bg-[#122E5F] hover:text-white transition-all rounded-lg"
+                    >
+                      <span>Storm Damage Repair</span>
+                    </a>
+                    <a
+                      href="/services/insurance-claims"
+                      className="flex items-center space-x-2 px-6 py-3 hover:bg-[#122E5F] hover:text-white transition-all rounded-lg"
+                    >
+                      <span>Insurance Claims</span>
+                    </a>
+                    <a
+                      href="/services/roof-replacement"
+                      className="flex items-center space-x-2 px-6 py-3 hover:bg-[#122E5F] hover:text-white transition-all rounded-lg"
+                    >
+                      <span>Roof Replacement</span>
+                    </a>
+                  </div>
+                )}
+
+              </div>
             </div>
 
             {/* Mobile Menu Button */}
@@ -117,40 +161,40 @@ export default function Header() {
           {isMobileMenuOpen && (
             <div className="md:hidden pb-4 bg-white border-t border-gray-100">
               <div className="px-4 pt-4 flex flex-col space-y-4">
-              <button
-                onClick={() => {
-                  scroller.scrollTo('how-it-works', {
-                    duration: 800,
-                    delay: 0,
-                    smooth: 'easeInOutQuart'
-                  });
-                  setIsMobileMenuOpen(false);
-                }}
-                className="flex items-center space-x-2 border border-[#122E5F] hover:bg-[#0f2347] hover:text-white text-[#122E5F] px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
-              >
-                <span className="text-sm font-semibold">How it works</span>
-              </button>
-              <button
-                onClick={() => {
-                  scroller.scrollTo('free-inspection-form', {
-                    duration: 800,
-                    delay: 0,
-                    smooth: 'easeInOutQuart'
-                  });
-                  setIsMobileMenuOpen(false);
-                }}
-                className="flex items-center space-x-2 bg-[#122E5F] hover:bg-transparent hover:text-[#122E5F] border hover:border-[#122E5F] text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
-              >
-                <span className="text-sm font-semibold">Apply Now</span>
-              </button>
+                <button
+                  onClick={() => {
+                    scroller.scrollTo('how-it-works', {
+                      duration: 800,
+                      delay: 0,
+                      smooth: 'easeInOutQuart'
+                    });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center space-x-2 border border-[#122E5F] hover:bg-[#0f2347] hover:text-white text-[#122E5F] px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
+                >
+                  <span className="text-sm font-semibold">How it works</span>
+                </button>
+                <button
+                  onClick={() => {
+                    scroller.scrollTo('free-inspection-form', {
+                      duration: 800,
+                      delay: 0,
+                      smooth: 'easeInOutQuart'
+                    });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="flex items-center space-x-2 bg-[#122E5F] hover:bg-transparent hover:text-[#122E5F] border hover:border-[#122E5F] text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
+                >
+                  <span className="text-sm font-semibold">Apply Now</span>
+                </button>
               </div>
             </div>
           )}
         </div>
-      </header>
+      </header >
 
       {/* Modals */}
-      <LoginModal
+      < LoginModal
         isOpen={isLoginModalOpen}
         onClose={closeModals}
         onSwitchToRegister={switchToRegister}

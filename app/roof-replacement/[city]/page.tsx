@@ -5,26 +5,19 @@ import { Metadata } from "next";
 
 export async function generateStaticParams() {
   return cities.map((city) => ({
-    city: city.name.toLowerCase().replace(/\s+/g, '-'),
+    city: city.name.toLowerCase(),
   }));
 }
 
+// Define the page props type
 interface PageProps {
-  params: Promise<{ city: string }>;
+  params: { city: string }; // Directly access `city` from `params`
 }
 
-const normalizeCityName = (name: string): string => {
-  try {
-    return decodeURIComponent(name).toLowerCase().replace(/-/g, ' ').replace(/%20/g, ' ').trim();
-  } catch {
-    return name.toLowerCase().replace(/-/g, ' ').replace(/%20/g, ' ').trim();
-  }
-};
-
+// Generate metadata dynamically based on the city
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { city: cityParam } = await params;
-  const normalizedParam = normalizeCityName(cityParam);
-  const city = cities.find((c) => c.name.toLowerCase() === normalizedParam);
+  const { city: cityParam } = params;
+  const city = cities.find((c) => c.name.toLowerCase() === cityParam);
 
   if (!city) {
     return {};
@@ -39,10 +32,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function CityPageRoute({ params }: PageProps) {
-  const { city: cityParam } = await params;
-  const normalizedParam = normalizeCityName(cityParam);
-  const city = cities.find((c) => c.name.toLowerCase() === normalizedParam);
+export default function CityPageRoute({ params }: PageProps) {
+  const { city: cityParam } = params;
+  const city = cities.find((c) => c.name.toLowerCase() === cityParam);
 
   if (!city) {
     notFound();

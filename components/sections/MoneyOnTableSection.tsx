@@ -25,7 +25,7 @@ export default function MoneyOnTableSection() {
           </div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight text-white">
-            Don't Leave Money on the Table
+          Maximize Your Insurance Claim for Roof Repairs
           </h2>
 
           <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">

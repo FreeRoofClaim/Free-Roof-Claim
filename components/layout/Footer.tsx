@@ -26,7 +26,7 @@ export default function Footer() {
             <div className="flex items-center space-x-3 group">
               <div>
                 <h3 className="text-2xl font-bold text-white">
-                  Roof Claim Pros
+                  Free Roof Pros
                 </h3>
                 <div className="flex items-center space-x-2 mt-1">
                   <Star className="h-3 w-3 text-[#2563eb] fill-current" />
@@ -170,7 +170,7 @@ export default function Footer() {
 
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-6 py-3 inline-block">
               <p className="text-gray-400 text-sm">
-                © 2026 Roof Claim Pros. All rights reserved. Licensed, bonded, and insured.
+                © {new Date().getFullYear()} Free Roof Pros. All rights reserved. Licensed, bonded, and insured.
               </p>
             </div>
 

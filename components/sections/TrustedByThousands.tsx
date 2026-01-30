@@ -25,10 +25,10 @@ export default function TrustedByThousands() {
             <span className="text-[#122E5F] font-semibold">TRUSTED PROFESSIONALS</span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            <span className="text-gray-900">Trusted by Thousands</span>
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 leading-3">
+            <span className="text-gray-900">Trusted Roofing Experts Serving</span>
             <br />
-            <span className="text-[#2563eb]">of Homeowners</span>
+            <span className="text-[#2563eb] mt-4">Dallas & Surrounding Areas</span>
           </h2>
 
           <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">

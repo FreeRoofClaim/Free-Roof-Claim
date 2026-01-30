@@ -27,11 +27,11 @@ export default function HailStatesSection() {
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-            <span className="text-slate-800">Serving Hail-Prone States</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-slate-800">Nationwide Storm Damage Roof Replacement</span>
             <br />
             <span className="bg-gradient-to-r from-[#2563eb] via-[#122E5F] to-[#2563eb] bg-clip-text text-transparent">
-              Nationwide
+             &amp; Insurance Claims
             </span>
           </h2>
 

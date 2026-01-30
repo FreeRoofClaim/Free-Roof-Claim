@@ -96,9 +96,9 @@ export default function HowItWorks() {
             <CheckCircle className="ml-3 h-6 w-6 text-white" />
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+          <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-8 leading-tight">
             <span className="text-gray-900">
-              Simple 3-Step Process
+            Simple 3-Step Roof Replacement Process
             </span>
             <br />
             <span className="text-[#2563eb] text-3xl md:text-4xl">

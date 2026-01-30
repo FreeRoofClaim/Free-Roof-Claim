@@ -37,14 +37,14 @@ export default function Hero() {
                     Get Your Roof
                   </span>
                   <br />
-                  {/* <span className="text-[#2563eb]"> */}
                   100% Covered
-                  {/* </span> */}
                 </h1>
 
                 <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl lg:block hidden">
                 85% of roofs have hail damage the homeowner never notices — 
                   <span className="text-[#2563eb] font-semibold"> until we get them a free replacement!</span>.
+                  <br />
+                  Licensed and insured roofing experts serving Dallas, Plano, Fort Worth, Arlington, for inspections, repairs, and replacements.
                 </p>
               </div>
 
@@ -54,7 +54,7 @@ export default function Hero() {
                   <CheckCircle className="h-6 w-6 text-[#2563eb] flex-shrink-0" />
                   <div>
                     <div className="text-white font-semibold">99.7% Success Rate</div>
-                    <div className="text-xs text-gray-400">Insurance Claims Approved</div>
+                    <div className="text-xs text-gray-400">Insurance Claims Approved Quickly & Hassle-Free</div>
                   </div>
                 </div>
 
@@ -62,7 +62,7 @@ export default function Hero() {
                   <Award className="h-6 w-6 text-[#2563eb] flex-shrink-0" />
                   <div>
                     <div className="text-white font-semibold">A+ BBB Rating</div>
-                    <div className="text-xs text-gray-400">Trusted by Thousands</div>
+                    <div className="text-xs text-gray-400">TTrusted by Thousands of Satisfied Homeowners</div>
                   </div>
                 </div>
 
@@ -70,7 +70,7 @@ export default function Hero() {
                   <MapPin className="h-6 w-6 text-[#2563eb] flex-shrink-0" />
                   <div>
                     <div className="text-white font-semibold">Nationwide Service</div>
-                    <div className="text-xs text-gray-400">All 50 States Coverage</div>
+                    <div className="text-xs text-gray-400">Serving All 50 States with Full Coverage</div>
                   </div>
                 </div>
 
@@ -78,7 +78,7 @@ export default function Hero() {
                   <Clock className="h-6 w-6 text-[#2563eb] flex-shrink-0" />
                   <div>
                     <div className="text-white font-semibold">24-Hour Response</div>
-                    <div className="text-xs text-gray-400">Emergency Available</div>
+                    <div className="text-xs text-gray-400">Emergency Roof Repairs Available Anytime</div>
                   </div>
                 </div>
               </div>

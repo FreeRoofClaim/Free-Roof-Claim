@@ -9,6 +9,7 @@ import TrustedByThousands from '@/components/sections/TrustedByThousands';
 import HailStatesSection from '@/components/sections/HailStatesSection';
 import MoneyOnTableSection from '@/components/sections/MoneyOnTableSection';
 import Footer from '@/components/layout/Footer';
+import FAQSection from '@/components/sections/FAQs';
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
         <HailStatesSection />
         <Testimonials />
         <MoneyOnTableSection />
+        <FAQSection />
         <Footer />
       </div>
     // </Suspense>

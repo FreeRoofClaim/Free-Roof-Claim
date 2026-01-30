@@ -205,7 +205,7 @@ export const LeadForm = () => {
 
   const shareOnFacebook = () => {
     const shareMessage =
-      "I just got a FREE roof inspection from Roof Claim Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
+      "I just got a FREE roof inspection from Free Roof Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
       referralLink
     )}&quote=${encodeURIComponent(shareMessage)}`;
@@ -214,7 +214,7 @@ export const LeadForm = () => {
 
   const shareOnTwitter = () => {
     const shareMessage =
-      "I just got a FREE roof inspection from Roof Claim Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
+      "I just got a FREE roof inspection from Free Roof Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
       shareMessage
     )}&url=${encodeURIComponent(referralLink)}`;
@@ -223,9 +223,9 @@ export const LeadForm = () => {
 
   const shareViaEmail = () => {
     if (typeof window === "undefined") return;
-    const subject = "Free Roof Inspection - Roof Claim Pros";
+    const subject = "Free Roof Inspection - Free Roof Pros";
     const shareMessage =
-      "I just got a FREE roof inspection from Roof Claim Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
+      "I just got a FREE roof inspection from Free Roof Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
     const body = `${shareMessage}\n\n${referralLink}`;
     const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&su=${encodeURIComponent(
       subject
@@ -235,7 +235,7 @@ export const LeadForm = () => {
 
   const shareViaSMS = () => {
     const shareMessage =
-      "I just got a FREE roof inspection from Roof Claim Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
+      "I just got a FREE roof inspection from Free Roof Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
     const message = `${shareMessage} ${referralLink}`;
     window.location.href = `sms:?body=${encodeURIComponent(message)}`;
   };
@@ -277,8 +277,8 @@ export const LeadForm = () => {
             <div className="flex items-center justify-center mb-3">
               <Image src="/roofIcon.png" alt="logo" width={100} height={100} />
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
-              Free Roof Inspection
+            <h2 className="text-3xl md:text-3xl font-bold text-gray-900 mb-2">
+            Free Storm Damage Roof Inspection
             </h2>
             <p className="text-gray-600">
               Step {currentStep} of 3 • Get your claim started in 60 seconds

@@ -32,5 +32,6 @@ export interface PlacePrediction {
   export type City = {
     name: string;
     state: string;
+    // slug: string;
     description: string;
   };
