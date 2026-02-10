@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import './globals.css';
+import Head from 'next/head';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { ToastContainer } from 'react-toastify';
@@ -100,30 +100,22 @@ export default function RootLayout({
     ]
   };
 
-  useEffect(() => {
-    if (!document.querySelector('script[type="application/ld+json"][data-json="faq"]')) {
-      const script = document.createElement('script');
-      script.type = "application/ld+json";
-      script.innerHTML = JSON.stringify(faqJsonLd);
-      script.setAttribute('data-json', 'faq');
-      document.head.appendChild(script);
-    }
-  }, []);
-
   return (
     <html lang="en">
       <head>
         <GTM gtmId="GTM-KN4P5NHD" />
         <link rel="canonical" href="https://www.freeroofpros.com/" />
 
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
+        <Head>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          />
+        </Head>
       </head>
       <body className={inter.className}>
         <Loader />
