@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import './globals.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
@@ -98,6 +99,16 @@ export default function RootLayout({
       }
     ]
   };
+
+  useEffect(() => {
+    if (!document.querySelector('script[type="application/ld+json"][data-json="faq"]')) {
+      const script = document.createElement('script');
+      script.type = "application/ld+json";
+      script.innerHTML = JSON.stringify(faqJsonLd);
+      script.setAttribute('data-json', 'faq');
+      document.head.appendChild(script);
+    }
+  }, []);
 
   return (
     <html lang="en">

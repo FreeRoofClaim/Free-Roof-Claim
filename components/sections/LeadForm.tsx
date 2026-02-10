@@ -278,7 +278,7 @@ export const LeadForm = () => {
               <Image src="/roofIcon.png" alt="logo" width={100} height={100} />
             </div>
             <h2 className="text-3xl md:text-3xl font-bold text-gray-900 mb-2">
-            Free Storm Damage Roof Inspection
+            Free Storm Damage Roof Replacement
             </h2>
             <p className="text-gray-600">
               Step {currentStep} of 3 • Get your claim started in 60 seconds
