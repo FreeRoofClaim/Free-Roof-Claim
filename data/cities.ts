@@ -2,16 +2,16 @@ import { City } from "@/types/AuthType";
 import { Clock, FileText, Shield } from "lucide-react";
 
 export const cities: City[] = [
-    { name: 'Miami', state: 'FL', description: 'Miami is known for its tropical storms and hurricane season.' },
-    { name: 'Dallas', state: 'TX', description: 'Dallas experiences high winds and hailstorms that can damage roofs.' },
-    { name: 'Los Angeles', state: 'CA', description: 'Roof replacement in LA after heavy rain or wildfires is crucial for safety.' },
-    { name: 'Chicago', state: 'IL', description: 'Chicago has harsh winters and storm damage is common in the region.' },
-    { name: 'Houston', state: 'TX', description: 'Houston’s humid climate and hurricanes can cause significant roof damage.' },
-    { name: 'New York', state: 'NY', description: 'New York experiences heavy snow and ice storms that can damage roofs.' },
-    { name: 'San Francisco', state: 'CA', description: 'San Francisco experiences heavy rain and wind storms that can damage roofs.' },
-    { name: 'Seattle', state: 'WA', description: 'Seattle experiences heavy rain and wind storms that can damage roofs.' },
-    { name: 'Atlanta', state: 'GA', description: 'Atlanta experiences heavy rain and wind storms that can damage roofs.' },
-    { name: 'Boston', state: 'MA', description: 'Boston experiences heavy snow and ice storms that can damage roofs.' },
+    { name: 'Miami', slug: 'miami', state: 'FL', description: 'Miami is known for its tropical storms and hurricane season.' },
+    { name: 'Dallas', slug: 'dallas', state: 'TX', description: 'Dallas experiences high winds and hailstorms that can damage roofs.' },
+    { name: 'Los Angeles', slug: 'los-angeles', state: 'CA', description: 'Roof replacement in LA after heavy rain or wildfires is crucial for safety.' },
+    { name: 'San Francisco', slug: 'san-francisco', state: 'CA', description: 'San Francisco experiences heavy rain and wind storms that can damage roofs.' },
+    { name: 'Chicago', slug: 'chicago', state: 'IL', description: 'Chicago has harsh winters and storm damage is common in the region.' },
+    { name: 'Houston', slug: 'houston', state: 'TX', description: 'Houston’s humid climate and hurricanes can cause significant roof damage.' },
+    { name: 'New York', slug: 'new-york', state: 'NY', description: 'New York experiences heavy snow and ice storms that can damage roofs.' },
+    { name: 'Seattle', slug: 'seattle', state: 'WA', description: 'Seattle experiences heavy rain and wind storms that can damage roofs.' },
+    { name: 'Atlanta', slug: 'atlanta', state: 'GA', description: 'Atlanta experiences heavy rain and wind storms that can damage roofs.' },
+    { name: 'Boston', slug: 'boston', state: 'MA', description: 'Boston experiences heavy snow and ice storms that can damage roofs.' },
   ];
 
   export const whyChooseUs = [

@@ -5,7 +5,7 @@ import { Metadata } from "next";
 
 export async function generateStaticParams() {
   return cities.map((city) => ({
-    city: city.name.toLowerCase(),
+    city: city.slug,
   }));
 }
 
@@ -17,7 +17,7 @@ interface PageProps {
 // Generate metadata dynamically based on the city
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { city: cityParam } = params;
-  const city = cities.find((c) => c.name.toLowerCase() === cityParam);
+  const city = cities.find((c) => c.slug === cityParam);
 
   if (!city) {
     return {};
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default function CityPageRoute({ params }: PageProps) {
   const { city: cityParam } = params;
-  const city = cities.find((c) => c.name.toLowerCase() === cityParam);
+  const city = cities.find((c) => c.slug === cityParam);
 
   if (!city) {
     notFound();
