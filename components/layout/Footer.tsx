@@ -157,8 +157,9 @@ export default function Footer() {
               <div className="hidden sm:block w-1 h-1 bg-gray-600 rounded-full"></div>
 
               <Link
-                href={process.env.NEXT_PUBLIC_CONTRACTOR_URL || ''}
-                target="_blank"
+                // href={process.env.NEXT_PUBLIC_CONTRACTOR_URL || ''}
+                href=''
+                // target="_blank"
                 className="group flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg px-5 py-2.5 hover:bg-white/10 hover:border-[#2563eb]/50 transition-all duration-300"
               >
                 <Building className="h-4 w-4 text-[#2563eb] group-hover:scale-110 transition-transform" />
