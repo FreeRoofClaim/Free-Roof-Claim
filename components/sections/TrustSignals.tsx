@@ -2,7 +2,7 @@ import { Star } from "lucide-react";
 import Image from "next/image";
 import { reviews } from "@/data/sectionsData";
 
-export const TrustSignals = () => {
+export default function TrustSignals () {
 
   return (
     <section className="bg-white py-12">

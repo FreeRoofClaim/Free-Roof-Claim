@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { scroller, Element } from 'react-scroll';
+import { scroller } from 'react-scroll';
 import { ArrowRight, CheckCircle, Shield, Star } from 'lucide-react';
 import { howItWorksSteps } from '@/data/sectionsData';
 
@@ -76,7 +76,7 @@ export default function HowItWorks() {
   };
 
   return (
-    <Element name="how-it-works">
+    <section id="how-it-works">
     <section className="relative py-20 bg-white overflow-hidden">
       {/* Professional Background */}
       <div className="absolute inset-0">
@@ -282,6 +282,6 @@ export default function HowItWorks() {
         </div>
       </div>
     </section>
-    </Element>
+    </section>
   );
 }

@@ -88,7 +88,7 @@ export default function RoofReplacement() {
       </section>
 
       {/* Customer Testimonials */}
-      <section className="bg-[#122E5F] py-20 text-white">
+      <section className="bg-[#122e5ffd] py-20 text-white border-b border-gray-600">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center mb-12">What Our Customers Say</h2>
           <div className="grid md:grid-cols-3 gap-8">

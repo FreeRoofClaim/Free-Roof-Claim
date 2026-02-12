@@ -7,7 +7,7 @@ import { LeadForm } from './LeadForm';
 export default function Hero() {
   return (
     <section className="relative min-h-screen overflow-hidden">
-      <Element name="free-inspection-form">
+      <section id="free-inspection-form">
         <div className="absolute inset-0">
           <Image
             src="/BG-Image.png"
@@ -135,7 +135,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </Element>
+      </section>
     </section>
   );
 }

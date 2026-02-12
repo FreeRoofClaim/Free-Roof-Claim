@@ -337,8 +337,7 @@ export const faqs = [
 
 //   Footer
 export const footerServices = [
-    'Hail Damage Inspection',
-    'Insurance Claim Filing', 
-    'Roof Replacement',
-    'Emergency Repairs'
+    {name:'Storm Damage Repair',url: '/services/storm-damage-repair'},
+    {name:'Insurance Claim',url: '/services/insurance-claims'},
+    {name:'Roof Replacement',url: '/services/roof-replacement'},
   ]

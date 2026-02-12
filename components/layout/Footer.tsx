@@ -8,21 +8,16 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer className="relative bg-[#122E5F] overflow-hidden">
-      {/* Professional Background Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(37,99,235,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(37,99,235,0.05)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-        {/* Subtle accent elements */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-[#2563eb]/10 rounded-full blur-2xl"></div>
         <div className="absolute bottom-20 right-10 w-24 h-24 bg-white/5 rounded-full blur-2xl"></div>
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        {/* Main Footer Content */}
         <div className="grid lg:grid-cols-3 gap-12 mb-12">
-          {/* Company Info */}
           <div className="lg:col-span-1 space-y-6">
-            {/* Logo and Brand */}
             <div className="flex items-center space-x-3 group">
               <div>
                 <h3 className="text-2xl font-bold text-white">
@@ -35,7 +30,6 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Company Description */}
             <div className="relative">
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
                 <p className="text-gray-300 text-sm leading-relaxed">
@@ -49,7 +43,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Services */}
           <div className="space-y-6">
             <h4 className="text-xl font-bold text-white mb-4 flex items-center">
               <Zap className="h-5 w-5 text-[#2563eb] mr-2" />
@@ -57,21 +50,21 @@ export default function Footer() {
             </h4>
 
             <div className="space-y-3">
-              {footerServices.map((service: string, index: number) => (
-                <div
+              {footerServices.map((service, index) => (
+                <Link
                   key={index}
+                  href={service.url}
                   className="group flex items-center space-x-3 p-2 rounded-lg hover:bg-white/5 transition-all duration-300 cursor-pointer"
                 >
                   <div className="w-2 h-2 bg-[#2563eb] rounded-full group-hover:scale-125 transition-transform duration-300"></div>
                   <span className="text-gray-300 group-hover:text-white transition-colors duration-300 text-sm">
-                    {service}
+                    {service.name}
                   </span>
-                </div>
+                </Link>
               ))}
             </div>
           </div>
 
-          {/* Contact */}
           <div className="space-y-6">
             <h4 className="text-xl font-bold text-white mb-4 flex items-center">
               Contact
@@ -111,8 +104,6 @@ export default function Footer() {
                 </div>
               </div>
 
-
-              {/* Licensed Info */}
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
                 <div className="flex items-center space-x-2 mb-2">
                   <Shield className="h-4 w-4 text-[#2563eb]" />
@@ -126,7 +117,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Section */}
         <div className="relative">
           <div className="border-t border-white/10 mb-8"></div>
 
@@ -175,7 +165,6 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Trust Indicators */}
             <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6">
               <div className="flex items-center space-x-2">
                 <Star className="h-4 w-4 text-[#2563eb] fill-current" />
