@@ -1,11 +1,11 @@
 import './globals.css';
-import Head from 'next/head';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '@/components/ui/Loader';
 import GTM from '@/components/layout/GTM';
+import { Header, Footer } from '@/components/sections/index';
 
 const inter = localFont({
   src: [
@@ -106,7 +106,6 @@ export default function RootLayout({
         <GTM gtmId="GTM-KN4P5NHD" />
         <link rel="canonical" href="https://www.freeroofpros.com/" />
 
-        <Head>
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
@@ -115,11 +114,12 @@ export default function RootLayout({
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
           />
-        </Head>
       </head>
       <body className={inter.className}>
         <Loader />
+        <Header />
         {children}
+        <Footer />
       </body>
       <ToastContainer position="top-right" autoClose={3000} theme="colored" />
     </html>
