@@ -93,6 +93,10 @@ export default function RootLayout({
       { "@type": "Service", "name": "Roof Replacement" },
       { "@type": "Service", "name": "Storm Damage Roof Repair" }
     ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    }
   };
 
   const serviceJsonLd = {
@@ -100,6 +104,7 @@ export default function RootLayout({
     "@type": "Service",
     "@id": "https://www.freeroofpros.com/#service",
     "name": "Roof Replacement & Storm Damage Repair",
+    "serviceType": "Roof Replacement & Storm Damage Repair",
     "provider": {
       "@type": "LocalBusiness",
       "name": "Free Roof Pros",
