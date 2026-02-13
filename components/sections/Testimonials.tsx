@@ -75,8 +75,10 @@ export default function Testimonials() {
 
           {/* Compact Stats Bar */}
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {customrStats.map((stat) => (
-              <div className="flex items-center space-x-2 bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-md hover:shadow-lg transition-all duration-300">
+            {customrStats.map((stat, index) => (
+              <div 
+              key={index}
+              className="flex items-center space-x-2 bg-white border border-gray-200 rounded-xl px-4 py-3 shadow-md hover:shadow-lg transition-all duration-300">
                 <div className="relative">
                   <stat.icon className="h-5 w-5 text-[#2563eb]" />
                 </div>

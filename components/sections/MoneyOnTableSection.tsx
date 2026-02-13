@@ -39,8 +39,10 @@ export default function MoneyOnTableSection() {
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {moneyOnTableCards.map((card) => (
-            <div className="group text-center transform transition-all duration-300 hover:scale-105 flex">
+          {moneyOnTableCards.map((card, index) => (
+            <div
+            key={index}
+            className="group text-center transform transition-all duration-300 hover:scale-105 flex">
               <div className="bg-white rounded-2xl p-12 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300 flex flex-col flex-1 justify-between min-h-[420px]">
                 {/* Icon */}
                 <div className="relative inline-block mb-6">

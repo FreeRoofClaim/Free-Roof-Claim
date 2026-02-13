@@ -1,17 +1,15 @@
 import { Metadata } from 'next';
-import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Shield, FileText, Lock, Eye, CheckCircle, Mail, MapPin, ExternalLink } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Roof Claim Pros",
-  description: "Roof Claim Pros' privacy policy regarding personal information collection and usage.",
+  title: "Privacy Policy | Free Roof Pros",
+  description: "Free Roof Pros' privacy policy regarding personal information collection and usage.",
 };
 
 export default function PrivacyPolicy() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
           <div className="bg-gradient-to-r from-[#122E5F] to-[#2563eb] px-8 py-12 text-white">
@@ -24,11 +22,11 @@ export default function PrivacyPolicy() {
           <div className="px-8 py-12 space-y-12">
             <section className="prose prose-lg max-w-none">
               <p className="text-gray-700 leading-relaxed text-lg">
-                This Privacy Notice for Roof Claim Pros ("we," "us," or "our"), describes how and why we might access, collect, store, use, and/or share ("process") your personal information when you use our services ("Services"), including when you:
+                This Privacy Notice for Free Roof Pros ("we," "us," or "our"), describes how and why we might access, collect, store, use, and/or share ("process") your personal information when you use our services ("Services"), including when you:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                <li>Visit our website at <a href="https://roof-claim-pros.vercel.app" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://roof-claim-pros.vercel.app</a> or any website of ours that links to this Privacy Notice</li>
-                <li>Use Roof Claim Pros. Roof Claim Pros helps homeowners get free roof replacement quotes after storm damage. We connect homeowners with licensed and insured contractors quickly and safely.</li>
+                <li>Visit our website at <a href="https://www.freeroofpros.com" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://www.freeroofpros.com</a> or any website of ours that links to this Privacy Notice</li>
+                <li>Use Free Roof Pros. Free Roof Pros helps homeowners get free roof replacement quotes after storm damage. We connect homeowners with licensed and insured contractors quickly and safely.</li>
                 <li>Engage with us in other related ways, including any marketing or events</li>
               </ul>
               <div className="bg-blue-50 border-l-4 border-[#2563eb] p-6 my-8 rounded-r-lg">
@@ -77,7 +75,7 @@ export default function PrivacyPolicy() {
                 </div>
                 <div className="bg-white rounded-lg p-5 border border-gray-200">
                   <h3 className="font-semibold text-gray-900 mb-2">How do you exercise your rights?</h3>
-                  <p className="text-gray-600 text-sm">The easiest way to exercise your rights is by visiting <a href="https://roof-claim-pros.vercel.app" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://roof-claim-pros.vercel.app</a>, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.</p>
+                  <p className="text-gray-600 text-sm">The easiest way to exercise your rights is by visiting <a href="https://www.freeroofpros.com" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://www.freeroofpros.com</a>, or by contacting us. We will consider and act upon any request in accordance with applicable data protection laws.</p>
                 </div>
               </div>
             </section>
@@ -473,7 +471,7 @@ export default function PrivacyPolicy() {
                 </ul>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4">How to Exercise Your Rights</h3>
                 <p className="text-gray-700 mb-4">
-                  To exercise these rights, you can contact us by visiting <a href="https://roof-claim-pros.vercel.app" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://roof-claim-pros.vercel.app</a>, by emailing us at <a href="mailto:info@budtorcom.com" className="text-[#2563eb] hover:underline">info@budtorcom.com</a>, or by referring to the contact details at the bottom of this document.
+                  To exercise these rights, you can contact us by visiting <a href="https://www.freeroofpros.com" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://www.freeroofpros.com</a>, by emailing us at <a href="mailto:info@budtorcom.com" className="text-[#2563eb] hover:underline">info@budtorcom.com</a>, or by referring to the contact details at the bottom of this document.
                 </p>
                 <p className="text-gray-700 mb-4">
                   Under certain US state data protection laws, you can designate an authorized agent to make a request on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with applicable laws.
@@ -522,8 +520,7 @@ export default function PrivacyPolicy() {
                   <div className="flex items-start space-x-3">
                     <MapPin className="h-5 w-5 text-[#122E5F] mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-gray-900 mb-1">Roof Claim Pros</p>
-                      <p className="text-gray-700">California, USA</p>
+                      <p className="font-semibold text-gray-900 mb-1">Free Roof Pros</p>
                       <p className="text-gray-700">United States</p>
                       <p className="text-gray-700">Phone: 541-337-5734</p>
                       <p className="text-blue-500">info@budtorcom.com</p>
@@ -540,7 +537,7 @@ export default function PrivacyPolicy() {
               </div>
               <div className="prose prose-lg max-w-none">
                 <p className="text-gray-700 mb-4">
-                  Based on the applicable laws of your country or state of residence in the US, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please visit: <a href="https://roof-claim-pros.vercel.app" className="text-[#2563eb] hover:underline flex items-center space-x-1" target="_blank" rel="noopener noreferrer"><span>https://roof-claim-pros.vercel.app</span> <ExternalLink className="h-4 w-4 inline" /></a>.
+                  Based on the applicable laws of your country or state of residence in the US, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please visit: <a href="https://www.freeroofpros.com" className="text-[#2563eb] hover:underline flex items-center space-x-1" target="_blank" rel="noopener noreferrer"><span>https://www.freeroofpros.com</span> <ExternalLink className="h-4 w-4 inline" /></a>.
                 </p>
               </div>
             </section>

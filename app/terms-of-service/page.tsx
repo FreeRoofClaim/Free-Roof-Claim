@@ -4,14 +4,13 @@ import Footer from '@/components/layout/Footer';
 import { Shield, FileText, Lock, Eye, CheckCircle, Mail, MapPin, ExternalLink, Scale, AlertTriangle, Users, CreditCard, Ban, MessageSquare, Globe, Settings, Calendar, Gavel, XCircle, AlertCircle, Phone } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: "Terms of Service | Roof Claim Pros",
-  description: "Roof Claim Pros' terms of service regarding the use of our services.",
+  title: "Terms of Service | Free Roof Pros",
+  description: "Free Roof Pros' terms of service regarding the use of our services.",
 };
 
 export default function TermsOfService() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
       <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
           <div className="bg-gradient-to-r from-[#122E5F] to-[#2563eb] px-8 py-12 text-white">
@@ -28,20 +27,20 @@ export default function TermsOfService() {
                 <h2 className="text-3xl font-bold text-gray-900">AGREEMENT TO OUR LEGAL TERMS</h2>
               </div>
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                We are Roof Claim Pros ("Company," "we," "us," "our"), a company registered in California, United States at California, California, CA 90001.
+                We are Free Roof Pros ("Company," "we," "us," "our"), a company registered in California, United States at California, California, CA 90001.
               </p>
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                We operate the website <a href="https://roof-claim-pros.vercel.app" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://roof-claim-pros.vercel.app</a> (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
+                We operate the website <a href="https://www.freeroofpros.com" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://www.freeroofpros.com</a> (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
               </p>
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                Roof Claim Pros helps homeowners get free roof replacement quotes after storm damage. We connect homeowners with licensed and insured contractors quickly and safely.
+                Free Roof Pros helps homeowners get free roof replacement quotes after storm damage. We connect homeowners with licensed and insured contractors quickly and safely.
               </p>
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
                 You can contact us by phone at <a href="tel:5413375734" className="text-[#2563eb] hover:underline">541-337-5734</a>, email at <a href="mailto:info@budtorcom.com" className="text-[#2563eb] hover:underline">info@budtorcom.com</a>, or by mail to California, California, CA 90001, United States.
               </p>
               <div className="bg-red-50 border-l-4 border-red-500 p-6 my-8 rounded-r-lg">
                 <p className="text-gray-700 mb-2">
-                  These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and Roof Claim Pros, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. <strong>IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</strong>
+                  These Legal Terms constitute a legally binding agreement made between you, whether personally or on behalf of an entity ("you"), and Free Roof Pros, concerning your access to and use of the Services. You agree that by accessing the Services, you have read, understood, and agreed to be bound by all of these Legal Terms. <strong>IF YOU DO NOT AGREE WITH ALL OF THESE LEGAL TERMS, THEN YOU ARE EXPRESSLY PROHIBITED FROM USING THE SERVICES AND YOU MUST DISCONTINUE USE IMMEDIATELY.</strong>
                 </p>
               </div>
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
@@ -342,7 +341,7 @@ export default function TermsOfService() {
               </div>
               <div className="prose prose-lg max-w-none">
                 <p className="text-gray-700 mb-4">
-                  We care about data privacy and security. Please review our Privacy Policy: <a href="/privacy-policy" className="text-[#2563eb] hover:underline">https://roof-claim-pros.vercel.app/privacy-policy</a>. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Please be advised the Services are hosted in the United States. If you access the Services from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the United States, then through your continued use of the Services, you are transferring your data to the United States, and you expressly consent to have your data transferred to and processed in the United States.
+                  We care about data privacy and security. Please review our Privacy Policy: <a href="/privacy-policy" className="text-[#2563eb] hover:underline">https://www.freeroofpros.com/privacy-policy</a>. By using the Services, you agree to be bound by our Privacy Policy, which is incorporated into these Legal Terms. Please be advised the Services are hosted in the United States. If you access the Services from any other region of the world with laws or other requirements governing personal data collection, use, or disclosure that differ from applicable laws in the United States, then through your continued use of the Services, you are transferring your data to the United States, and you expressly consent to have your data transferred to and processed in the United States.
                 </p>
               </div>
             </section>
@@ -492,8 +491,7 @@ export default function TermsOfService() {
                 <p className="text-gray-700">
                 In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:
                 <div className='flex flex-col mt-4 font-bold'>
-                    <p>Roof Claim Pros</p>
-                    <p>California</p>
+                    <p>Free Roof Pros</p>
                     <p>United States</p>
                     <p>Phone: 541-337-5734</p>
                     <p className='text-blue-500'>info@budtorcom.com</p>
@@ -504,7 +502,6 @@ export default function TermsOfService() {
           </div>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }
