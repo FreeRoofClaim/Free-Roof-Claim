@@ -116,29 +116,6 @@ export default function RootLayout({
     }
   };
 
-  const faqJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How long does a roof replacement take?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Typically 1-3 days depending on size and damage."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer emergency storm damage repair?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, we provide 24/7 emergency services."
-        }
-      }
-    ]
-  };
-
   return (
     <html lang="en">
       <head>
@@ -152,10 +129,6 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
         />
       </head>
       <body className={inter.className}>
