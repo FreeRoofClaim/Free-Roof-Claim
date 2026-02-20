@@ -84,6 +84,7 @@ export default function RootLayout({
     "image": "https://www.freeroofpros.com/roofing-logo.png",
     "url": "https://www.freeroofpros.com/",
     "telephone": "541-337-5734",
+    "priceRange": "$$$",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
