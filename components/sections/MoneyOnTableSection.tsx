@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import { DollarSign, Clock, Award, CheckCircle } from "lucide-react";
 import { moneyOnTableCards } from '@/data/sectionsData';

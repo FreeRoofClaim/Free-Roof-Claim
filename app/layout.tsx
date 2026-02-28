@@ -3,7 +3,6 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Loader from '@/components/ui/Loader';
 import GTM from '@/components/layout/GTM';
 import { Header, Footer } from '@/components/sections/index';
 
@@ -61,13 +60,16 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
-
   twitter: {
     card: 'summary_large_image',
     title: 'Free Roof Inspection | FreeRoofPros',
     description:
       'Get a FREE roof inspection & see if insurance covers 100% of your replacement.',
     images: ['https://www.freeroofpros.com/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 
@@ -76,69 +78,26 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-
-  const jsonLdData = {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Free Roof Pros",
-    "image": "https://www.freeroofpros.com/roofing-logo.png",
-    "url": "https://www.freeroofpros.com/",
-    "telephone": "541-337-5734",
-    "priceRange": "$$$",
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "120"
-    },
-    "service": [
-      { "@type": "Service", "name": "Roof Replacement" },
-      { "@type": "Service", "name": "Storm Damage Roof Repair" }
-    ],
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
-    }
-  };
-
-  const serviceJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": "https://www.freeroofpros.com/#service",
-    "name": "Roof Replacement & Storm Damage Repair",
-    "serviceType": "Roof Replacement & Storm Damage Repair",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Free Roof Pros",
-      "url": "https://www.freeroofpros.com"
-    },
-    "areaServed": {
-      "@type": "Country",
-      "name": "United States"
-    }
-  };
-
   return (
-    <html lang="en">
-      <head>
-        <GTM gtmId="GTM-KN4P5NHD" />
-        <link rel="canonical" href="https://www.freeroofpros.com/" />
-
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-        />
-      </head>
-      <body className={inter.className}>
-        <Loader />
+    <html lang="en" className={`${inter.variable}`}>
+      <body className="font-inter antialiased">
+        <GTM />
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </body>
-      <ToastContainer position="top-right" autoClose={3000} theme="colored" />
     </html>
   );
 }
