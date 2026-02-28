@@ -1,9 +1,7 @@
 'use client'
 
 import React, { useState } from 'react';
-import { CheckCircle, Facebook, Twitter, MessageCircle, Mail, Phone, Clock, ClipboardCheck, Shield } from 'lucide-react';
-import Link from 'next/link';
-import Image from 'next/image';
+import { CheckCircle, Facebook, Twitter, MessageCircle, Mail } from 'lucide-react';
 
 export default function ThankYouPage() {
   const [copied, setCopied] = useState(false);
@@ -47,11 +45,6 @@ export default function ThankYouPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 max-w-lg w-full">
-        
-        {/* Logo */}
-        <div className="flex items-center justify-center mb-6">
-          <Image src="/roofIcon.png" alt="Free Roof Pros" width={80} height={80} />
-        </div>
 
         {/* Thank You Message */}
         <div className="text-center mb-8">
@@ -59,59 +52,13 @@ export default function ThankYouPage() {
             <CheckCircle className="h-8 w-8 text-green-600" />
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">Thank You!</h1>
-          <p className="text-gray-600">Your claim has been submitted successfully.</p>
+          <p className="text-gray-600">A certified roofing expert will contact you within 15 minutes.</p>
         </div>
 
-        {/* What Happens Next */}
-        <div className="bg-blue-50 border border-[#2563eb]/20 rounded-xl p-6 mb-6">
-          <h2 className="text-[#122E5F] font-bold mb-4 flex items-center">
-            <ClipboardCheck className="h-5 w-5 mr-2" />
-            What Happens Next
-          </h2>
-          <div className="space-y-4 text-sm">
-            <div className="flex items-start space-x-3">
-              <div className="w-6 h-6 bg-[#2563eb] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-white text-xs font-bold">1</span>
-              </div>
-              <div>
-                <span className="text-gray-900 font-semibold">Expert Review</span>
-                <p className="text-gray-600">A certified roofing expert will review your claim and contact you within 15 minutes.</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-3">
-              <div className="w-6 h-6 bg-[#2563eb] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-white text-xs font-bold">2</span>
-              </div>
-              <div>
-                <span className="text-gray-900 font-semibold">Free Roof Inspection</span>
-                <p className="text-gray-600">We&apos;ll schedule a free, no-obligation inspection at your property.</p>
-              </div>
-            </div>
-            <div className="flex items-start space-x-3">
-              <div className="w-6 h-6 bg-[#2563eb] rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <span className="text-white text-xs font-bold">3</span>
-              </div>
-              <div>
-                <span className="text-gray-900 font-semibold">Insurance Claim Filed</span>
-                <p className="text-gray-600">If damage is found, we handle the entire insurance claim process for you.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Call Us */}
-        <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-6 text-center">
-          <p className="text-gray-600 text-sm mb-2">Questions? Call us anytime:</p>
-          <a href="tel:5413375734" className="text-[#122E5F] font-bold text-lg hover:text-[#2563eb] transition-colors flex items-center justify-center space-x-2">
-            <Phone className="h-5 w-5" />
-            <span>(541) 337-5734</span>
-          </a>
-        </div>
-
-        {/* Referral Section */}
+        {/* Referral Link */}
         <div className="mb-6">
           <label className="block text-gray-700 font-semibold mb-2 text-sm">
-            Know someone with roof damage? Share this with them:
+            Share this link with your friends:
           </label>
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-0">
             <input
@@ -134,7 +81,7 @@ export default function ThankYouPage() {
         </div>
 
         {/* Social Share Buttons */}
-        <div className="grid grid-cols-2 gap-3 mb-6">
+        <div className="grid grid-cols-2 gap-3">
           <button
             onClick={shareOnFacebook}
             className="flex items-center justify-center space-x-2 bg-[#122E5F] hover:bg-[#0f2347] text-white px-4 py-3 rounded-lg transition-all duration-300 font-semibold text-sm shadow-sm hover:shadow-md"
@@ -166,13 +113,6 @@ export default function ThankYouPage() {
             <MessageCircle className="h-4 w-4" />
             <span>SMS</span>
           </button>
-        </div>
-
-        {/* Back to Home */}
-        <div className="text-center">
-          <Link href="/" className="text-[#2563eb] hover:text-[#122E5F] font-semibold text-sm transition-colors">
-            &larr; Back to Home
-          </Link>
         </div>
       </div>
     </div>
