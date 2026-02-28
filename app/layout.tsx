@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
+import Script from 'next/script';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Loader from '@/components/ui/Loader';
@@ -120,6 +121,20 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Google Ads (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17983730943"
+          strategy="afterInteractive"
+        />
+        <Script id="google-ads-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-17983730943');
+          `}
+        </Script>
+
         <GTM gtmId="GTM-KN4P5NHD" />
         <link rel="canonical" href="https://www.freeroofpros.com/" />
 
