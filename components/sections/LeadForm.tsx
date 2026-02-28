@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { validationSchema } from "@/validations/schema";
@@ -8,29 +8,20 @@ import {
   ArrowLeft,
   CheckCircle,
   Shield,
-  MapPin,
-  Home,
-  X,
-  Facebook,
-  Twitter,
-  MessageCircle,
-  Mail,
 } from "lucide-react";
 import { supabase } from "@/lib/supabase";
 import { toast } from "react-toastify";
 import { AddressSuggestion } from "./ui/AddressSuggestion";
 import { PlacePrediction } from "@/types/AuthType";
 import { FormData } from "@/types/AuthType";
+import { useRouter } from "next/navigation";
 
 export const LeadForm = () => {
-  const referralLink = "https://roof-claim-pros.vercel.app";
+  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
-  const [showThankYouModal, setShowThankYouModal] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [isAddressSelected, setIsAddressSelected] = useState(false);
   const [attemptedSteps, setAttemptedSteps] = useState<Set<number>>(new Set());
-  const [newLead, setNewLead] = useState<FormData>();
 
   const {
     register,
@@ -185,87 +176,13 @@ export const LeadForm = () => {
       if (!res.ok) throw new Error("Lead create failed");
       const { lead } = await res.json();
       toast.success("Lead submitted successfully!");
-      setNewLead(lead);
-      console.log("✅ New lead inserted:", lead);
-      setShowThankYouModal(true);
+      console.log("\u2705 New lead inserted:", lead);
+      // Redirect to dedicated thank-you page for Google Ads conversion tracking
+      router.push("/thank-you");
     } catch (err: any) {
       console.error("Error submitting lead:", err);
       toast.error("Failed to submit lead. Please try again.");
     }
-  };
-  const handleCopyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(referralLink);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch (err) {
-      console.error("Failed to copy link");
-    }
-  };
-
-  const shareOnFacebook = () => {
-    const shareMessage =
-      "I just got a FREE roof inspection from Free Roof Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      referralLink
-    )}&quote=${encodeURIComponent(shareMessage)}`;
-    window.open(url, "_blank", "width=600,height=400");
-  };
-
-  const shareOnTwitter = () => {
-    const shareMessage =
-      "I just got a FREE roof inspection from Free Roof Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-      shareMessage
-    )}&url=${encodeURIComponent(referralLink)}`;
-    window.open(url, "_blank", "width=600,height=400");
-  };
-
-  const shareViaEmail = () => {
-    if (typeof window === "undefined") return;
-    const subject = "Free Roof Inspection - Free Roof Pros";
-    const shareMessage =
-      "I just got a FREE roof inspection from Free Roof Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
-    const body = `${shareMessage}\n\n${referralLink}`;
-    const url = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&su=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
-    window.open(url, "_blank", "width=900,height=700");
-  };
-
-  const shareViaSMS = () => {
-    const shareMessage =
-      "I just got a FREE roof inspection from Free Roof Pros! They help homeowners get insurance-covered roof replacements with zero out-of-pocket costs. Check them out!";
-    const message = `${shareMessage} ${referralLink}`;
-    window.location.href = `sms:?body=${encodeURIComponent(message)}`;
-  };
-
-  useEffect(() => {
-    if (showThankYouModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [showThankYouModal]);
-
-  const closeModal = () => {
-    setShowThankYouModal(false);
-    setCurrentStep(1);
-    setValue("address", "");
-    setValue("phoneNumber", "");
-    setValue("email", "");
-    setValue("firstName", "");
-    setValue("lastName", "");
-    setValue("insuredBy", "");
-    setValue("policyNumber", "");
-    setIsAddressSelected(false);
-    setCoords(null);
-    setCopied(false);
-    setAttemptedSteps(new Set());
   };
 
   return (
@@ -281,7 +198,7 @@ export const LeadForm = () => {
             Free Storm Damage Roof Replacement
             </h2>
             <p className="text-gray-600">
-              Step {currentStep} of 3 • Get your claim started in 60 seconds
+              Step {currentStep} of 3 \u2022 Get your claim started in 60 seconds
             </p>
           </div>
 
@@ -395,7 +312,7 @@ export const LeadForm = () => {
 
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2 text-left">
-                    📱 Phone Number
+                    \ud83d\udcf1 Phone Number
                   </label>
                   <input
                     {...register("phoneNumber")}
@@ -417,7 +334,7 @@ export const LeadForm = () => {
 
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2 text-left">
-                    📧 Email Address
+                    \ud83d\udce7 Email Address
                   </label>
                   <input
                     {...register("email")}
@@ -440,7 +357,7 @@ export const LeadForm = () => {
               <div className="space-y-2">
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2 text-left">
-                    🏢 Insurance Company
+                    \ud83c\udfe2 Insurance Company
                   </label>
                   <input
                     {...register("insuredBy")}
@@ -462,7 +379,7 @@ export const LeadForm = () => {
 
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2 text-left">
-                    📋 Policy Number
+                    \ud83d\udccb Policy Number
                   </label>
                   <input
                     {...register("policyNumber")}
@@ -555,98 +472,10 @@ export const LeadForm = () => {
             </div>
 
             <p className="text-xs text-gray-500 text-center mt-6">
-              🔒 Your information is secure and will never be shared
+              \ud83d\udd12 Your information is secure and will never be shared
             </p>
           </form>
         </div>
-
-        {/* Modal */}
-        {showThankYouModal && (
-          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-[60] p-4">
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 max-w-lg w-full relative">
-              {/* Close Button */}
-              <button
-                onClick={closeModal}
-                className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors duration-200 w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100"
-              >
-                <X className="h-5 w-5" />
-              </button>
-
-              {/* Thank You Message */}
-              <div className="text-center mb-8">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <CheckCircle className="h-8 w-8 text-green-600" />
-                </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                  Thank You!
-                </h2>
-                <p className="text-gray-600 mb-6">
-                  A certified roofing expert will contact you within 15 minutes.
-                </p>
-              </div>
-
-              {/* Referral Link */}
-              <div className="mb-6">
-                <label className="block text-gray-700 font-semibold mb-2 text-sm">
-                  Share this link with your friends:
-                </label>
-                <div className="flex flex-col md:flex-row items-center gap-2 md:gap-0">
-                  <input
-                    type="text"
-                    value={referralLink}
-                    readOnly
-                    className="flex-1 w-full md:w-auto px-3 py-2 bg-gray-50 border border-gray-300 rounded-lg text-gray-700 text-sm"
-                  />
-                  <button
-                    onClick={handleCopyLink}
-                    className={`w-full md:w-auto px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm shadow-sm ${
-                      copied
-                        ? "bg-green-600 hover:bg-green-700 text-white"
-                        : "bg-[#122E5F] hover:bg-[#0f2347] text-white"
-                    }`}
-                  >
-                    {copied ? "Copied!" : "Copy"}
-                  </button>
-                </div>
-              </div>
-
-              {/* Social Share Buttons */}
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  onClick={shareOnFacebook}
-                  className="flex items-center justify-center space-x-2 bg-[#122E5F] hover:bg-[#0f2347] text-white px-4 py-3 rounded-lg transition-all duration-300 font-semibold text-sm shadow-sm hover:shadow-md"
-                >
-                  <Facebook className="h-4 w-4" />
-                  <span>Facebook</span>
-                </button>
-
-                <button
-                  onClick={shareOnTwitter}
-                  className="flex items-center justify-center space-x-2 bg-[#122E5F] hover:bg-[#0f2347] text-white px-4 py-3 rounded-lg transition-all duration-300 font-semibold text-sm shadow-sm hover:shadow-md"
-                >
-                  <Twitter className="h-4 w-4" />
-                  <span>Twitter</span>
-                </button>
-
-                <button
-                  onClick={shareViaEmail}
-                  className="flex items-center justify-center space-x-2 bg-[#122E5F] hover:bg-[#0f2347] text-white px-4 py-3 rounded-lg transition-all duration-300 font-semibold text-sm shadow-sm hover:shadow-md"
-                >
-                  <Mail className="h-4 w-4" />
-                  <span>Email</span>
-                </button>
-
-                <button
-                  onClick={shareViaSMS}
-                  className="flex items-center justify-center space-x-2 bg-[#122E5F] hover:bg-[#0f2347] text-white px-4 py-3 rounded-lg transition-all duration-300 font-semibold text-sm shadow-sm hover:shadow-md"
-                >
-                  <MessageCircle className="h-4 w-4" />
-                  <span>SMS</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </section>
     </>
   );
