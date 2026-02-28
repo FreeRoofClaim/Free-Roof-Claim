@@ -44,7 +44,7 @@ export default function Hero() {
                 85% of roofs have hail damage the homeowner never notices — 
                   <span className="text-[#2563eb] font-semibold"> until we get them a free replacement!</span>.
                   <br />
-                  Licensed and insured roofing experts serving Dallas, Plano, Fort Worth, Arlington, for inspections, repairs, and replacements.
+                  Licensed and insured roofing experts serving all 50 states for inspections, repairs, and replacements.
                 </p>
               </div>
 
@@ -62,7 +62,7 @@ export default function Hero() {
                   <Award className="h-6 w-6 text-[#2563eb] flex-shrink-0" />
                   <div>
                     <div className="text-white font-semibold">A+ BBB Rating</div>
-                    <div className="text-xs text-gray-400">TTrusted by Thousands of Satisfied Homeowners</div>
+                    <div className="text-xs text-gray-400">Trusted by Thousands of Satisfied Homeowners</div>
                   </div>
                 </div>
 
