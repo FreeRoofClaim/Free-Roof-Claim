@@ -4,11 +4,10 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
   <loc>https://www.freeroofpros.com/</loc>
-  <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <lastmod>2026-03-01T19:19:00+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 
@@ -24,7 +23,7 @@
   <priority>0.80</priority>
 </url>
 
-<!-- New City/Service Pages -->
+<!-- City/Service Pages -->
 <url>
   <loc>https://www.freeroofpros.com/dallas-hail-damage-roof</loc>
   <lastmod>2026-01-30T14:39:25+00:00</lastmod>
@@ -59,6 +58,65 @@
 <url>
   <loc>https://www.freeroofpros.com/services/storm-damage-repair</loc>
   <lastmod>2026-01-30T14:39:25+00:00</lastmod>
+  <priority>0.85</priority>
+</url>
+
+<!-- FAQ Page -->
+<url>
+  <loc>https://www.freeroofpros.com/faq</loc>
+  <lastmod>2026-03-01T19:19:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<!-- Blog Index -->
+<url>
+  <loc>https://www.freeroofpros.com/blog</loc>
+  <lastmod>2026-03-01T19:19:00+00:00</lastmod>
+  <changefreq>weekly</changefreq>
+  <priority>0.90</priority>
+</url>
+
+<!-- Blog Articles -->
+<url>
+  <loc>https://www.freeroofpros.com/blog/central-oregon-hailstorm-2025</loc>
+  <lastmod>2026-03-01T19:19:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/blog/dfw-hailstorm-insurance-claim</loc>
+  <lastmod>2026-03-01T19:19:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/blog/st-louis-tornado-insurance-claim</loc>
+  <lastmod>2026-03-01T19:19:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/blog/indianapolis-hail-damage-claim</loc>
+  <lastmod>2026-03-01T19:19:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/blog/kansas-city-hail-insurance-claim</loc>
+  <lastmod>2026-03-01T19:19:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+  <priority>0.85</priority>
+</url>
+
+<url>
+  <loc>https://www.freeroofpros.com/blog/nashville-storm-damage-claim</loc>
+  <lastmod>2026-03-01T19:19:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
   <priority>0.85</priority>
 </url>
 
