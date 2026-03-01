@@ -2,11 +2,80 @@ import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import haversineDistance from "@/utils/haversineDistance";
 
+// Send email notification via Resend API (no dependency needed)
+async function sendLeadNotification(leadData: {
+  type: string;
+  firstName?: string;
+  lastName?: string;
+  fullName?: string;
+  email: string;
+  phone: string;
+  address?: string;
+  insurance?: string;
+  policyNumber?: string;
+  status?: string;
+  assignedTo?: string | null;
+}) {
+  const resendKey = process.env.RESEND_API_KEY;
+  if (!resendKey) return;
+
+  const isContractor = leadData.type === "contractor_signup";
+  const name = isContractor
+    ? leadData.fullName
+    : `${leadData.firstName} ${leadData.lastName}`;
+
+  const subject = isContractor
+    ? `\ud83d\udd27 New Contractor Signup: ${name}`
+    : `\ud83c\udfe0 New Homeowner Lead: ${name}`;
+
+  const htmlBody = isContractor
+    ? `
+      <h2>New Contractor Signup</h2>
+      <table style="border-collapse:collapse;width:100%;max-width:600px;">
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Name</td><td style="padding:8px;border:1px solid #ddd;">${name}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #ddd;">${leadData.email}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Phone</td><td style="padding:8px;border:1px solid #ddd;">${leadData.phone}</td></tr>
+      </table>
+      <p style="margin-top:16px;"><a href="https://freeroofpros.twenty.com">View in Twenty CRM \u2192</a></p>
+    `
+    : `
+      <h2>New Homeowner Lead</h2>
+      <table style="border-collapse:collapse;width:100%;max-width:600px;">
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Name</td><td style="padding:8px;border:1px solid #ddd;">${name}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #ddd;">${leadData.email}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Phone</td><td style="padding:8px;border:1px solid #ddd;">${leadData.phone}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Address</td><td style="padding:8px;border:1px solid #ddd;">${leadData.address || "N/A"}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Insurance</td><td style="padding:8px;border:1px solid #ddd;">${leadData.insurance || "N/A"}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Policy #</td><td style="padding:8px;border:1px solid #ddd;">${leadData.policyNumber || "N/A"}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Status</td><td style="padding:8px;border:1px solid #ddd;">${leadData.status || "open"}</td></tr>
+        ${leadData.assignedTo ? `<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Assigned To</td><td style="padding:8px;border:1px solid #ddd;">${leadData.assignedTo}</td></tr>` : ""}
+      </table>
+      <p style="margin-top:16px;"><a href="https://freeroofpros.twenty.com">View in Twenty CRM \u2192</a></p>
+    `;
+
+  try {
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${resendKey}`,
+      },
+      body: JSON.stringify({
+        from: process.env.RESEND_FROM_EMAIL || "FreeRoofPros <notifications@freeroofpros.com>",
+        to: ["info@freeroofpros.com"],
+        subject,
+        html: htmlBody,
+      }),
+    });
+  } catch (err) {
+    console.error("Email notification failed:", err);
+  }
+}
+
 export async function POST(request: Request) {
   const body = await request.json();
-  const zapierWebhook = process.env.ZAPIER_WEBHOOK_URL;
 
-  // 1️⃣ Prepare payload for DB
+  // 1\ufe0f\u20e3 Prepare payload for DB
   const payload = {
     "Property Address": body.address,
     "First Name": body.firstName,
@@ -20,7 +89,7 @@ export async function POST(request: Request) {
     Longitude: body.coords?.lng ?? null,
   };
 
-  // 2️⃣ Insert lead
+  // 2\ufe0f\u20e3 Insert lead
   const { data: lead, error } = await supabaseAdmin
     .from("Leads_Data")
     .insert([payload])
@@ -35,7 +104,7 @@ export async function POST(request: Request) {
   let finalStatus: "open" | "close" = "open";
   let assignedContractorName: string | null = null;
 
-  // 3️⃣ Fetch pending requests
+  // 3\ufe0f\u20e3 Fetch pending requests
   const { data: pendingRequests, error: requestError } = await supabaseAdmin
     .from("Leads_Request")
     .select("*")
@@ -46,7 +115,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: requestError.message }, { status: 500 });
   }
 
-  // 4️⃣ Auto-assign logic
+  // 4\ufe0f\u20e3 Auto-assign logic
   if (pendingRequests && pendingRequests.length > 0) {
     for (const requestRow of pendingRequests) {
       const contractorId = requestRow.contractor_id;
@@ -128,31 +197,19 @@ export async function POST(request: Request) {
     }
   }
 
-  // 5️⃣ webhook
-  if (zapierWebhook) {
-    try {
-      await fetch(zapierWebhook, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          lead_id: lead.id,
-          firstName: lead["First Name"],
-          lastName: lead["Last Name"],
-          phoneNumber: lead["Phone Number"],
-          email: lead["Email Address"],
-          address: lead["Property Address"],
-          insurance: lead["Insurance Company"],
-          policyNumber: lead["Policy Number"],
-          latitude: lead["Latitude"],
-          longitude: lead["Longitude"],
-          status: finalStatus,
-          assigned_to: assignedContractorName,
-        }),
-      });
-    } catch (err) {
-      console.error("Zapier webhook failed:", err);
-    }
-  }
+  // 5\ufe0f\u20e3 Send email notification to info@freeroofpros.com
+  await sendLeadNotification({
+    type: "new_homeowner_lead",
+    firstName: lead["First Name"],
+    lastName: lead["Last Name"],
+    email: lead["Email Address"],
+    phone: lead["Phone Number"],
+    address: lead["Property Address"],
+    insurance: lead["Insurance Company"],
+    policyNumber: lead["Policy Number"],
+    status: finalStatus,
+    assignedTo: assignedContractorName,
+  });
 
   return NextResponse.json({
     lead,
