@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { CheckCircle, Facebook, Twitter, MessageCircle, Mail } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function ThankYouContent() {
   const [copied, setCopied] = useState(false);
@@ -43,8 +44,19 @@ export default function ThankYouContent() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 max-w-lg w-full">
+    <div className="relative min-h-screen flex items-center justify-center p-4">
+      {/* Background image matching homepage hero */}
+      <Image
+        src="/BG-Image.png"
+        alt=""
+        fill
+        className="object-cover"
+        priority
+      />
+      {/* Dark overlay matching homepage: slate-900 at 75% opacity */}
+      <div className="absolute inset-0 bg-slate-900/75" />
+
+      <div className="relative z-10 bg-white rounded-2xl shadow-xl border border-gray-200 p-8 max-w-lg w-full">
         {/* Thank You Message */}
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
