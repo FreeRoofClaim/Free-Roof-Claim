@@ -198,7 +198,7 @@ export const LeadForm = () => {
             Free Storm Damage Roof Replacement
             </h2>
             <p className="text-gray-600">
-              Step {currentStep} of 3 \u2022 Get your claim started in 60 seconds
+                            Step {currentStep} of 3. Get your claim started in 60 seconds!
             </p>
           </div>
 
