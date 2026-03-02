@@ -4,25 +4,25 @@ import { AlertTriangle, Shield, Clock, Award, Search, FileText, Wrench, Trending
 export const reviews = [
     {
       name: "David Thompson",
-      location: "Dallas, TX",
-      review: "Got my roof replaced completely free! The team was professional and handled everything with my insurance.",
+      location: "Bend, OR",
+      review: "Got my roof replaced completely free after the hailstorm! The team was professional and handled everything with my insurance.",
       photo: "/testimonial/Pic-1.webp"
     },
     {
       name: "Michael Chen",
-      location: "Houston, TX",
+      location: "Dallas, TX",
       review: "Amazing service! They made the entire process so easy. Highly recommend to anyone needing roof work.",
       photo: "/testimonial/Pic-2.webp"
     },
     {
-      name: "Mike Chen",
-      location: "Austin, TX",
-      review: "Free inspection led to a full roof replacement.",
+      name: "Karen Mitchell",
+      location: "Indianapolis, IN",
+      review: "They found hail damage I had no idea was there. Full roof replacement covered by insurance.",
       photo: "/testimonial/Pic-3.webp"
     },
     {
       name: "Sarah Johnson",
-      location: "San Antonio, TX",
+      location: "Redmond, OR",
       review: "Professional team from start to finish. The insurance claim process was seamless.",
       photo: "/testimonial/Pic-4.webp"
     },
@@ -34,7 +34,7 @@ export const reviews = [
     },
     {
       name: "Robert Williams",
-      location: "El Paso, TX",
+      location: "Nashville, TN",
       review: "Outstanding service! The inspection was thorough and the roof replacement was top quality.",
       photo: "/testimonial/Pic-6.webp"
     }
@@ -182,16 +182,16 @@ export const testimonials = [
     {
       id: 1,
       name: "Sarah Johnson",
-      location: "Dallas, TX",
+      location: "Bend, OR",
       rating: 5,
-      text: "I had no idea my insurance would cover my entire roof! Got a brand new roof for just my $1,000 deductible.",
+      text: "After the August hailstorm I had no idea my insurance would cover my entire roof. Got a brand new roof for just my $1,000 deductible.",
       saved: "$18,500",
       avatar: "SJ"
     },
     {
       id: 2,
       name: "Mike Rodriguez",
-      location: "Denver, CO",
+      location: "Fort Worth, TX",
       rating: 5,
       text: "The process was so easy. They handled everything with my insurance company. Highly recommend!",
       saved: "$22,000",
@@ -200,25 +200,25 @@ export const testimonials = [
     {
       id: 3,
       name: "Lisa Chen",
-      location: "Kansas City, KS",
+      location: "Kansas City, MO",
       rating: 5,
-      text: "After the hail storm last year, I thought I'd have to pay thousands. Insurance covered it all!",
+      text: "After the hail storm last year, I thought I would have to pay thousands. Insurance covered it all!",
       saved: "$15,800",
       avatar: "LC"
     },
     {
       id: 4,
       name: "David Thompson",
-      location: "Austin, TX",
+      location: "Redmond, OR",
       rating: 5,
-      text: "Amazing service! They found damage I didn't even know existed. Got a complete roof replacement covered.",
+      text: "Amazing service! They found damage I did not even know existed. Got a complete roof replacement covered.",
       saved: "$24,300",
       avatar: "DT"
     },
     {
       id: 5,
       name: "Jennifer Martinez",
-      location: "Phoenix, AZ",
+      location: "Indianapolis, IN",
       rating: 5,
       text: "Professional team, seamless process. My insurance claim was approved in just 3 days!",
       saved: "$19,700",
@@ -227,7 +227,7 @@ export const testimonials = [
     {
       id: 6,
       name: "Robert Kim",
-      location: "Atlanta, GA",
+      location: "Nashville, TN",
       rating: 5,
       text: "Best decision ever! They handled all the paperwork and I got a premium roof upgrade at no cost.",
       saved: "$21,200",
@@ -301,7 +301,7 @@ export const faqs = [
   {
     question: "Are your roofing services available in my city?",
     answer:
-      "We are licensed and insured to operate in all 50 states across the United States. Our primary service areas include the Dallas-Fort Worth metroplex (Dallas, Plano, Fort Worth, Arlington, Frisco, McKinney, and Denton), greater Houston, San Antonio, Austin, and El Paso in Texas. We also serve high-demand storm damage areas including Phoenix and Tucson in Arizona, Denver and Colorado Springs in Colorado, Atlanta and surrounding metro in Georgia, and the Oklahoma City and Tulsa markets in Oklahoma. We strategically deploy crews to areas recently hit by severe hail storms and wind events. If your area recently experienced storm damage, call us at 541-337-5734 and we will have a local team to you within 24 hours.",
+      "We are licensed and insured to operate in all 50 states across the United States. Our primary service areas include Central Oregon (Bend, Redmond, La Pine, Terrebonne, and Sisters), the Dallas-Fort Worth metroplex, St. Louis, Indianapolis, Kansas City, and Nashville. We also serve high-demand storm damage areas across Texas, Arizona, Colorado, Georgia, and Oklahoma. We strategically deploy crews to areas recently hit by severe hail storms and wind events. If your area recently experienced storm damage, call us at 541-337-5734 and we will have a local team to you within 24 hours.",
   },
   {
     question: "How much does a roof replacement cost?",
