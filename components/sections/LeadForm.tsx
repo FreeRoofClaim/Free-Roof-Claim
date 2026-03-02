@@ -1,3 +1,4 @@
+'use client';
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -312,7 +313,7 @@ export const LeadForm = () => {
 
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2 text-left">
-                    \ud83d\udcf1 Phone Number
+                    📱 Phone Number
                   </label>
                   <input
                     {...register("phoneNumber")}
@@ -334,7 +335,7 @@ export const LeadForm = () => {
 
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2 text-left">
-                    \ud83d\udce7 Email Address
+                    📧 Email Address
                   </label>
                   <input
                     {...register("email")}
@@ -357,7 +358,7 @@ export const LeadForm = () => {
               <div className="space-y-2">
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2 text-left">
-                    \ud83c\udfe2 Insurance Company
+                    🏢 Insurance Company
                   </label>
                   <input
                     {...register("insuredBy")}
@@ -379,7 +380,7 @@ export const LeadForm = () => {
 
                 <div>
                   <label className="block text-gray-700 font-semibold mb-2 text-left">
-                    \ud83d\udccb Policy Number
+                    📋 Policy Number
                   </label>
                   <input
                     {...register("policyNumber")}
@@ -472,7 +473,7 @@ export const LeadForm = () => {
             </div>
 
             <p className="text-xs text-gray-500 text-center mt-6">
-              \ud83d\udd12 Your information is secure and will never be shared
+              🔒 Your information is secure and will never be shared
             </p>
           </form>
         </div>
