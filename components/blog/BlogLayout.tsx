@@ -57,6 +57,66 @@ const ALL_ARTICLES: RelatedArticle[] = [
     description: 'Nashville\'s rapid growth means many homeowners are navigating storm damage claims for the first time. Here\'s your complete guide.',
     city: 'Nashville',
   },
+  {
+    title: 'RCV vs. ACV Roof Insurance: What It Means for Your Claim Payout',
+    slug: 'rcv-vs-acv-roof-insurance',
+    description: 'Understand the difference between Replacement Cost Value (RCV) and Actual Cash Value (ACV) roof insurance policies and how it affects your real payout when you file a claim.',
+    city: 'Nationwide',
+  },
+  {
+    title: 'Roof Insurance Claim Denied? 7 Steps to Fight Back and Win',
+    slug: 'roof-insurance-claim-denied',
+    description: 'Your roof insurance claim was denied. Learn the top reasons claims get denied and 7 proven steps to appeal, supplement, and overturn a denial.',
+    city: 'Nationwide',
+  },
+  {
+    title: 'Signs of Hail Damage on Your Roof: A Complete Visual Guide',
+    slug: 'signs-of-hail-damage-on-roof',
+    description: 'Learn how to identify hail damage on asphalt, metal, tile, and wood roofs. Covers granule loss, bruising, cracked tiles, dented metal, and the ground-level checklist approach.',
+    city: 'Nationwide',
+  },
+  {
+    title: 'How to Negotiate Your Roof Insurance Claim for a Full Replacement',
+    slug: 'how-to-negotiate-roof-insurance-claim',
+    description: 'When your insurance adjuster offers too little, here is how to negotiate your roof insurance claim, covering supplements, Xactimate, the 30% rule, appraisal clauses, and public adjusters.',
+    city: 'Nationwide',
+  },
+  {
+    title: 'Storm Chaser Roofers: 10 Warning Signs and How to Protect Yourself',
+    slug: 'storm-chaser-roofer-scams',
+    description: 'Storm chaser roofers follow disaster events to exploit homeowners. Learn the 10 warning signs of contractor fraud, why deductible waivers are illegal, and how to verify a legitimate roofer.',
+    city: 'Nationwide',
+  },
+  {
+    title: 'How Long Do You Have to File a Roof Insurance Claim? Deadlines by State',
+    slug: 'how-long-to-file-roof-insurance-claim',
+    description: 'State-by-state deadlines for filing a roof insurance claim after storm damage. Learn the difference between policy deadlines and statutes of limitations, plus what happens if you miss the window.',
+    city: 'Nationwide',
+  },
+  {
+    title: 'Does Homeowners Insurance Cover Roof Replacement? What You Need to Know',
+    slug: 'does-homeowners-insurance-cover-roof-replacement',
+    description: 'Find out what your homeowners insurance actually covers when it comes to roof replacement, including what events are covered, what is excluded, and how roof age and deductibles affect your payout.',
+    city: 'Nationwide',
+  },
+  {
+    title: 'The Roof Insurance Claim Process: A Step-by-Step Guide for Homeowners',
+    slug: 'roof-insurance-claim-process-step-by-step',
+    description: 'A complete walkthrough of the roof insurance claim process, from documenting damage to collecting your final payment. Learn what to say, what to avoid, and how the two-payment RCV system works.',
+    city: 'Nationwide',
+  },
+  {
+    title: 'How Much Does a Roof Replacement Cost in 2026? Average Prices by State',
+    slug: 'roof-replacement-cost-by-state',
+    description: 'State-by-state average roof replacement costs for 2026. Covers materials, labor, and the factors that affect what you actually pay, plus how insurance claims and Xactimate pricing factor in.',
+    city: 'Nationwide',
+  },
+  {
+    title: 'What to Expect When the Insurance Adjuster Inspects Your Roof',
+    slug: 'what-to-expect-insurance-adjuster-roof-inspection',
+    description: 'A complete guide to the insurance adjuster roof inspection process, what they look for, how long it takes, what to have ready, and what to do if they miss damage or offer too little.',
+    city: 'Nationwide',
+  },
 ];
 
 function formatDate(iso: string): string {
@@ -198,194 +258,93 @@ export default function BlogLayout({
 
               {/* Author / Meta Row */}
               <div className="flex flex-wrap items-center gap-4 pb-6 border-b border-gray-200 mb-8 text-sm text-gray-500">
-                {/* Author */}
-                <div className="flex items-center gap-2">
-                  <div className="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
-                    FRP
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800 leading-none">FreeRoofPros Team</p>
-                    <p className="text-xs text-gray-400 mt-0.5">Storm Damage Experts</p>
-                  </div>
-                </div>
-
-                <div className="hidden sm:block w-px h-5 bg-gray-300" />
-
-                {/* Published date */}
-                <time dateTime={publishedDateISO} className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                  </svg>
-                  {publishedDate}
-                </time>
-
-                <div className="hidden sm:block w-px h-5 bg-gray-300" />
-
-                {/* Reading time */}
-                <span className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  {readingTimeMinutes} min read
-                </span>
+                <span>By FreeRoofPros Team</span>
+                <span className="text-gray-300">|</span>
+                <time dateTime={publishedDateISO}>{publishedDate}</time>
+                <span className="text-gray-300">|</span>
+                <span>{readingTimeMinutes} min read</span>
               </div>
 
-              {/* Article Body */}
-              <div className="prose prose-lg prose-gray max-w-none
-                prose-headings:font-bold prose-headings:text-gray-900
-                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
-                prose-p:text-gray-700 prose-p:leading-relaxed
-                prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-gray-900
-                prose-ul:list-disc prose-ul:pl-6
-                prose-ol:list-decimal prose-ol:pl-6
-                prose-li:text-gray-700 prose-li:mb-1
-                prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:px-4 prose-blockquote:py-2 prose-blockquote:rounded-r-md
-                prose-table:text-sm prose-th:bg-blue-600 prose-th:text-white prose-th:px-4 prose-th:py-2 prose-td:px-4 prose-td:py-2 prose-td:border prose-td:border-gray-200">
+              {/* Article Content */}
+              <div className="prose prose-gray max-w-none">
                 {children}
               </div>
 
-              {/* Social Share */}
+              {/* Share Row */}
               <div className="mt-10 pt-6 border-t border-gray-200">
                 <p className="text-sm font-semibold text-gray-700 mb-3">Share this article:</p>
-                <div className="flex gap-3 flex-wrap">
+                <div className="flex gap-3">
                   <a
                     href={twitterShareUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-black text-white text-sm font-medium hover:bg-gray-800 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-black text-white text-xs font-semibold hover:bg-gray-800 transition-colors"
                   >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.259 5.63 5.905-5.63zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                    </svg>
-                    X (Twitter)
+                    X / Twitter
                   </a>
                   <a
                     href={facebookShareUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-600 text-white text-xs font-semibold hover:bg-blue-700 transition-colors"
                   >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                    </svg>
                     Facebook
                   </a>
                   <a
                     href={linkedinShareUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-blue-700 text-white text-sm font-medium hover:bg-blue-800 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-blue-700 text-white text-xs font-semibold hover:bg-blue-800 transition-colors"
                   >
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                    </svg>
                     LinkedIn
                   </a>
                 </div>
               </div>
-
-              {/* CTA Banner */}
-              <div className="mt-10 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-800 p-8 text-white text-center shadow-lg">
-                <h2 className="text-2xl font-bold mb-2">Get Your Free Roof Inspection</h2>
-                <p className="text-blue-100 mb-6 max-w-md mx-auto text-sm leading-relaxed">
-                  Our certified inspectors will assess your storm damage, work directly with your insurance company, and help you get the roof replacement you deserve \u2014 at no out-of-pocket cost beyond your deductible.
-                </p>
-                <a
-                  href="/#contact"
-                  className="inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors shadow"
-                >
-                  Schedule My Free Inspection \u2192
-                </a>
-              </div>
             </article>
 
             {/* Sidebar */}
-            <aside className="lg:w-72 flex-shrink-0">
-              <div className="sticky top-6 space-y-6">
-                {/* Quick CTA */}
-                <div className="rounded-xl border-2 border-blue-600 p-5 text-center">
-                  <p className="text-sm font-semibold text-gray-700 mb-1">Storm damage on your roof?</p>
-                  <p className="text-xs text-gray-500 mb-4">Get a free inspection \u2014 we handle everything with your insurer.</p>
-                  <a
-                    href="/#contact"
-                    className="block w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition-colors text-sm"
-                  >
-                    Free Inspection \u2192
-                  </a>
-                </div>
-
-                {/* Related Articles */}
-                {related.length > 0 && (
-                  <div className="rounded-xl bg-gray-50 border border-gray-200 p-5">
-                    <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">
-                      Related Articles
-                    </h3>
-                    <ul className="space-y-4">
-                      {related.map((article) => (
-                        <li key={article.slug}>
-                          <Link
-                            href={`/blog/${article.slug}`}
-                            className="block group"
-                          >
-                            <span className="text-xs font-medium text-blue-600 uppercase tracking-wide">
-                              {article.city}
-                            </span>
-                            <p className="text-sm font-semibold text-gray-800 group-hover:text-blue-600 transition-colors leading-snug mt-0.5">
-                              {article.title}
-                            </p>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    <Link
-                      href="/blog"
-                      className="block text-center mt-4 text-sm text-blue-600 font-medium hover:underline"
-                    >
-                      View all articles \u2192
-                    </Link>
-                  </div>
-                )}
-
-                {/* FAQ Link */}
-                <div className="rounded-xl bg-yellow-50 border border-yellow-200 p-5">
-                  <h3 className="text-sm font-bold text-gray-900 mb-2">Have questions?</h3>
-                  <p className="text-xs text-gray-600 mb-3">See our complete FAQ on storm damage claims, insurance coverage, and the claims process.</p>
-                  <Link
-                    href="/faq"
-                    className="text-sm text-blue-600 font-medium hover:underline"
-                  >
-                    Read the FAQ \u2192
-                  </Link>
-                </div>
+            <aside className="lg:w-72 shrink-0">
+              {/* CTA Card */}
+              <div className="bg-blue-600 rounded-2xl p-6 text-white mb-6 sticky top-6">
+                <h3 className="text-lg font-bold mb-2">Think you have storm damage?</h3>
+                <p className="text-blue-100 text-sm mb-4 leading-relaxed">
+                  Get a free roof inspection from a licensed contractor in your area.
+                </p>
+                <a
+                  href="/#contact"
+                  className="block text-center bg-white text-blue-700 font-bold px-4 py-3 rounded-xl hover:bg-blue-50 transition-colors text-sm"
+                >
+                  Get Free Inspection
+                </a>
               </div>
+
+              {/* Related Articles */}
+              {related.length > 0 && (
+                <div>
+                  <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide mb-4">Related Articles</h3>
+                  <div className="space-y-4">
+                    {related.map((article) => (
+                      <Link
+                        key={article.slug}
+                        href={`/blog/${article.slug}`}
+                        className="block group"
+                      >
+                        <div className="rounded-xl border border-gray-200 p-4 hover:border-blue-300 hover:shadow-sm transition-all">
+                          <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
+                            {article.city}
+                          </span>
+                          <p className="mt-1 text-sm font-semibold text-gray-900 group-hover:text-blue-600 leading-snug line-clamp-2">
+                            {article.title}
+                          </p>
+                          <p className="mt-1 text-xs text-gray-500 line-clamp-2">{article.description}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </aside>
           </div>
-
-          {/* Related Articles (Mobile / Bottom) */}
-          {related.length > 0 && (
-            <section className="mt-14 pt-10 border-t border-gray-200 lg:hidden">
-              <h2 className="text-xl font-bold text-gray-900 mb-6">Related Articles</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                {related.map((article) => (
-                  <Link
-                    key={article.slug}
-                    href={`/blog/${article.slug}`}
-                    className="group block rounded-xl border border-gray-200 p-5 hover:border-blue-300 hover:shadow-sm transition-all"
-                  >
-                    <span className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
-                      {article.city}
-                    </span>
-                    <h3 className="mt-1 text-sm font-bold text-gray-800 group-hover:text-blue-600 transition-colors leading-snug">
-                      {article.title}
-                    </h3>
-                    <p className="mt-2 text-xs text-gray-500 line-clamp-2">{article.description}</p>
-                  </Link>
-                ))}
-              </div>
-            </section>
-          )}
         </div>
       </div>
     </>
