@@ -4,7 +4,6 @@ import localFont from 'next/font/local';
 import Script from 'next/script';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Loader from '@/components/ui/Loader';
 import GTM from '@/components/layout/GTM';
 import { Header, Footer } from '@/components/sections/index';
 
@@ -303,7 +302,6 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Loader />
         <Header />
         {children}
         <Footer />
