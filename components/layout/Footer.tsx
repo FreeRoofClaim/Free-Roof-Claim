@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react';
-import { Phone, Shield, Mail, Zap, Star, Sparkles, FileText, Lock, Building } from 'lucide-react';
+import { Phone, Shield, Mail, Zap, Star, Sparkles, FileText, Lock, Building, MapPin } from 'lucide-react';
 import { footerServices } from '@/data/sectionsData';
 import Link from 'next/link';
 
@@ -33,11 +33,11 @@ export default function Footer() {
             <div className="relative">
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
                 <p className="text-gray-300 text-sm leading-relaxed">
-                  America's #1 hail damage roofing specialists. Licensed, insured, and trusted by thousands.
+                  America&apos;s #1 hail damage roofing specialists. Licensed, insured, and trusted by thousands.
                 </p>
                 <div className="flex items-center space-x-2 mt-3">
                   <Shield className="h-4 w-4 text-[#2563eb]" />
-                  <span className="text-[#2563eb] text-xs font-semibold">Licensed & Insured</span>
+                  <span className="text-[#2563eb] text-xs font-semibold">Licensed &amp; Insured</span>
                 </div>
               </div>
             </div>
@@ -95,11 +95,19 @@ export default function Footer() {
                   <div className="flex items-center space-x-2 text-sm text-gray-300">
                     <Mail className="h-4 w-4 text-[#2563eb]" />
                     <a
-                      href="mailto:info@budtorcom.com"
+                      href="mailto:info@freeroofpros.com"
                       className="hover:text-white transition"
                     >
-                      info@budtorcom.com
+                      info@freeroofpros.com
                     </a>
+                  </div>
+
+                  <div className="flex items-start space-x-2 text-sm text-gray-300">
+                    <MapPin className="h-4 w-4 text-[#2563eb] mt-0.5 shrink-0" />
+                    <span>
+                      10801 NW 43rd Street<br />
+                      Terrebonne, OR 97760
+                    </span>
                   </div>
                 </div>
               </div>
@@ -107,7 +115,7 @@ export default function Footer() {
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl p-4">
                 <div className="flex items-center space-x-2 mb-2">
                   <Shield className="h-4 w-4 text-[#2563eb]" />
-                  <span className="text-[#2563eb] font-semibold text-sm">Licensed & Insured Nationwide</span>
+                  <span className="text-[#2563eb] font-semibold text-sm">Licensed &amp; Insured Nationwide</span>
                 </div>
                 <p className="text-gray-300 text-xs">
                   Serving all 50 states with certified roofing professionals
@@ -160,7 +168,7 @@ export default function Footer() {
 
             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl px-6 py-3 inline-block">
               <p className="text-gray-400 text-sm">
-                © {new Date().getFullYear()} Free Roof Pros. All rights reserved. Licensed, bonded, and insured.
+                &copy; {new Date().getFullYear()} Free Roof Pros. All rights reserved. Licensed, bonded, and insured.
               </p>
             </div>
 

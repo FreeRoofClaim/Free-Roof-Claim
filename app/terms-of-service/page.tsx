@@ -27,7 +27,7 @@ export default function TermsOfService() {
                 <h2 className="text-3xl font-bold text-gray-900">AGREEMENT TO OUR LEGAL TERMS</h2>
               </div>
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                We are Free Roof Pros ("Company," "we," "us," "our"), a company registered in California, United States at California, California, CA 90001.
+                We are Free Roof Pros ("Company," "we," "us," "our"), a company registered in Oregon, United States at 10801 NW 43rd Street, Terrebonne, OR 97760.
               </p>
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
                 We operate the website <a href="https://www.freeroofpros.com" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://www.freeroofpros.com</a> (the "Site"), as well as any other related products and services that refer or link to these legal terms (the "Legal Terms") (collectively, the "Services").
@@ -36,7 +36,7 @@ export default function TermsOfService() {
                 Free Roof Pros helps homeowners get free roof replacement quotes after storm damage. We connect homeowners with licensed and insured contractors quickly and safely.
               </p>
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                You can contact us by phone at <a href="tel:5413375734" className="text-[#2563eb] hover:underline">541-337-5734</a>, email at <a href="mailto:info@budtorcom.com" className="text-[#2563eb] hover:underline">info@budtorcom.com</a>, or by mail to California, California, CA 90001, United States.
+                You can contact us by phone at <a href="tel:5413375734" className="text-[#2563eb] hover:underline">541-337-5734</a>, email at <a href="mailto:info@freeroofpros.com" className="text-[#2563eb] hover:underline">info@freeroofpros.com</a>, or by mail to 10801 NW 43rd Street, Terrebonne, OR 97760, United States.
               </p>
               <div className="bg-red-50 border-l-4 border-red-500 p-6 my-8 rounded-r-lg">
                 <p className="text-gray-700 mb-2">
@@ -130,7 +130,7 @@ export default function TermsOfService() {
                   Except as set out in this section or elsewhere in our Legal Terms, no part of the Services and no Content or Marks may be copied, reproduced, aggregated, republished, uploaded, posted, publicly displayed, encoded, translated, transmitted, distributed, sold, licensed, or otherwise exploited for any commercial purpose whatsoever, without our express prior written permission.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <a href="mailto:info@budtorcom.com" className="text-[#2563eb] hover:underline">info@budtorcom.com</a>. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.
+                  If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: <a href="mailto:info@freeroofpros.com" className="text-[#2563eb] hover:underline">info@freeroofpros.com</a>. If we ever grant you the permission to post, reproduce, or publicly display any part of our Services or Content, you must identify us as the owners or licensors of the Services, Content, or Marks and ensure that any copyright or proprietary notice appears or is visible on posting, reproducing, or displaying our Content.
                 </p>
                 <p className="text-gray-700 mb-6">
                   We reserve all rights not expressly granted to you in and to the Services, Content, and Marks.
@@ -247,7 +247,7 @@ export default function TermsOfService() {
                   <li>Engage in any automated use of the system, such as using scripts to send comments or messages, or using any data mining, robots, or similar data gathering and extraction tools.</li>
                   <li>Delete the copyright or other proprietary rights notice from any Content.</li>
                   <li>Attempt to impersonate another user or person or use the username of another user.</li>
-                  <li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats ("gifs"), 1×1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as "spyware" or "passive collection mechanisms" or "pcms").</li>
+                  <li>Upload or transmit (or attempt to upload or to transmit) any material that acts as a passive or active information collection or transmission mechanism, including without limitation, clear graphics interchange formats ("gifs"), 1x1 pixels, web bugs, cookies, or other similar devices (sometimes referred to as "spyware" or "passive collection mechanisms" or "pcms").</li>
                   <li>Interfere with, disrupt, or create an undue burden on the Services or the networks or services connected to the Services.</li>
                   <li>Harass, annoy, intimidate, or threaten any of our employees or agents engaged in providing any portion of the Services to you.</li>
                   <li>Attempt to bypass any measures of the Services designed to prevent or restrict access to the Services, or any portion of the Services.</li>
@@ -492,9 +492,11 @@ export default function TermsOfService() {
                 In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, please contact us at:
                 <div className='flex flex-col mt-4 font-bold'>
                     <p>Free Roof Pros</p>
+                    <p>10801 NW 43rd Street</p>
+                    <p>Terrebonne, OR 97760</p>
                     <p>United States</p>
                     <p>Phone: 541-337-5734</p>
-                    <p className='text-blue-500'>info@budtorcom.com</p>
+                    <p className='text-blue-500'>info@freeroofpros.com</p>
                 </div>
                 </p>
               </div>
