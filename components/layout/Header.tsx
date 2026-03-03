@@ -77,66 +77,71 @@ export default function Header() {
             </div>
 
             {/* Desktop Navigation Items */}
-            <div className="hidden md:flex items-center space-x-4">
-              <button
-                onClick={() => window.open(`${process.env.NEXT_PUBLIC_CONTRACTOR_URL}`, '_blank')}
-                className="flex items-center space-x-2 bg-[#122E5F] hover:bg-transparent hover:text-[#122E5F] border hover:border-[#122E5F] text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
-              >
-                <span className="text-sm font-semibold">Contractor</span>
-              </button>
+            <nav className="hidden md:flex items-center space-x-8">
               <Link
                 href="/#how-it-works"
-                className="flex items-center space-x-2 border border-[#122E5F] hover:bg-[#0f2347] hover:text-white text-[#122E5F] px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm">
-                <span className="text-sm font-semibold">How it works</span>
-              </Link>
-              <Link
-                href="/#free-inspection-form"
-                className="flex items-center space-x-2 bg-[#122E5F] hover:bg-transparent hover:text-[#122E5F] border hover:border-[#122E5F] text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
+                className="text-[#122E5F] hover:text-[#0f2347] font-medium text-[15px] transition-colors duration-200 relative group py-2"
               >
-                <span className="text-sm font-semibold">Apply Now</span>
+                How it works
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#122E5F] group-hover:w-full transition-all duration-300"></span>
               </Link>
 
-              <div className="relative">
+              <div 
+                className="relative group"
+                onMouseEnter={() => setIsDropdownOpen(true)}
+                onMouseLeave={() => setIsDropdownOpen(false)}
+              >
                 <button
                   onClick={toggleDropdown}
-                  className="flex items-center space-x-2 border border-[#122E5F] hover:bg-[#0f2347] hover:text-white text-[#122E5F] px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
+                  className="text-[#122E5F] hover:text-[#0f2347] font-medium text-[15px] transition-colors duration-200 flex items-center space-x-1 py-2"
                 >
-                  <span className="text-sm font-semibold">Services</span>
+                  <span>Services</span>
                   {isDropdownOpen ? (
-                    <ChevronUp className="ml-2 text-[#122E5F] hover:text-white" />
+                    <ChevronUp className="w-4 h-4 transition-transform duration-200" />
                   ) : (
-                    <ChevronDown className="ml-2 text-[#122E5F] hover:text-white" />
+                    <ChevronDown className="w-4 h-4 transition-transform duration-200" />
                   )}
                 </button>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#122E5F] group-hover:w-full transition-all duration-300"></span>
 
-                {isDropdownOpen && (
-                  <div className="absolute bg-white text-[#122E5F] rounded-xl shadow-xl mt-2 w-56 z-10 transition-all ease-in-out duration-300 transform scale-95 opacity-0.9 hover:scale-100 hover:opacity-100">
-                    <Link
-                      onClick={() => toggleDropdown()}
-                      href="/services/storm-damage-repair"
-                      className="flex items-center space-x-2 px-6 py-3 hover:bg-[#122E5F] hover:text-white transition-all rounded-lg"
-                    >
-                      <span>Storm Damage Repair</span>
-                    </Link>
-                    <Link
-                      onClick={() => toggleDropdown()}
-                      href="/services/insurance-claims"
-                      className="flex items-center space-x-2 px-6 py-3 hover:bg-[#122E5F] hover:text-white transition-all rounded-lg"
-                    >
-                      <span>Insurance Claims</span>
-                    </Link>
-                    <Link
-                      onClick={() => toggleDropdown()}
-                      href="/services/roof-replacement"
-                      className="flex items-center space-x-2 px-6 py-3 hover:bg-[#122E5F] hover:text-white transition-all rounded-lg"
-                    >
-                      <span>Roof Replacement</span>
-                    </Link>
-                  </div>
-                )}
-
+                <div 
+                  className={`absolute top-full left-0 mt-2 bg-white text-[#122E5F] rounded-lg shadow-lg border border-gray-100 w-56 z-50 overflow-hidden transition-all duration-300 ease-out ${
+                    isDropdownOpen 
+                      ? 'opacity-100 translate-y-0 pointer-events-auto' 
+                      : 'opacity-0 -translate-y-2 pointer-events-none'
+                  }`}
+                >
+                  <Link
+                    onClick={() => setIsDropdownOpen(false)}
+                    href="/services/storm-damage-repair"
+                    className="block px-5 py-3 hover:bg-[#122E5F] hover:text-white transition-colors duration-200 text-sm font-medium"
+                  >
+                    Storm Damage Repair
+                  </Link>
+                  <Link
+                    onClick={() => setIsDropdownOpen(false)}
+                    href="/services/insurance-claims"
+                    className="block px-5 py-3 hover:bg-[#122E5F] hover:text-white transition-colors duration-200 text-sm font-medium border-t border-gray-100"
+                  >
+                    Insurance Claims
+                  </Link>
+                  <Link
+                    onClick={() => setIsDropdownOpen(false)}
+                    href="/services/roof-replacement"
+                    className="block px-5 py-3 hover:bg-[#122E5F] hover:text-white transition-colors duration-200 text-sm font-medium border-t border-gray-100"
+                  >
+                    Roof Replacement
+                  </Link>
+                </div>
               </div>
-            </div>
+
+              <Link
+                href="/#free-inspection-form"
+                className="bg-[#122E5F] hover:bg-[#0f2347] text-white px-6 py-2.5 rounded-md transition-all duration-200 font-semibold text-[15px] shadow-md hover:shadow-lg"
+              >
+                Apply Now
+              </Link>
+            </nav>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden">
@@ -156,68 +161,63 @@ export default function Header() {
           {/* Mobile Navigation */}
           {isMobileMenuOpen && (
             <div className="md:hidden pb-4 bg-white border-t border-gray-100">
-              <div className="px-4 pt-4 flex flex-col space-y-4">
-                <button
-                  // onClick={() => window.open(`${process.env.NEXT_PUBLIC_CONTRACTOR_URL}`, '_blank')}
-                  className="flex items-center space-x-2 bg-[#122E5F] hover:bg-transparent hover:text-[#122E5F] border hover:border-[#122E5F] text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
-                >
-                  <span className="text-sm font-semibold">Contractor</span>
-                </button>
+              <nav className="px-4 pt-4 flex flex-col space-y-1">
                 <Link
                   href="/#how-it-works"
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center space-x-2 border border-[#122E5F] hover:bg-[#0f2347] hover:text-white text-[#122E5F] px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
+                  className="text-[#122E5F] hover:bg-gray-50 px-4 py-3 rounded-md transition-colors duration-200 font-medium text-[15px]"
                 >
-                  <span className="text-sm font-semibold">How it works</span>
+                  How it works
                 </Link>
-                <Link
-                  href="/#free-inspection-form"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center space-x-2 bg-[#122E5F] hover:bg-transparent hover:text-[#122E5F] border hover:border-[#122E5F] text-white px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
-                >
-                  <span className="text-sm font-semibold">Apply Now</span>
-                </Link>
+                
                 <div className="relative">
                   <button
                     onClick={toggleDropdown}
-                    className="flex items-center justify-between space-x-2 w-full border border-[#122E5F] hover:bg-[#0f2347] hover:text-white text-[#122E5F] px-6 py-2.5 rounded-lg transition-all duration-300 font-medium shadow-sm"
+                    className="w-full flex items-center justify-between text-[#122E5F] hover:bg-gray-50 px-4 py-3 rounded-md transition-colors duration-200 font-medium text-[15px]"
                   >
-                    <span className="text-sm font-semibold">Services</span>
+                    <span>Services</span>
                     {isDropdownOpen ? (
-                      <ChevronUp className="ml-2 text-[#122E5F] hover:text-white" />
+                      <ChevronUp className="w-4 h-4" />
                     ) : (
-                      <ChevronDown className="ml-2 text-[#122E5F] hover:text-white" />
+                      <ChevronDown className="w-4 h-4" />
                     )}
                   </button>
 
                   {isDropdownOpen && (
-                    <div className="absolute w-full bg-white text-[#122E5F] rounded-xl shadow-xl mt-2 z-10 transition-all ease-in-out duration-300 transform scale-95 opacity-0.9 hover:scale-100 hover:opacity-100">
+                    <div className="mt-1 ml-4 bg-gray-50 rounded-md overflow-hidden border-l-2 border-[#122E5F]">
                       <Link
                         href="/services/storm-damage-repair"
                         onClick={handleMobileDropdownClick}
-                        className="flex items-center space-x-2 px-6 py-3 hover:bg-[#122E5F] hover:text-white transition-all rounded-lg"
+                        className="block px-4 py-2.5 hover:bg-[#122E5F] hover:text-white transition-colors duration-200 text-sm font-medium"
                       >
-                        <span>Storm Damage Repair</span>
+                        Storm Damage Repair
                       </Link>
                       <Link
                         href="/services/insurance-claims"
                         onClick={handleMobileDropdownClick}
-                        className="flex items-center space-x-2 px-6 py-3 hover:bg-[#122E5F] hover:text-white transition-all rounded-lg"
+                        className="block px-4 py-2.5 hover:bg-[#122E5F] hover:text-white transition-colors duration-200 text-sm font-medium border-t border-gray-200"
                       >
-                        <span>Insurance Claims</span>
+                        Insurance Claims
                       </Link>
                       <Link
                         href="/services/roof-replacement"
                         onClick={handleMobileDropdownClick}
-                        className="flex items-center space-x-2 px-6 py-3 hover:bg-[#122E5F] hover:text-white transition-all rounded-lg"
+                        className="block px-4 py-2.5 hover:bg-[#122E5F] hover:text-white transition-colors duration-200 text-sm font-medium border-t border-gray-200"
                       >
-                        <span>Roof Replacement</span>
+                        Roof Replacement
                       </Link>
                     </div>
                   )}
-
                 </div>
-              </div>
+
+                <Link
+                  href="/#free-inspection-form"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="bg-[#122E5F] hover:bg-[#0f2347] text-white px-4 py-3 rounded-md transition-all duration-200 font-semibold text-[15px] shadow-md hover:shadow-lg text-center mt-2"
+                >
+                  Apply Now
+                </Link>
+              </nav>
             </div>
           )}
         </div>
