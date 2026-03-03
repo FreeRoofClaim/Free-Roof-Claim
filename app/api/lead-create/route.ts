@@ -1,6 +1,76 @@
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import haversineDistance from "@/utils/haversineDistance";
+import { createHash } from "crypto";
+
+// SHA-256 hash helper for Facebook CAPI (required for user data)
+function sha256(value: string): string {
+  return createHash("sha256").update(value.trim().toLowerCase()).digest("hex");
+}
+
+// Send server-side Lead event to Facebook Conversions API
+async function sendFacebookCAPIEvent(eventData: {
+  email: string;
+  phone: string;
+  firstName: string;
+  lastName: string;
+  address?: string;
+  eventSourceUrl?: string;
+}) {
+  const accessToken = process.env.FACEBOOK_CAPI_TOKEN;
+  const pixelId = "1500669871629313";
+
+  if (!accessToken) {
+    console.warn("FACEBOOK_CAPI_TOKEN not set, skipping CAPI event");
+    return;
+  }
+
+  // Normalize phone: strip non-digits, ensure country code
+  const rawPhone = eventData.phone.replace(/\D/g, "");
+  const normalizedPhone = rawPhone.startsWith("1") ? rawPhone : `1${rawPhone}`;
+
+  const payload = {
+    data: [
+      {
+        event_name: "Lead",
+        event_time: Math.floor(Date.now() / 1000),
+        action_source: "website",
+        event_source_url: eventData.eventSourceUrl || "https://www.freeroofpros.com",
+        user_data: {
+          em: [sha256(eventData.email)],
+          ph: [sha256(normalizedPhone)],
+          fn: [sha256(eventData.firstName)],
+          ln: [sha256(eventData.lastName)],
+          country: [sha256("us")],
+        },
+        custom_data: {
+          content_name: "Homeowner Lead Form",
+          content_category: "roof_inspection",
+          lead_type: "homeowner",
+        },
+      },
+    ],
+  };
+
+  try {
+    const res = await fetch(
+      `https://graph.facebook.com/v21.0/${pixelId}/events?access_token=${accessToken}`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }
+    );
+    const result = await res.json();
+    if (!res.ok) {
+      console.error("Facebook CAPI error:", result);
+    } else {
+      console.log("Facebook CAPI Lead event sent:", result);
+    }
+  } catch (err) {
+    console.error("Facebook CAPI request failed:", err);
+  }
+}
 
 // Send email notification via Resend API (no dependency needed)
 async function sendLeadNotification(leadData: {
@@ -210,6 +280,16 @@ export async function POST(request: Request) {
     status: finalStatus,
     assignedTo: assignedContractorName,
   });
+
+  // 6\ufe0f\u20e3 Send server-side Lead event to Facebook CAPI (fire-and-forget)
+  sendFacebookCAPIEvent({
+    email: body.email,
+    phone: body.phoneNumber,
+    firstName: body.firstName,
+    lastName: body.lastName,
+    address: body.address,
+    eventSourceUrl: "https://www.freeroofpros.com",
+  }).catch((err) => console.error("CAPI fire-and-forget error:", err));
 
   return NextResponse.json({
     lead,
