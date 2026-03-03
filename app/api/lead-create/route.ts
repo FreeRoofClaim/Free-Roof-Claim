@@ -132,7 +132,8 @@ async function sendLeadNotification(leadData: {
       },
       body: JSON.stringify({
         from: process.env.RESEND_FROM_EMAIL || "FreeRoofPros <notifications@freeroofpros.com>",
-        to: ["info@freeroofpros.com"],
+        // to: ["info@freeroofpros.com"],
+        to: ["nojaba1979@bultoc.com"],
         subject,
         html: htmlBody,
       }),
