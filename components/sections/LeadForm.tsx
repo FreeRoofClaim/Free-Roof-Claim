@@ -17,6 +17,13 @@ import { PlacePrediction } from "@/types/AuthType";
 import { FormData } from "@/types/AuthType";
 import { useRouter } from "next/navigation";
 
+// Declare fbq for TypeScript
+declare global {
+  interface Window {
+    fbq?: (...args: any[]) => void;
+  }
+}
+
 export const LeadForm = () => {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
@@ -176,6 +183,15 @@ export const LeadForm = () => {
       });
       if (!res.ok) throw new Error("Lead create failed");
       const { lead } = await res.json();
+
+      // Fire Facebook Pixel Lead event for conversion tracking
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('track', 'Lead', {
+          content_name: 'Homeowner Lead Form',
+          content_category: 'roof_inspection',
+        });
+      }
+
       toast.success("Lead submitted successfully!");
       console.log("\u2705 New lead inserted:", lead);
       // Redirect to dedicated thank-you page for Google Ads conversion tracking
