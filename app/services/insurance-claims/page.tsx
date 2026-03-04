@@ -24,14 +24,14 @@ import { LeadForm } from '@/components/sections/LeadForm';
 export const metadata: Metadata = {
   title: 'How to File a Roof Insurance Claim | Free Inspection | FreeRoofPros',
   description:
-    'We handle your entire roof insurance claim from inspection to approval. 99.7% success rate. Free roof inspection & claim assistance. Call 541-337-5734.',
+    'We handle your entire roof insurance claim from inspection to approval. 99.7% success rate. Free roof inspection & claim assistance. Call 541-728-0266.',
   alternates: {
     canonical: 'https://www.freeroofpros.com/services/insurance-claims',
   },
   openGraph: {
     title: 'How to File a Roof Insurance Claim | Free Inspection | FreeRoofPros',
     description:
-      'We handle your entire roof insurance claim from inspection to approval. 99.7% success rate. Free roof inspection & claim assistance. Call 541-337-5734.',
+      'We handle your entire roof insurance claim from inspection to approval. 99.7% success rate. Free roof inspection & claim assistance. Call 541-728-0266.',
     url: 'https://www.freeroofpros.com/services/insurance-claims',
     images: [
       {
@@ -58,7 +58,7 @@ export default function InsuranceClaims() {
       '@type': 'LocalBusiness',
       name: 'Free Roof Pros',
       url: 'https://www.freeroofpros.com',
-      telephone: '541-337-5734',
+      telephone: '541-728-0266',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '10801 NW 43rd Street',
@@ -192,11 +192,11 @@ export default function InsuranceClaims() {
                 Get Your Free Inspection
               </a>
               <a
-                href="tel:541-337-5734"
+                href="tel:541-728-0266"
                 className="inline-flex items-center justify-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-8 py-4 rounded-xl hover:bg-white/20 transition-colors duration-180"
               >
                 <Phone className="w-5 h-5" />
-                541-337-5734
+                541-728-0266
               </a>
             </div>
           </div>
@@ -220,7 +220,7 @@ export default function InsuranceClaims() {
             inspected yet, act now.
           </p>
           <a
-            href="tel:541-337-5734"
+            href="tel:541-728-0266"
             className="flex-shrink-0 inline-flex items-center gap-1.5 text-amber-700 font-bold hover:text-amber-900 transition-colors"
           >
             <Phone className="w-4 h-4" />
@@ -491,7 +491,7 @@ export default function InsuranceClaims() {
               ))}
             </div>
             <a
-              href="tel:541-337-5734"
+              href="tel:541-728-0266"
               className="inline-flex items-center gap-2 bg-white text-[#122E5F] font-bold px-8 py-4 rounded-xl hover:bg-blue-50 transition-colors duration-180"
             >
               <Phone className="w-5 h-5" />
@@ -531,113 +531,22 @@ export default function InsuranceClaims() {
                 },
                 {
                   title: 'Covered Perils',
-                  body: 'Standard homeowners policies cover sudden, accidental damage from named perils: hail, wind, fire, lightning, falling objects, and similar events. Damage from flooding requires a separate flood policy. Gradual deterioration, maintenance neglect, and manufacturer defects are typically excluded.',
+                  body: 'Standard homeowners policies cover sudden, accidental damage from named perils: hail, wind, falling objects, fire, and others. Gradual deterioration, wear and tear, and damage resulting from neglect are consistently excluded. The key phrase insurers look for is “sudden and accidental.”',
                 },
                 {
-                  title: 'Exclusions',
-                  body: 'Every policy has exclusions — conditions or causes of damage that are explicitly not covered. Common roof-related exclusions include pre-existing damage, damage from tree roots or moss growth, and cosmetic damage that does not affect functionality. Knowing your exclusions prevents surprises during the claims process.',
+                  title: 'Filing Deadline',
+                  body: 'Most policies require you to notify your insurer within a “reasonable” time after a loss — typically 30–90 days. Oregon allows up to two years to file a lawsuit against an insurer, but waiting that long to file the claim itself is almost always a mistake. The sooner you report damage, the stronger your claim.',
                 },
                 {
-                  title: 'The 80% Co-Insurance Rule',
-                  body: 'Many policies require you to insure your home for at least 80% of its replacement cost to collect full claim payments. If your coverage is below that threshold at the time of a claim, the insurer may only pay a proportional share of the loss — even on a fully legitimate claim. Review your dwelling coverage annually.',
+                  title: 'Proof of Loss',
+                  body: 'After you file a claim, your insurer may ask you to sign a Sworn Statement in Proof of Loss — a formal document itemizing the damage, the cost of repairs, and the date of loss. We help you prepare this document accurately to prevent disputes over coverage.',
                 },
-              ].map((item) => (
-                <div key={item.title} className="bg-gray-50 rounded-xl p-6 border border-gray-100">
-                  <h3 className="font-bold text-[#122E5F] text-lg mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{item.body}</p>
+              ].map((card) => (
+                <div key={card.title} className="border border-gray-200 rounded-xl p-5">
+                  <h3 className="font-bold text-[#122E5F] mb-2">{card.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{card.body}</p>
                 </div>
               ))}
-            </div>
-            <p className="text-gray-600 leading-relaxed">
-              Not sure what your policy covers? Our claims specialists will review your declarations
-              page with you at no cost and explain exactly what you can expect from your specific
-              coverage before you file a single form.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* ================================================================== */}
-      {/* STATE FILING DEADLINES */}
-      {/* ================================================================== */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="flex items-start gap-3 mb-6">
-              <CalendarDays className="w-8 h-8 text-[#2563eb] flex-shrink-0 mt-1" />
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#122E5F]">
-                State Filing Deadlines You Need to Know
-              </h2>
-            </div>
-            <p className="text-gray-700 text-lg leading-relaxed mb-8">
-              Every homeowners policy and state has its own deadline for filing a property insurance
-              claim. Missing the deadline almost always results in a permanent denial — regardless
-              of how legitimate your damage is. These are the deadlines that apply to the markets
-              FreeRoofPros serves.
-            </p>
-            <div className="overflow-x-auto rounded-xl shadow-sm border border-gray-100 mb-8">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="bg-[#122E5F] text-white">
-                    <th className="text-left px-5 py-3 font-semibold">State</th>
-                    <th className="text-left px-5 py-3 font-semibold">Typical Filing Window</th>
-                    <th className="text-left px-5 py-3 font-semibold">Notes</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100 bg-white">
-                  {[
-                    {
-                      state: 'Oregon',
-                      window: '2 years from date of loss',
-                      note: 'Aug 2025 hailstorm → deadline Aug 2026',
-                    },
-                    {
-                      state: 'Texas',
-                      window: '1–2 years (policy-specific)',
-                      note: 'Check your declarations page; some policies allow 1 year only',
-                    },
-                    {
-                      state: 'Tennessee',
-                      window: '1 year from date of loss',
-                      note: 'Some policies allow 2 years — review your contract',
-                    },
-                    {
-                      state: 'Missouri',
-                      window: '2 years from date of loss',
-                      note: 'Kansas City metro; verify individual policy terms',
-                    },
-                    {
-                      state: 'Indiana',
-                      window: '2 years from date of loss',
-                      note: 'Indianapolis area; earlier is always better',
-                    },
-                  ].map((row, i) => (
-                    <tr key={row.state} className={i % 2 === 1 ? 'bg-gray-50' : ''}>
-                      <td className="px-5 py-4 font-semibold text-[#122E5F]">{row.state}</td>
-                      <td className="px-5 py-4 text-gray-700">{row.window}</td>
-                      <td className="px-5 py-4 text-gray-500">{row.note}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-6">
-              <div className="flex gap-3">
-                <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-bold text-amber-900 mb-2">
-                    Don&apos;t Wait Until the Deadline
-                  </h3>
-                  <p className="text-amber-800 text-sm leading-relaxed">
-                    Filing close to a deadline gives the insurer more grounds to dispute your claim:
-                    storm data gets harder to pull, damage is harder to distinguish from subsequent
-                    weathering, and adjusters scrutinize late claims more aggressively. File as soon
-                    as damage is suspected — even if you are not sure whether the damage is covered.
-                    A free inspection costs you nothing and gives you the information you need to
-                    decide.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -646,49 +555,72 @@ export default function InsuranceClaims() {
       {/* ================================================================== */}
       {/* TESTIMONIALS */}
       {/* ================================================================== */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-[#122E5F] text-center mb-12">
-            Homeowners We&apos;ve Helped
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#122E5F] mb-2 text-center">
+            What Homeowners Say
           </h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <p className="text-gray-600 text-center mb-12">
+            Over 10,000 successful claims processed across 50 states.
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 quote:
-                  "I had no idea where to start after the August hailstorm. FreeRoofPros handled everything — inspection, filing, meeting the adjuster, all of it. My claim was approved in full and I had a new roof before winter. I paid nothing beyond my deductible.",
-                author: 'Sarah T.',
-                location: 'Redmond, OR',
+                  "I had no idea what I was doing with the insurance company. FreeRoofPros handled everything from the inspection to the final paperwork. I didn't even have to call State Farm myself.",
+                author: 'Kevin T.',
+                location: 'Bend, OR',
+                rating: 5,
               },
               {
                 quote:
-                  "My original claim was denied because the adjuster said it was 'normal aging.' FreeRoofPros did a second inspection, documented the hail strikes the adjuster missed, and filed an appeal. The denial was reversed and I got a full replacement. Incredible service.",
-                author: 'Michael R.',
+                  "My claim was initially denied. FreeRoofPros filed a supplement with their own documentation and got the whole thing overturned. Full replacement, I paid my deductible.",
+                author: 'Sandra L.',
                 location: 'Fort Worth, TX',
+                rating: 5,
               },
               {
                 quote:
-                  "The whole process took about six weeks from the first call to a finished roof. The crew was professional, the communication was excellent, and the claims team knew exactly what they were doing. I have already referred two neighbors.",
-                author: 'Jennifer L.',
+                  "After the May hailstorm I wasn't sure my roof even had damage. The free inspection found hail hits on every slope. Insurance covered the full replacement.",
+                author: 'Marcus R.',
+                location: 'Indianapolis, IN',
+                rating: 5,
+              },
+              {
+                quote:
+                  "The adjuster initially wrote up a partial repair. The FreeRoofPros rep walked the adjuster through every damage point and the scope was upgraded to a full tear-off and replacement.",
+                author: 'Jennifer W.',
                 location: 'Nashville, TN',
+                rating: 5,
+              },
+              {
+                quote:
+                  "I've had two roofs replaced through FreeRoofPros over the years after back-to-back hail seasons in Kansas City. Process is always smooth.",
+                author: 'Tom A.',
+                location: 'Kansas City, MO',
+                rating: 5,
+              },
+              {
+                quote:
+                  "Free inspection. Handled all the paperwork. New roof installed in two days. I can't recommend them highly enough.",
+                author: 'Carla M.',
+                location: 'Redmond, OR',
+                rating: 5,
               },
             ].map((t) => (
               <div
                 key={t.author}
-                className="bg-blue-50 rounded-xl p-7 border border-blue-100 shadow-sm flex flex-col"
+                className="bg-white rounded-xl p-6 border border-gray-200 shadow-sm"
               >
                 <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 text-amber-400 fill-amber-400"
-                    />
+                  {[1, 2, 3, 4, 5].map((s) => (
+                    <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 leading-relaxed mb-5 flex-1">&ldquo;{t.quote}&rdquo;</p>
-                <div>
-                  <div className="font-bold text-[#122E5F]">— {t.author}</div>
-                  <div className="text-sm text-gray-500">{t.location}</div>
-                </div>
+                <p className="text-gray-700 text-sm leading-relaxed mb-4 italic">“{t.quote}”</p>
+                <p className="text-sm font-semibold text-[#122E5F]">
+                  – {t.author}, <span className="font-normal text-gray-500">{t.location}</span>
+                </p>
               </div>
             ))}
           </div>
@@ -698,61 +630,59 @@ export default function InsuranceClaims() {
       {/* ================================================================== */}
       {/* FAQ */}
       {/* ================================================================== */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-3 mb-10">
-              <HelpCircle className="w-8 h-8 text-[#2563eb] flex-shrink-0" />
+            <div className="flex items-center gap-3 mb-2">
+              <HelpCircle className="w-7 h-7 text-[#2563eb]" />
               <h2 className="text-3xl sm:text-4xl font-bold text-[#122E5F]">
                 Frequently Asked Questions
               </h2>
             </div>
-            <div className="space-y-3">
+            <p className="text-gray-600 text-lg mb-10">
+              The most common questions homeowners ask before starting the claim process.
+            </p>
+            <div className="divide-y divide-gray-200 border border-gray-200 rounded-xl overflow-hidden">
               {[
                 {
-                  q: 'How do I file a roof insurance claim?',
-                  a: 'Start with a free professional roof inspection to document all storm damage with photos and measurements. Then file a claim with your insurance company — or let FreeRoofPros handle the entire filing on your behalf. We prepare the documentation, submit the claim, and meet the adjuster on your roof to ensure nothing is missed.',
+                  q: 'How do I know if I have hail or wind damage?',
+                  a: 'The most reliable method is a professional inspection. Common visible signs include granule loss on shingles (dark spots or bare patches), dented gutters or downspouts, and cracked caulk around flashing. However, much hail damage is invisible from the ground and requires a hands-on inspection to document accurately.',
                 },
                 {
-                  q: 'How long does the entire process take?',
-                  a: 'Most claims resolve in 4–8 weeks from initial inspection to roof installation. Inspection and documentation: 1–2 weeks. Adjuster scheduling and on-site meeting: 2–4 weeks. Claim approval and settlement review: 1–2 weeks. Installation: 1–2 days.',
+                  q: 'Do I have to use FreeRoofPros as my contractor if I use them for the claim?',
+                  a: 'We are primarily a roofing contractor who assists with the claims process as part of our full-service offering. In most cases, we handle both the claim and the installation. If you prefer to use a different contractor, we can still provide a free inspection and help document your claim.',
                 },
                 {
-                  q: 'What if my claim is denied?',
-                  a: "A denial is not final. FreeRoofPros will request a re-inspection, prepare supplemental documentation addressing the specific denial reason, and file a formal appeal. If needed, we can refer you to a licensed public adjuster who works exclusively on your behalf to negotiate a fair settlement.",
+                  q: 'What if I already filed my claim and the insurer offered less than expected?',
+                  a: 'That is exactly the situation we handle frequently. We review the insurer\'s scope of loss, identify items that are missing or undervalued, and file a formal supplement on your behalf. Many homeowners find they are owed significantly more than the initial offer.',
                 },
                 {
-                  q: "What is the difference between RCV and ACV coverage?",
-                  a: "RCV (Replacement Cost Value) pays to replace your roof at today's material and labor prices, minus your deductible. ACV (Actual Cash Value) subtracts depreciation based on your roof's age — potentially leaving you with thousands of dollars in out-of-pocket costs. Check your declarations page to confirm which coverage you have.",
+                  q: 'Can I file a claim for storm damage that happened more than a year ago?',
+                  a: 'It depends on your policy and your state. Oregon allows two years from the date of loss to file suit, but your policy may set a shorter notification window. We recommend contacting us immediately if you believe you have undiscovered or unreported storm damage — the sooner we inspect, the stronger your case.',
                 },
                 {
-                  q: 'What is the deadline to file a hail damage claim in Oregon?',
-                  a: "Oregon generally allows two years from the date of loss to file a property insurance claim, though your specific policy may set a shorter window. For the August 2025 Central Oregon hailstorm, the deadline is approximately August 2026. Don't wait — late claims face heightened scrutiny.",
+                  q: 'Does my deductible affect how much I pay?',
+                  a: 'Yes. Your deductible is your out-of-pocket contribution. For most homeowners with RCV (Replacement Cost Value) policies, the deductible is the only cost you pay. For ACV policies, there may be additional out-of-pocket exposure related to depreciation. We help you understand your specific coverage before any work begins.',
                 },
                 {
-                  q: 'Will filing a claim raise my homeowners insurance premiums?',
-                  a: "Filing a single weather-related claim — hail, wind, or storm damage — rarely causes a significant premium increase because these are classified as catastrophic events outside your control. Frequency of claims matters more than a single event. We encourage you to use your coverage for what it was designed to do.",
+                  q: 'What is a supplement and why might I need one?',
+                  a: 'A supplement is an amended claim that adds items the insurer missed or undervalued in the original scope of loss. Supplements are extremely common — insurance adjusters are busy and initial scopes frequently exclude secondary damage, permit costs, code upgrades, or material price increases. FreeRoofPros files supplements routinely and they are rarely disputed.',
                 },
                 {
-                  q: 'Do I need multiple contractor bids for the insurance claim?',
-                  a: "Most policies do not require multiple bids. Your insurer issues a scope of work and a settlement figure. FreeRoofPros reviews that estimate and negotiates any supplements before work begins to ensure the approved amount covers all warranted repairs.",
+                  q: 'What information do I need to provide to start the process?',
+                  a: 'Very little. We just need your property address, the approximate storm date, and your contact information. From there, we schedule the free inspection and handle everything else.',
                 },
                 {
-                  q: 'What types of roof damage does homeowners insurance cover?',
-                  a: 'Standard homeowners policies cover sudden, accidental damage from named perils: hail, wind, fire, lightning, and falling objects. Gradual deterioration, wear and tear, and pre-existing damage are typically excluded. A professional inspection helps distinguish covered storm damage from normal aging.',
+                  q: 'How much does it cost to use FreeRoofPros for my claim?',
+                  a: 'The inspection, claim assistance, adjuster meeting attendance, and supplement filing are all included when FreeRoofPros performs the roof installation. There is no separate charge for our claims management services.',
                 },
-              ].map((item) => (
-                <details
-                  key={item.q}
-                  className="group bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden"
-                >
-                  <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none font-semibold text-[#122E5F] hover:bg-blue-50 transition-colors duration-150">
-                    <span>{item.q}</span>
-                    <ChevronRight className="w-5 h-5 text-[#2563eb] flex-shrink-0 transition-transform duration-200 group-open:rotate-90" />
+              ].map((faq) => (
+                <details key={faq.q} className="group">
+                  <summary className="flex items-center justify-between gap-4 px-6 py-4 cursor-pointer list-none font-semibold text-[#122E5F] hover:bg-gray-50 transition-colors">
+                    <span>{faq.q}</span>
+                    <ChevronRight className="w-5 h-5 text-[#2563eb] shrink-0 group-open:rotate-90 transition-transform" />
                   </summary>
-                  <div className="px-6 pb-5 text-gray-600 leading-relaxed border-t border-gray-100 pt-4">
-                    {item.a}
-                  </div>
+                  <div className="px-6 pb-5 pt-1 text-gray-700 leading-relaxed text-sm">{faq.a}</div>
                 </details>
               ))}
             </div>
@@ -761,91 +691,74 @@ export default function InsuranceClaims() {
       </section>
 
       {/* ================================================================== */}
-      {/* INTERNAL LINKS */}
-      {/* ================================================================== */}
-      <section className="py-16 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-[#122E5F] mb-8 text-center">
-            Related Services
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
-            {[
-              {
-                href: '/services/roof-replacement',
-                title: 'Complete Roof Replacement',
-                body: 'When your claim is approved, our crews deliver a full roof replacement — usually in a single day.',
-                icon: <Home className="w-6 h-6 text-[#2563eb]" />,
-              },
-              {
-                href: '/services/storm-damage-repair',
-                title: 'Storm Damage Repair',
-                body: 'Localized hail or wind damage? We handle targeted repairs alongside or in lieu of a full replacement claim.',
-                icon: <AlertCircle className="w-6 h-6 text-[#2563eb]" />,
-              },
-            ].map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="flex items-start gap-4 p-6 rounded-xl border border-gray-100 shadow-sm hover:border-[#2563eb] hover:shadow-md transition-all duration-180 group"
-              >
-                <div className="flex-shrink-0 mt-0.5">{link.icon}</div>
-                <div>
-                  <div className="font-bold text-[#122E5F] mb-1 group-hover:text-[#2563eb] transition-colors">
-                    {link.title}
-                    <ChevronRight className="inline w-4 h-4 ml-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-                  <p className="text-sm text-gray-500 leading-relaxed">{link.body}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ================================================================== */}
       {/* LEAD FORM */}
       {/* ================================================================== */}
-      <section id="lead-form" className="py-20 bg-gray-50">
+      <section id="lead-form" className="py-20 bg-[#122E5F] scroll-mt-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center mb-10">
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#122E5F] mb-4">
+            <div className="inline-flex items-center gap-2 bg-white/10 text-white/90 text-sm rounded-full px-4 py-1.5 mb-4">
+              <CalendarDays className="w-4 h-4" />
+              Schedule in 60 seconds
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
               Get Your Free Roof Inspection
             </h2>
-            <p className="text-gray-600 text-lg">
-              No cost, no obligation. We inspect your roof, assess your damage, and tell you exactly
-              what your insurance should cover — before you file a single form.
+            <p className="text-white/80 text-lg">
+              No cost, no obligation. Find out if your roof qualifies for full insurance-covered
+              replacement.
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6 text-sm text-gray-500">
-              {[
-                '✓ Licensed in all 50 states',
-                '✓ 99.7% claim approval rate',
-                '✓ No out-of-pocket cost beyond deductible',
-              ].map((item) => (
-                <span key={item} className="font-medium text-gray-700">
-                  {item}
-                </span>
-              ))}
-            </div>
           </div>
           <LeadForm />
-          <p className="text-center text-gray-400 text-sm mt-6">
+          <p className="text-center text-blue-300 text-sm mt-6">
             Prefer to call?{' '}
-            <a
-              href="tel:541-337-5734"
-              className="text-[#2563eb] font-semibold hover:underline"
-            >
-              541-337-5734
+            <a href="tel:541-728-0266" className="text-white font-semibold hover:underline">
+              541-728-0266
             </a>{' '}
-            &nbsp;|&nbsp;{' '}
+            &nbsp;|&nbsp; Email:{' '}
             <a
               href="mailto:info@freeroofpros.com"
-              className="text-[#2563eb] font-semibold hover:underline"
+              className="text-white font-semibold hover:underline"
             >
               info@freeroofpros.com
             </a>
           </p>
         </div>
       </section>
+
+      {/* ================================================================== */}
+      {/* BOTTOM NAV */}
+      {/* ================================================================== */}
+      <section className="py-12 bg-white border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
+            <Link
+              href="/services/roof-replacement"
+              className="flex items-center gap-3 border border-gray-200 rounded-xl p-5 hover:border-[#2563eb] hover:bg-blue-50 transition-colors group"
+            >
+              <Home className="w-6 h-6 text-[#2563eb] shrink-0" />
+              <div>
+                <p className="font-semibold text-[#122E5F] group-hover:text-[#2563eb] transition-colors">
+                  Roof Replacement
+                </p>
+                <p className="text-sm text-gray-500">Insurance-covered replacement process</p>
+              </div>
+            </Link>
+            <Link
+              href="/services/storm-damage-repair"
+              className="flex items-center gap-3 border border-gray-200 rounded-xl p-5 hover:border-[#2563eb] hover:bg-blue-50 transition-colors group"
+            >
+              <Shield className="w-6 h-6 text-[#2563eb] shrink-0" />
+              <div>
+                <p className="font-semibold text-[#122E5F] group-hover:text-[#2563eb] transition-colors">
+                  Storm Damage Repair
+                </p>
+                <p className="text-sm text-gray-500">Emergency and hail damage repair</p>
+              </div>
+            </Link>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
+

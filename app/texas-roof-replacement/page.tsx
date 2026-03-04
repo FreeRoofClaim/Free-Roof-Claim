@@ -29,7 +29,7 @@ export default function TexasRoofReplacement() {
           <div>
             <h2 className="text-2xl font-semibold text-[#122E5F]">Our Roof Replacement Services</h2>
             <p className="text-gray-600 mt-4">
-              Whether you need roof repairs or a full replacement, we’re your trusted roofers in Texas. We’ve helped thousands of homeowners get their roofs fixed.
+              Whether you need roof repairs or a full replacement, we're your trusted roofers in Texas. We've helped thousands of homeowners get their roofs fixed.
             </p>
             <ul className="mt-6 space-y-4">
               <li className="flex items-center text-gray-700">
@@ -50,7 +50,7 @@ export default function TexasRoofReplacement() {
           <div className="flex flex-col items-center bg-[#2563eb] text-white p-8 rounded-lg shadow-lg">
             <h3 className="text-2xl font-semibold mb-4">Get Your Free Roof Replacement Quote</h3>
             <p className="text-lg mb-6">
-              Don’t wait! Contact us now for a free roof replacement consultation. We service homeowners all over Texas.
+              Don't wait! Contact us now for a free roof replacement consultation. We service homeowners all over Texas.
             </p>
             <a href="/" className="bg-[#122E5F] text-white px-6 py-3 rounded-lg hover:bg-[#1c4f94] transition duration-300">
               Get Your Free Quote Now
@@ -66,7 +66,7 @@ export default function TexasRoofReplacement() {
                 <h4 className="text-lg font-semibold mb-2">Contact Information</h4>
                 <p className="text-gray-300">Free Roof Pros</p>
                 <p className="text-gray-300">123 Main St, Texas</p>
-                <a href="tel:+15413375734" className="text-[#2563eb]">Call: 541-337-5734</a>
+                <a href="tel:+15417280266" className="text-[#2563eb]">Call: 541-728-0266</a>
               </div>
               <div className="flex items-center space-x-4 mt-6 md:mt-0">
                 <Building className="h-5 w-5 text-[#2563eb]" />

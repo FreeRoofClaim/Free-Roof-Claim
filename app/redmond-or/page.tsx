@@ -20,11 +20,11 @@ import { LeadForm } from '@/components/sections/LeadForm';
 export const metadata: Metadata = {
   title: 'Roof Repair Redmond OR | Free Hail Damage Inspection | FreeRoofPros',
   description:
-    'Roof repair Redmond OR: free hail damage inspection, insurance claim help, and storm damage repair. August 2026 deadline for the 2025 Central Oregon hailstorm. Call 541-337-5734.',
+    'Roof repair Redmond OR: free hail damage inspection, insurance claim help, and storm damage repair. August 2026 deadline for the 2025 Central Oregon hailstorm. Call 541-728-0266.',
   alternates: { canonical: 'https://www.freeroofpros.com/redmond-or' },
   openGraph: {
     title: 'Roof Repair Redmond OR | Free Hail Damage Inspection | FreeRoofPros',
-    description: 'Roof repair Redmond OR: free hail damage inspection, insurance claim help, and storm damage repair. August 2026 deadline for the 2025 Central Oregon hailstorm. Call 541-337-5734.',
+    description: 'Roof repair Redmond OR: free hail damage inspection, insurance claim help, and storm damage repair. August 2026 deadline for the 2025 Central Oregon hailstorm. Call 541-728-0266.',
     url: 'https://www.freeroofpros.com/redmond-or',
     images: [{ url: 'https://www.freeroofpros.com/og-image.png', width: 1200, height: 630, alt: 'Free Roof Pros: Roof Repair Redmond Oregon' }],
   },
@@ -35,7 +35,7 @@ const localBusinessJsonLd = {
   '@type': 'LocalBusiness',
   name: 'Free Roof Pros',
   url: 'https://www.freeroofpros.com',
-  telephone: '541-337-5734',
+  telephone: '541-728-0266',
   email: 'info@freeroofpros.com',
   address: { '@type': 'PostalAddress', streetAddress: '10801 NW 43rd Street', addressLocality: 'Terrebonne', addressRegion: 'OR', postalCode: '97760', addressCountry: 'US' },
   areaServed: [
@@ -83,7 +83,7 @@ export default function RedmondOrPage() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#lead-form" className="inline-flex items-center gap-2 bg-[#2563eb] hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors"><ClipboardList className="w-5 h-5" />Schedule Free Inspection</a>
-              <a href="tel:541-337-5734" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg transition-colors border border-white/20"><Phone className="w-5 h-5" />541-337-5734</a>
+              <a href="tel:541-728-0266" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg transition-colors border border-white/20"><Phone className="w-5 h-5" />541-728-0266</a>
             </div>
           </div>
         </div>
@@ -148,7 +148,7 @@ export default function RedmondOrPage() {
                   'Schedule a free inspection before the August 2026 deadline',
                   'Locate your homeowners insurance policy and note your deductible amount',
                   'Do not attempt temporary repairs before an inspection. Document everything first.',
-                  'Call 541-337-5734 or use the form below to get on our inspection schedule',
+                  'Call 541-728-0266 or use the form below to get on our inspection schedule',
                 ].map((item) => (
                   <li key={item} className="flex items-start gap-2 text-gray-700"><CheckCircle className="w-5 h-5 text-[#2563eb] mt-0.5 shrink-0" />{item}</li>
                 ))}
@@ -171,8 +171,8 @@ export default function RedmondOrPage() {
                 </ul>
                 <p className="text-sm text-gray-600 mt-4">We handle every part of the process so none of these are valid reasons to wait.</p>
               </div>
-              <a href="tel:541-337-5734" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold px-5 py-3 rounded-lg transition-colors w-full justify-center">
-                <Phone className="w-4 h-4" />Call 541-337-5734 Now
+              <a href="tel:541-728-0266" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold px-5 py-3 rounded-lg transition-colors w-full justify-center">
+                <Phone className="w-4 h-4" />Call 541-728-0266 Now
               </a>
             </div>
           </div>
@@ -375,7 +375,7 @@ export default function RedmondOrPage() {
         <p className="mt-6 text-sm text-gray-500">
           Have more questions?{' '}
           <Link href="/blog/central-oregon-hailstorm-2025" className="text-[#2563eb] hover:underline">Read our Central Oregon hailstorm guide</Link>{' '}or call{' '}
-          <a href="tel:541-337-5734" className="text-[#2563eb] hover:underline">541-337-5734</a>.
+          <a href="tel:541-728-0266" className="text-[#2563eb] hover:underline">541-728-0266</a>.
         </p>
       </section>
 
@@ -388,7 +388,7 @@ export default function RedmondOrPage() {
           </div>
           <LeadForm />
           <p className="text-center text-blue-300 text-sm mt-6">
-            Prefer to call?{' '}<a href="tel:541-337-5734" className="text-white font-semibold hover:underline">541-337-5734</a>&nbsp;|&nbsp; Email:{' '}
+            Prefer to call?{' '}<a href="tel:541-728-0266" className="text-white font-semibold hover:underline">541-728-0266</a>&nbsp;|&nbsp; Email:{' '}
             <a href="mailto:info@freeroofpros.com" className="text-white font-semibold hover:underline">info@freeroofpros.com</a>
           </p>
         </div>

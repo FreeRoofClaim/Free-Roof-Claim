@@ -20,11 +20,11 @@ import { LeadForm } from '@/components/sections/LeadForm';
 export const metadata: Metadata = {
   title: 'Roof Repair La Pine OR | Free Hail Damage Inspection | FreeRoofPros',
   description:
-    'Roof repair La Pine OR. Free hail damage inspection for the August 2025 storm. File your insurance claim before the August 2026 deadline. 99.7% approval rate. Call 541-337-5734.',
+    'Roof repair La Pine OR. Free hail damage inspection for the August 2025 storm. File your insurance claim before the August 2026 deadline. 99.7% approval rate. Call 541-728-0266.',
   alternates: { canonical: 'https://www.freeroofpros.com/la-pine-or' },
   openGraph: {
     title: 'Roof Repair La Pine OR | Free Hail Damage Inspection | FreeRoofPros',
-    description: 'Roof repair La Pine OR. Free hail damage inspection for the August 2025 storm. File your insurance claim before the August 2026 deadline. 99.7% approval rate. Call 541-337-5734.',
+    description: 'Roof repair La Pine OR. Free hail damage inspection for the August 2025 storm. File your insurance claim before the August 2026 deadline. 99.7% approval rate. Call 541-728-0266.',
     url: 'https://www.freeroofpros.com/la-pine-or',
     images: [{ url: 'https://www.freeroofpros.com/og-image.png', width: 1200, height: 630, alt: 'Free Roof Pros - Roof Repair La Pine Oregon' }],
   },
@@ -35,7 +35,7 @@ const localBusinessJsonLd = {
   '@type': 'LocalBusiness',
   name: 'Free Roof Pros',
   url: 'https://www.freeroofpros.com',
-  telephone: '541-337-5734',
+  telephone: '541-728-0266',
   email: 'info@freeroofpros.com',
   address: { '@type': 'PostalAddress', streetAddress: '10801 NW 43rd Street', addressLocality: 'Terrebonne', addressRegion: 'OR', postalCode: '97760', addressCountry: 'US' },
   areaServed: [
@@ -83,7 +83,7 @@ export default function LaPineOR() {
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#lead-form" className="inline-flex items-center gap-2 bg-[#2563eb] hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors"><ClipboardList className="w-5 h-5" />Schedule Free Inspection</a>
-              <a href="tel:541-337-5734" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg transition-colors border border-white/20"><Phone className="w-5 h-5" />541-337-5734</a>
+              <a href="tel:541-728-0266" className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg transition-colors border border-white/20"><Phone className="w-5 h-5" />541-728-0266</a>
             </div>
           </div>
         </div>
@@ -124,8 +124,8 @@ export default function LaPineOR() {
             <div className="flex items-center gap-3 mb-4"><AlertTriangle className="w-6 h-6 text-amber-600 shrink-0" /><h3 className="text-lg font-bold text-amber-800">La Pine: Don&apos;t Miss Your Window</h3></div>
             <p className="text-amber-900 leading-relaxed mb-4">The August 2025 storm triggered a one-year insurance filing deadline. That window closes in <strong>August 2026</strong>. Thousands of La Pine area homeowners have qualifying damage but have not yet filed a claim.</p>
             <p className="text-amber-900 leading-relaxed mb-5">A free inspection costs you nothing and could save you $10,000 or more.</p>
-            <a href="tel:541-337-5734" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold px-5 py-3 rounded-lg transition-colors w-full justify-center">
-              <Phone className="w-4 h-4" />Call 541-337-5734 Now
+            <a href="tel:541-728-0266" className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold px-5 py-3 rounded-lg transition-colors w-full justify-center">
+              <Phone className="w-4 h-4" />Call 541-728-0266 Now
             </a>
           </div>
         </div>
@@ -328,7 +328,7 @@ export default function LaPineOR() {
       {/* FAQ */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#122E5F] mb-2">Frequently Asked Questions from La Pine Homeowners</h2>
-        <p className="text-gray-600 mb-8">Specific questions about hail damage insurance claims in the La Pine area. Call us at{' '}<a href="tel:541-337-5734" className="text-[#2563eb] hover:underline">541-337-5734</a>{' '}if you need a faster answer.</p>
+        <p className="text-gray-600 mb-8">Specific questions about hail damage insurance claims in the La Pine area. Call us at{' '}<a href="tel:541-728-0266" className="text-[#2563eb] hover:underline">541-728-0266</a>{' '}if you need a faster answer.</p>
         <div className="max-w-3xl divide-y divide-gray-200 border border-gray-200 rounded-xl overflow-hidden">
           {[
             { q: 'Was La Pine affected by the August 2025 hailstorm?', a: 'Yes. The August 3, 2025 hailstorm moved through southern Deschutes County and caused widespread roof damage in La Pine, Sunriver, Three Rivers, Wickiup Junction, and surrounding rural communities.' },
@@ -358,7 +358,7 @@ export default function LaPineOR() {
           </div>
           <LeadForm />
           <p className="text-center text-blue-300 text-sm mt-6">
-            Prefer to call?{' '}<a href="tel:541-337-5734" className="text-white font-semibold hover:underline">541-337-5734</a>&nbsp;|&nbsp; Email:{' '}
+            Prefer to call?{' '}<a href="tel:541-728-0266" className="text-white font-semibold hover:underline">541-728-0266</a>&nbsp;|&nbsp; Email:{' '}
             <a href="mailto:info@freeroofpros.com" className="text-white font-semibold hover:underline">info@freeroofpros.com</a>
           </p>
         </div>

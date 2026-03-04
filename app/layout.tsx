@@ -36,7 +36,7 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   title: 'Free Roof Inspection | Storm Damage Claims | FreeRoofPros',
-  description: 'Get a FREE roof inspection & see if insurance covers 100% of your replacement. 99.7% claim success rate. Licensed in all 50 states. Call 541-337-5734.',
+  description: 'Get a FREE roof inspection & see if insurance covers 100% of your replacement. 99.7% claim success rate. Licensed in all 50 states. Call 541-728-0266.',
   icons: {
     icon: '/favicon.ico',
   },
@@ -83,7 +83,7 @@ export default function RootLayout({
     "name": "Free Roof Pros",
     "image": "https://www.freeroofpros.com/roofing-logo.png",
     "url": "https://www.freeroofpros.com/",
-    "telephone": "541-337-5734",
+    "telephone": "541-728-0266",
     "priceRange": "$$$",
     "aggregateRating": {
       "@type": "AggregateRating",
