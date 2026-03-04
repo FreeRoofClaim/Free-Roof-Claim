@@ -25,13 +25,13 @@ export default function TrustedByThousands() {
             <span className="text-[#122E5F] font-semibold">TRUSTED PROFESSIONALS</span>
           </div>
 
-          <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 leading-3">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
             <span className="text-gray-900">Trusted Roofing Experts Serving</span>
             <br />
-            <span className="text-[#2563eb] mt-4">Dallas & Surrounding Areas</span>
+            <span className="text-[#2563eb]">Dallas & Surrounding Areas</span>
           </h2>
 
-          <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-xl  md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             Our certified roofing professionals have helped over
             <span className="text-[#2563eb] font-semibold"> 10,000 homeowners</span> get their insurance claims approved and roofs replaced at
             <span className="text-[#122E5F] font-semibold"> no out-of-pocket cost</span>.
