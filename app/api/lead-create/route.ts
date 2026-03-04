@@ -287,17 +287,16 @@ async function sendPremiumLeadNotificationToContractors(
           </div>
 
           <!-- CTA Button -->
-          <div style="text-align: center; margin: 40px 0;">
-            <a href="${contractorUrl}/contractors/leads" 
-               style="background: linear-gradient(135deg, #2563eb 0%, #122E5F 100%); color: #ffffff; padding: 18px 40px; text-decoration: none; border-radius: 12px; font-weight: 700; display: inline-block; font-size: 18px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); transition: all 0.3s ease;">
-              🚀 View & Purchase Lead Now →
+          <div style="text-align: center; margin: 30px 0;">
+            <a href="${contractorUrl}/contractor/leads" 
+               style="background: linear-gradient(135deg, #2563eb 0%, #122E5F 100%); color: #ffffff; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: 700; display: inline-block; font-size: 16px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); transition: all 0.3s ease;">
+               View & Purchase Lead Now →
             </a>
           </div>
 
           <!-- Urgency Banner -->
           <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 20px; margin: 30px 0;">
             <div style="display: flex; align-items: center;">
-              <span style="font-size: 24px; margin-right: 12px;">⏰</span>
               <div>
                 <p style="margin: 0; font-size: 15px; color: #92400e; font-weight: 600;">
                   Act Fast!
