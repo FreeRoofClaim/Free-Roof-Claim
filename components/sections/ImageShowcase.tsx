@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react';
+import Image from 'next/image';
 import { Shield, Award, CheckCircle, Star, Sparkles } from 'lucide-react';
 
 export default function ImageShowcase() {
@@ -44,10 +45,15 @@ export default function ImageShowcase() {
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
             
             <div className="relative bg-slate-800/90 backdrop-blur-xl rounded-3xl overflow-hidden shadow-2xl border border-slate-600/50">
-              <img
+              <Image
                 src="https://images.pexels.com/photos/8293778/pexels-photo-8293778.jpeg?auto=compress&cs=tinysrgb&w=800"
                 alt="Professional roof inspection and damage assessment"
+                width={800}
+                height={384}
                 className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                quality={75}
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
               

@@ -80,10 +80,14 @@ export default function HowItWorks() {
     <section className="relative py-20 bg-white overflow-hidden">
       {/* Professional Background */}
       <div className="absolute inset-0">
-        <img
-          src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1920"
+        <Image
+          src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800"
           alt="Professional roofing work"
-          className="w-full h-full object-cover opacity-5"
+          fill
+          className="object-cover opacity-5"
+          sizes="100vw"
+          quality={30}
+          loading="lazy"
         />
       </div>
 

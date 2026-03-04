@@ -15,6 +15,8 @@ export default function Hero() {
             width={1920}
             height={1080}
             className="w-full h-full object-cover"
+            sizes="100vw"
+            quality={75}
           />
           <div className="absolute inset-0 bg-slate-900/75"></div>
         </div>
