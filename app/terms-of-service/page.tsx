@@ -36,7 +36,7 @@ export default function TermsOfService() {
                 Free Roof Pros helps homeowners get free roof replacement quotes after storm damage. We connect homeowners with licensed and insured contractors quickly and safely.
               </p>
               <p className="text-gray-700 leading-relaxed text-lg mb-4">
-                You can contact us by phone at <a href="tel:5413375734" className="text-[#2563eb] hover:underline">541-337-5734</a>, email at <a href="mailto:info@freeroofpros.com" className="text-[#2563eb] hover:underline">info@freeroofpros.com</a>, or by mail to 10801 NW 43rd Street, Terrebonne, OR 97760, United States.
+                You can contact us by phone at <a href="tel:5417280266" className="text-[#2563eb] hover:underline">541-728-0266</a>, email at <a href="mailto:info@freeroofpros.com" className="text-[#2563eb] hover:underline">info@freeroofpros.com</a>, or by mail to 10801 NW 43rd Street, Terrebonne, OR 97760, United States.
               </p>
               <div className="bg-red-50 border-l-4 border-red-500 p-6 my-8 rounded-r-lg">
                 <p className="text-gray-700 mb-2">
@@ -495,7 +495,7 @@ export default function TermsOfService() {
                     <p>10801 NW 43rd Street</p>
                     <p>Terrebonne, OR 97760</p>
                     <p>United States</p>
-                    <p>Phone: 541-337-5734</p>
+                    <p>Phone: 541-728-0266</p>
                     <p className='text-blue-500'>info@freeroofpros.com</p>
                 </div>
                 </p>
