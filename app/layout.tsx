@@ -302,7 +302,6 @@ export default function RootLayout({
         </Script>
 
         <GTM gtmId="GTM-KN4P5NHD" />
-        <link rel="canonical" href="https://www.freeroofpros.com/" />
 
         <script
           type="application/ld+json"
