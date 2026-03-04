@@ -148,7 +148,7 @@ export default function DfwHailstormInsuranceClaimPage() {
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
         <strong><a href="https://freeroofpros.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Schedule Your Free Roof Inspection at FreeRoofPros.com</a></strong><br />
-        Call us: <strong>541-337-5734</strong><br />
+        Call us: <strong>541-728-0266</strong><br />
         Email: <strong>info@freeroofpros.com</strong>
       </p>
     </BlogLayout>
