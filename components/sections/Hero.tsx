@@ -42,7 +42,7 @@ export default function Hero() {
 
                 <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl lg:block hidden">
                 85% of roofs have hail damage the homeowner never notices — 
-                  <span className="text-[#2563eb] font-semibold"> until we get them a free replacement!</span>.
+                  <span className="text-[#2563eb] font-semibold"> until we get them a free replacement!</span>
                   <br />
                   Licensed and insured roofing experts serving all 50 states for inspections, repairs, and replacements.
                 </p>
@@ -94,7 +94,7 @@ export default function Hero() {
               {/* Mobile description */}
               <p className="text-lg text-gray-300 leading-relaxed text-center">
               85% of roofs have hail damage the homeowner never notices — 
-                <span className="text-[#2563eb] font-semibold"> until we get them a free replacement!</span>.
+                <span className="text-[#2563eb] font-semibold"> until we get them a free replacement!</span>
               </p>
 
               {/* Mobile Professional Features */}

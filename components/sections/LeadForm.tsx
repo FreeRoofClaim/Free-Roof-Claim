@@ -366,6 +366,11 @@ export const LeadForm = () => {
                     <p className="text-red-500 text-xs mt-1">{getErrorMessage("email")}</p>
                   )}
                 </div>
+                    <p className="text-xs text-gray-500 text-center mt-2">
+                      By submitting, you consent to receive calls and texts from FreeRoofPros and its partners regarding your roof claim. Msg/data rates may apply. Reply STOP to opt out.{' '}
+                      <a href="/privacy-policy" className="underline">Privacy Policy</a>{' · '}
+                      <a href="/terms-of-service" className="underline">Terms</a>
+                    </p>
               </div>
             )}
 
