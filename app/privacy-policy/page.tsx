@@ -302,18 +302,6 @@ export default function PrivacyPolicy() {
                     However, please note that this will not affect the lawfulness of the processing before its withdrawal nor, when applicable law allows, will it affect the processing of your personal information conducted in reliance on lawful processing grounds other than consent.
                   </p>
                 </div>
-                <div className="bg-gray-50 rounded-lg p-6 my-6 border border-gray-200">
-                  <h4 className="font-semibold text-gray-900 mb-3">Account Information</h4>
-                  <p className="text-gray-700 mb-3">
-                    If you would at any time like to review or change the information in your account or terminate your account, you can:
-                  </p>
-                  <p className="text-gray-700">
-                    Upon your request to terminate your account, we will deactivate or delete your account and information from our active databases. However, we may retain some information in our files to prevent fraud, troubleshoot problems, assist with any investigations, enforce our legal terms and/or comply with applicable legal requirements.
-                  </p>
-                </div>
-                <p className="text-gray-700">
-                  If you have questions or comments about your privacy rights, you may email us at <a href="mailto:info@freeroofpros.com" className="text-[#2563eb] hover:underline">info@freeroofpros.com</a>.
-                </p>
               </div>
             </section>
 
@@ -327,7 +315,7 @@ export default function PrivacyPolicy() {
                   Most web browsers and some mobile operating systems and mobile applications include a Do-Not-Track ("DNT") feature or setting you can activate to signal your privacy preference not to have data about your online browsing activities monitored and collected. At this stage, no uniform technology standard for recognizing and implementing DNT signals has been finalized. As such, we do not currently respond to DNT browser signals or any other mechanism that automatically communicates your choice not to be tracked online. If a standard for online tracking is adopted that we must follow in the future, we will inform you about that practice in a revised version of this Privacy Notice.
                 </p>
                 <p className="text-gray-700">
-                  California law requires us to let you know how we respond to web browser DNT signals. Because there currently is not an industry or legal standard for recognizing or honoring DNT signals, we do not respond to them at this time.
+                  California law requires us to let you know how we respond to web browser DNT signals. Because there currently is no industry standard for recognizing and implementing DNT signals, we do not respond to them at this time.
                 </p>
               </div>
             </section>
@@ -338,159 +326,92 @@ export default function PrivacyPolicy() {
                 <h2 className="text-3xl font-bold text-gray-900">11. DO UNITED STATES RESIDENTS HAVE SPECIFIC PRIVACY RIGHTS?</h2>
               </div>
               <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 mb-6">
-                  <strong>In Short:</strong> If you are a resident of California, Colorado, Connecticut, Delaware, Florida, Indiana, Iowa, Kentucky, Maryland, Minnesota, Montana, Nebraska, New Hampshire, New Jersey, Oregon, Rhode Island, Tennessee, Texas, Utah, or Virginia, you may have the right to request access to and receive details about the personal information we maintain about you and how we have processed it, correct inaccuracies, get a copy of, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. More information is provided below.
-                </p>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Categories of Personal Information We Collect</h3>
                 <p className="text-gray-700 mb-4">
-                  The table below shows the categories of personal information we have collected in the past twelve (12) months. The table includes illustrative examples of each category and does not reflect the personal information we collect from you. For a comprehensive inventory of all personal information we process, please refer to the section "WHAT INFORMATION DO WE COLLECT?"
+                  <strong>In Short:</strong> If you are a resident of California, Colorado, Connecticut, Delaware, Florida, Indiana, Iowa, Kentucky, Montana, New Hampshire, New Jersey, Oregon, Tennessee, Texas, Utah, or Virginia, you may have the right to request access to and receive details about the personal information we maintain about you and how we have used and disclosed it, correct inaccuracies, get a copy of, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law.
                 </p>
-                <div className="overflow-x-auto my-6">
-                  <table className="min-w-full border border-gray-300 rounded-lg">
-                    <thead className="bg-[#122E5F] text-white">
-                      <tr>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">Category</th>
-                        <th className="px-4 py-3 text-left text-sm font-semibold">Examples</th>
-                        <th className="px-4 py-3 text-center text-sm font-semibold">Collected</th>
-                      </tr>
-                    </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
-                      <tr>
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">A. Identifiers</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Contact details, such as real name, alias, postal address, telephone or mobile contact number, unique personal identifier, online identifier, Internet Protocol address, email address, and account name</td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                      <tr className="bg-gray-50">
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">B. Personal information as defined in the California Customer Records statute</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Name, contact information, education, employment, employment history, and financial information</td>
-                        <td className="px-4 py-3 text-sm text-center text-green-600 font-semibold">YES</td>
-                      </tr>
-                      <tr>
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">C. Protected classification characteristics under state or federal law</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Gender, age, date of birth, race and ethnicity, national origin, marital status, and other demographic data</td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                      <tr className="bg-gray-50">
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">D. Commercial information</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Transaction information, purchase history, financial details, and payment information</td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                      <tr>
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">E. Biometric information</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Fingerprints and voiceprints</td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                      <tr className="bg-gray-50">
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">F. Internet or other similar network activity</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Browsing history, search history, online behavior, interest data, and interactions with our and other websites, applications, systems, and advertisements</td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                      <tr>
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">G. Geolocation data</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Device location</td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                      <tr className="bg-gray-50">
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">H. Audio, electronic, sensory, or similar information</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Images and audio, video or call recordings created in connection with our business activities</td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                      <tr>
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">I. Professional or employment-related information</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Business contact details in order to provide you our Services at a business level or job title, work history, and professional qualifications if you apply for a job with us</td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                      <tr className="bg-gray-50">
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">J. Education Information</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Student records and directory information</td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                      <tr>
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">K. Inferences drawn from collected personal information</td>
-                        <td className="px-4 py-3 text-sm text-gray-700">Inferences drawn from any of the collected personal information listed above to create a profile or summary about, for example, an individual's preferences and characteristics</td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                      <tr className="bg-gray-50">
-                        <td className="px-4 py-3 text-sm font-medium text-gray-900">L. Sensitive personal Information</td>
-                        <td className="px-4 py-3 text-sm text-gray-700"></td>
-                        <td className="px-4 py-3 text-sm text-center text-gray-700">NO</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                <div className="bg-blue-50 rounded-lg p-6 my-6 border border-blue-100">
+                  <h4 className="font-semibold text-gray-900 mb-3">Categories of Personal Information We Collect</h4>
+                  <p className="text-gray-700 mb-3">We have collected the following categories of personal information in the past twelve (12) months:</p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-collapse border border-gray-300 text-sm">
+                      <thead>
+                        <tr className="bg-gray-100">
+                          <th className="border border-gray-300 p-2 text-left">Category</th>
+                          <th className="border border-gray-300 p-2 text-left">Examples</th>
+                          <th className="border border-gray-300 p-2 text-left">Collected</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td className="border border-gray-300 p-2">A. Identifiers</td>
+                          <td className="border border-gray-300 p-2">Contact details, such as real name, alias, postal address, telephone or mobile contact number, unique personal identifier, online identifier, Internet Protocol address, email address and account name</td>
+                          <td className="border border-gray-300 p-2">YES</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 p-2">B. Personal information as defined in the California Customer Records statute</td>
+                          <td className="border border-gray-300 p-2">Name, contact information, education, employment, employment history and financial information</td>
+                          <td className="border border-gray-300 p-2">YES</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 p-2">C. Protected classification characteristics under California or federal law</td>
+                          <td className="border border-gray-300 p-2">Gender, age, date of birth, race and ethnicity, national origin, marital status, and other demographic data</td>
+                          <td className="border border-gray-300 p-2">NO</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 p-2">D. Commercial information</td>
+                          <td className="border border-gray-300 p-2">Transaction information, purchase history, financial details and payment information</td>
+                          <td className="border border-gray-300 p-2">NO</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 p-2">E. Biometric information</td>
+                          <td className="border border-gray-300 p-2">Fingerprints and voiceprints</td>
+                          <td className="border border-gray-300 p-2">NO</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 p-2">F. Internet or other similar network activity</td>
+                          <td className="border border-gray-300 p-2">Browsing history, search history, online behavior, interest data, and interactions with our and other websites, applications, systems and advertisements</td>
+                          <td className="border border-gray-300 p-2">NO</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 p-2">G. Geolocation data</td>
+                          <td className="border border-gray-300 p-2">Device location</td>
+                          <td className="border border-gray-300 p-2">NO</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 p-2">H. Audio, electronic, sensory, or similar information</td>
+                          <td className="border border-gray-300 p-2">Images and audio, video or call recordings created in connection with our business activities</td>
+                          <td className="border border-gray-300 p-2">NO</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 p-2">I. Professional or employment-related information</td>
+                          <td className="border border-gray-300 p-2">Business contact details in order to provide you our Services at a business level or job title as well as work history and professional qualifications if you apply for a job with us</td>
+                          <td className="border border-gray-300 p-2">NO</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 p-2">J. Education information</td>
+                          <td className="border border-gray-300 p-2">Student records and directory information</td>
+                          <td className="border border-gray-300 p-2">NO</td>
+                        </tr>
+                        <tr>
+                          <td className="border border-gray-300 p-2">K. Inferences drawn from collected personal information</td>
+                          <td className="border border-gray-300 p-2">Inferences drawn from any of the collected personal information listed above to create a profile or summary about, for example, an individual's preferences and characteristics</td>
+                          <td className="border border-gray-300 p-2">NO</td>
+                        </tr>
+                        <tr className="bg-gray-50">
+                          <td className="border border-gray-300 p-2">L. Sensitive personal information</td>
+                          <td className="border border-gray-300 p-2"></td>
+                          <td className="border border-gray-300 p-2">NO</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <p className="text-gray-700 mt-4">We may also collect other personal information outside of these categories through instances where you interact with us in person, online, or by phone or mail in the context of:</p>
+                  <ul className="list-disc pl-6 mt-2 space-y-1 text-gray-700">
+                    <li>Receiving help through our customer support channels;</li>
+                    <li>Participation in customer surveys or contests; and</li>
+                    <li>Facilitation in the delivery of our Services and to respond to your inquiries.</li>
+                  </ul>
                 </div>
-                <p className="text-gray-700 mb-4">
-                  We may also collect other personal information outside of these categories through instances where you interact with us in person, online, or by phone or mail in the context of:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Receiving help through our customer support channels;</li>
-                  <li>Participation in customer surveys or contests; and</li>
-                  <li>Facilitation in the delivery of our Services and to respond to your inquiries.</li>
-                </ul>
-                <p className="text-gray-700 mb-4">
-                  We will use and retain the collected personal information as needed to provide the Services or for:
-                </p>
-                <p className="text-gray-700 mb-6"><strong>Category B</strong> - As long as the user has an account with us</p>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Sources of Personal Information</h3>
-                <p className="text-gray-700 mb-4">Learn more about the sources of personal information we collect in <a href="#section-1" className="text-[#2563eb] hover:underline">"WHAT INFORMATION DO WE COLLECT?"</a></p>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">How We Use and Share Personal Information</h3>
-                <p className="text-gray-700 mb-4">Learn more about how we use your personal information in the section, <a href="#section-2" className="text-[#2563eb] hover:underline">"HOW DO WE PROCESS YOUR INFORMATION?"</a></p>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Will your information be shared with anyone else?</h3>
-                <p className="text-gray-700 mb-4">
-                  We may disclose your personal information with our service providers pursuant to a written contract between us and each service provider. Learn more about how we disclose personal information to in the section, <a href="#section-4" className="text-[#2563eb] hover:underline">"WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?"</a>
-                </p>
-                <p className="text-gray-700 mb-4">
-                  We may use your personal information for our own business purposes, such as for undertaking internal research for technological development and demonstration. This is not considered to be "selling" of your personal information.
-                </p>
-                <p className="text-gray-700 mb-6">
-                  We have not disclosed, sold, or shared any personal information to third parties for a business or commercial purpose in the preceding twelve (12) months. We will not sell or share personal information in the future belonging to website visitors, users, and other consumers.
-                </p>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Your Rights</h3>
-                <p className="text-gray-700 mb-4">
-                  You have rights under certain US state data protection laws. However, these rights are not absolute, and in certain cases, we may decline your request as permitted by law. These rights include:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-4">
-                  <li>Right to know whether or not we are processing your personal data</li>
-                  <li>Right to access your personal data</li>
-                  <li>Right to correct inaccuracies in your personal data</li>
-                  <li>Right to request the deletion of your personal data</li>
-                  <li>Right to obtain a copy of the personal data you previously shared with us</li>
-                  <li>Right to non-discrimination for exercising your rights</li>
-                  <li>Right to opt out of the processing of your personal data if it is used for targeted advertising (or sharing as defined under California's privacy law), the sale of personal data, or profiling in furtherance of decisions that produce legal or similarly significant effects ("profiling")</li>
-                </ul>
-                <p className="text-gray-700 mb-4">
-                  Depending upon the state where you live, you may also have the following rights:
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-gray-700 mb-6">
-                  <li>Right to access the categories of personal data being processed (as permitted by applicable law, including the privacy law in Minnesota)</li>
-                  <li>Right to obtain a list of the categories of third parties to which we have disclosed personal data (as permitted by applicable law, including the privacy law in California, Delaware, and Maryland)</li>
-                  <li>Right to obtain a list of specific third parties to which we have disclosed personal data (as permitted by applicable law, including the privacy law in Minnesota and Oregon)</li>
-                  <li>Right to obtain a list of third parties to which we have sold personal data (as permitted by applicable law, including the privacy law in Connecticut)</li>
-                  <li>Right to review, understand, question, and depending on where you live, correct how personal data has been profiled (as permitted by applicable law, including the privacy law in Connecticut and Minnesota)</li>
-                  <li>Right to limit use and disclosure of sensitive personal data (as permitted by applicable law, including the privacy law in California)</li>
-                  <li>Right to opt out of the collection of sensitive data and personal data collected through the operation of a voice or facial recognition feature (as permitted by applicable law, including the privacy law in Florida)</li>
-                </ul>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">How to Exercise Your Rights</h3>
-                <p className="text-gray-700 mb-4">
-                  To exercise these rights, you can contact us by visiting <a href="https://www.freeroofpros.com" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://www.freeroofpros.com</a>, by emailing us at <a href="mailto:info@freeroofpros.com" className="text-[#2563eb] hover:underline">info@freeroofpros.com</a>, or by referring to the contact details at the bottom of this document.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  Under certain US state data protection laws, you can designate an authorized agent to make a request on your behalf. We may deny a request from an authorized agent that does not submit proof that they have been validly authorized to act on your behalf in accordance with applicable laws.
-                </p>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Request Verification</h3>
-                <p className="text-gray-700 mb-4">
-                  Upon receiving your request, we will need to verify your identity to determine you are the same person about whom we have the information in our system. We will only use personal information provided in your request to verify your identity or authority to make the request. However, if we cannot verify your identity from the information already maintained by us, we may request that you provide additional information for the purposes of verifying your identity and for security or fraud-prevention purposes.
-                </p>
-                <p className="text-gray-700 mb-4">
-                  If you submit the request through an authorized agent, we may need to collect additional information to verify your identity before processing your request and the agent will need to provide a written and signed permission from you to submit such request on your behalf.
-                </p>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Appeals</h3>
-                <p className="text-gray-700 mb-4">
-                  Under certain US state data protection laws, if we decline to take action regarding your request, you may appeal our decision by emailing us at <a href="mailto:info@freeroofpros.com" className="text-[#2563eb] hover:underline">info@freeroofpros.com</a>. We will inform you in writing of any action taken or not taken in response to the appeal, including a written explanation of the reasons for the decisions. If your appeal is denied, you may submit a complaint to your state attorney general.
-                </p>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">California "Shine The Light" Law</h3>
-                <p className="text-gray-700">
-                  California Civil Code Section 1798.83, also known as the "Shine The Light" law, permits our users who are California residents to request and obtain from us, once a year and free of charge, information about categories of personal information (if any) we disclosed to third parties for direct marketing purposes and the names and addresses of all third parties with which we shared personal information in the immediately preceding calendar year. If you are a California resident and would like to make such a request, please submit your request in writing to us by using the contact details provided in the section "HOW CAN YOU CONTACT US ABOUT THIS NOTICE?"
-                </p>
               </div>
             </section>
 
@@ -515,17 +436,26 @@ export default function PrivacyPolicy() {
                 <h2 className="text-3xl font-bold text-gray-900">13. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?</h2>
               </div>
               <div className="prose prose-lg max-w-none">
-                <p className="text-gray-700 mb-4">If you have questions or comments about this notice, you may contact us by post at:</p>
-                <div className="bg-blue-50 rounded-lg p-6 my-6 border border-blue-100">
-                  <div className="flex items-start space-x-3">
-                    <MapPin className="h-5 w-5 text-[#122E5F] mt-1 flex-shrink-0" />
+                <p className="text-gray-700 mb-6">
+                  If you have questions or comments about this notice, you may contact us by post at:
+                </p>
+                <div className="bg-blue-50 rounded-xl p-6 border border-blue-100">
+                  <div className="flex items-start space-x-4">
+                    <MapPin className="h-6 w-6 text-[#122E5F] mt-1 flex-shrink-0" />
                     <div>
-                      <p className="font-semibold text-gray-900 mb-1">Free Roof Pros</p>
-                      <p className="text-gray-700">10801 NW 43rd Street</p>
-                      <p className="text-gray-700">Terrebonne, OR 97760</p>
+                      <p className="font-semibold text-gray-900 text-lg">Free Roof Pros</p>
+                      <p className="text-gray-700">__________</p>
+                      <p className="text-gray-700">__________</p>
+                      <p className="text-gray-700">__________</p>
                       <p className="text-gray-700">United States</p>
-                      <p className="text-gray-700">Phone: 541-337-5734</p>
-                      <p className="text-blue-500">info@freeroofpros.com</p>
+                      <div className="mt-3 flex items-center space-x-2">
+                        <Mail className="h-4 w-4 text-[#2563eb]" />
+                        <a href="mailto:info@freeroofpros.com" className="text-[#2563eb] hover:underline">info@freeroofpros.com</a>
+                      </div>
+                      <div className="mt-2 flex items-center space-x-2">
+                        <ExternalLink className="h-4 w-4 text-[#2563eb]" />
+                        <a href="tel:5417280266" className="text-[#2563eb] hover:underline">(541) 728-0266</a>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -539,13 +469,13 @@ export default function PrivacyPolicy() {
               </div>
               <div className="prose prose-lg max-w-none">
                 <p className="text-gray-700 mb-4">
-                  Based on the applicable laws of your country or state of residence in the US, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. You may also have the right to withdraw your consent to our processing of your personal information. These rights may be limited in some circumstances by applicable law. To request to review, update, or delete your personal information, please visit: <a href="https://www.freeroofpros.com" className="text-[#2563eb] hover:underline flex items-center space-x-1" target="_blank" rel="noopener noreferrer"><span>https://www.freeroofpros.com</span> <ExternalLink className="h-4 w-4 inline" /></a>.
+                  Based on the applicable laws of your country or state of residence in the US, you may have the right to request access to the personal information we collect from you, details about how we have processed it, correct inaccuracies, or delete your personal information. To request to review, update, or delete your personal information, please visit: <a href="https://www.freeroofpros.com" className="text-[#2563eb] hover:underline" target="_blank" rel="noopener noreferrer">https://www.freeroofpros.com</a>.
                 </p>
               </div>
             </section>
           </div>
         </div>
-    </main>
+      </main>
       <Footer />
     </div>
   );
