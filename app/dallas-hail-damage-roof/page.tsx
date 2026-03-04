@@ -29,7 +29,7 @@ export default function DallasHailDamageRoof() {
           <div>
             <h2 className="text-2xl font-semibold text-[#122E5F]">Our Hail Damage Repair Services</h2>
             <p className="text-gray-600 mt-4">
-              We specialize in fast and reliable hail damage roof repairs. Whether you need emergency repairs or a full roof replacement, we’re here to help.
+              We specialize in fast and reliable hail damage roof repairs. Whether you need emergency repairs or a full roof replacement, we're here to help.
             </p>
             <ul className="mt-6 space-y-4">
               <li className="flex items-center text-gray-700">
@@ -66,7 +66,7 @@ export default function DallasHailDamageRoof() {
                 <h4 className="text-lg font-semibold mb-2">Contact Information</h4>
                 <p className="text-gray-300">Free Roof Pros</p>
                 <p className="text-gray-300">123 Main St, Dallas, TX</p>
-                <a href="tel:+15413375734" className="text-[#2563eb]">Call: 541-337-5734</a>
+                <a href="tel:+15417280266" className="text-[#2563eb]">Call: 541-728-0266</a>
               </div>
               <div className="flex items-center space-x-4 mt-6 md:mt-0">
                 <Shield className="h-5 w-5 text-[#2563eb]" />
