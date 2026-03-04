@@ -223,105 +223,106 @@ async function sendPremiumLeadNotificationToContractors(
   const leadPhonePreview = `${leadData.phone.slice(0, 3)}***`;
 
   const subject = `🔥 New Premium Lead Available in Your Area - Act Fast!`;
-  
+
   // Prepare SMS message
   const smsMessage = `🔥 New Premium Lead Available!\n\nName: ${leadName}\nAddress: ${leadAddressPreview}\n\nView & Purchase: ${contractorUrl}/leads\n\n⏰ Act Fast! First-come, first-served.`;
 
   const htmlBody = `
     <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body style="margin: 0; padding: 0; background-color: #f8f9fa; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
-      <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
-        <!-- Header with Gradient -->
-        <div style="background: linear-gradient(135deg, #122E5F 0%, #2563eb 100%); padding: 40px 30px; text-align: center; border-radius: 0;">
-          <div style="background-color: rgba(255, 255, 255, 0.15); border-radius: 50px; padding: 12px 24px; display: inline-block; margin-bottom: 15px;">
-            <span style="color: #ffffff; font-size: 14px; font-weight: 600; letter-spacing: 1px;">🔥 PREMIUM LEAD</span>
-          </div>
-          <h1 style="color: #ffffff; margin: 0; font-size: 32px; font-weight: 700; line-height: 1.2;">
-            New Opportunity Available!
-          </h1>
-          <p style="color: rgba(255, 255, 255, 0.9); margin: 15px 0 0 0; font-size: 16px;">
-            High-quality lead in your service area
-          </p>
-        </div>
+<html lang="en" style="margin:0;padding:0;">
+<head>
+  <meta charset="UTF-8" />
+  <title>New Lead Notification | Roofing Contractor Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body style="margin:0;padding:0;background-color:#f3f4f6;font-family:'Segoe UI',Roboto,Arial,sans-serif;">
+  <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tr>
+      <td align="center" style="padding:40px 0;">
+        <table
+          role="presentation"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          width="100%"
+          style="max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.08);"
+        >
+          <!-- Header -->
+          <tr>
+            <td style="background:#1e40af;padding:30px;text-align:center;color:#ffffff;">
+              <h1 style="margin:0;font-size:24px;">🔥 Premium Lead Available!</h1>
+              <p style="margin:10px 0 0 0;font-size:16px;">High-quality lead in your service area</p>
+            </td>
+          </tr>
 
-        <!-- Main Content -->
-        <div style="padding: 40px 30px;">
-          <!-- Welcome Message -->
-          <div style="margin-bottom: 30px;">
-            <p style="font-size: 18px; line-height: 1.6; color: #1f2937; margin: 0;">
-              Hi there! 👋<br><br>
-              A <strong style="color: #2563eb;">premium lead</strong> has just been added in your service area. This is a high-quality opportunity you won't want to miss!
-            </p>
-          </div>
-          
-          <!-- Lead Preview Card -->
-          <div style="background: linear-gradient(to bottom, #ffffff 0%, #f9fafb 100%); border: 2px solid #e5e7eb; border-radius: 16px; padding: 30px; margin: 30px 0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);">
-            <div style="display: flex; align-items: center; margin-bottom: 25px;">
-              <div style="background-color: #2563eb; width: 4px; height: 24px; border-radius: 2px; margin-right: 12px;"></div>
-              <h2 style="color: #122E5F; margin: 0; font-size: 22px; font-weight: 700;">Lead Preview</h2>
-            </div>
-            
-            <table style="border-collapse: collapse; width: 100%;">
-              <tr>
-                <td style="padding: 12px 0; font-weight: 600; color: #374151; width: 120px; font-size: 15px;">👤 Name:</td>
-                <td style="padding: 12px 0; color: #1f2937; font-size: 15px; font-weight: 500;">${leadName}</td>
-              </tr>
-              <tr style="border-top: 1px solid #e5e7eb;">
-                <td style="padding: 12px 0; font-weight: 600; color: #374151; font-size: 15px;">📍 Address:</td>
-                <td style="padding: 12px 0; color: #1f2937; font-size: 15px; font-weight: 500;">${leadAddressPreview}</td>
-              </tr>
-              <tr style="border-top: 1px solid #e5e7eb;">
-                <td style="padding: 12px 0; font-weight: 600; color: #374151; font-size: 15px;">✉️ Email:</td>
-                <td style="padding: 12px 0; color: #1f2937; font-size: 15px; font-weight: 500;">${leadEmailPreview}</td>
-              </tr>
-              <tr style="border-top: 1px solid #e5e7eb;">
-                <td style="padding: 12px 0; font-weight: 600; color: #374151; font-size: 15px;">📞 Phone:</td>
-                <td style="padding: 12px 0; color: #1f2937; font-size: 15px; font-weight: 500;">${leadPhonePreview}</td>
-              </tr>
-            </table>
-          </div>
+          <!-- Main Content -->
+          <tr>
+            <td style="padding:30px 40px;color:#111827;">
+              <p style="font-size:16px;line-height:1.6;margin-bottom:20px;">
+                Hi there! 👋<br><br>
+                A <strong style="color:#2563eb;">premium lead</strong> has just been added in your service area. This is a high-quality opportunity you won't want to miss!
+              </p>
 
-          <!-- CTA Button -->
-          <div style="text-align: center; margin: 30px 0;">
-            <a href="${contractorUrl}/contractor/leads" 
-               style="background: linear-gradient(135deg, #2563eb 0%, #122E5F 100%); color: #ffffff; padding: 12px 28px; text-decoration: none; border-radius: 8px; font-weight: 700; display: inline-block; font-size: 16px; box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4); transition: all 0.3s ease;">
-               View & Purchase Lead Now →
-            </a>
-          </div>
+              <!-- Lead Details -->
+              <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-bottom:30px;">
+                <tr>
+                  <td style="padding:8px 0;font-weight:600;color:#374151;width:120px;font-size:15px;">👤 Name:</td>
+                  <td style="padding:8px 0;color:#1f2937;font-size:15px;font-weight:500;">${leadName}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 0;font-weight:600;color:#374151;font-size:15px;">📍 Address:</td>
+                  <td style="padding:8px 0;color:#1f2937;font-size:15px;font-weight:500;">${leadAddressPreview}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 0;font-weight:600;color:#374151;font-size:15px;">✉️ Email:</td>
+                  <td style="padding:8px 0;color:#1f2937;font-size:15px;font-weight:500;">${leadEmailPreview}</td>
+                </tr>
+                <tr>
+                  <td style="padding:8px 0;font-weight:600;color:#374151;font-size:15px;">📞 Phone:</td>
+                  <td style="padding:8px 0;color:#1f2937;font-size:15px;font-weight:500;">${leadPhonePreview}</td>
+                </tr>
+              </table>
 
-          <!-- Urgency Banner -->
-          <div style="background-color: #fef3c7; border-left: 4px solid #f59e0b; border-radius: 8px; padding: 20px; margin: 30px 0;">
-            <div style="display: flex; align-items: center;">
-              <div>
-                <p style="margin: 0; font-size: 15px; color: #92400e; font-weight: 600;">
-                  Act Fast!
-                </p>
-                <p style="margin: 8px 0 0 0; font-size: 14px; color: #78350f; line-height: 1.5;">
+              <!-- CTA Button -->
+              <div style="text-align:center;margin:30px 0;">
+                <a
+                  href="${contractorUrl}/contractor/leads"
+                  style="background-color:#2563eb;color:#ffffff;padding:14px 28px;border-radius:8px;text-decoration:none;font-size:16px;font-weight:600;display:inline-block;"
+                  target="_blank"
+                >
+                  View & Purchase Lead →
+                </a>
+              </div>
+
+              <!-- Urgency -->
+              <div style="background-color:#fef3c7;border-left:4px solid #f59e0b;border-radius:8px;padding:20px;margin:20px 0;">
+                <p style="margin:0;font-size:15px;color:#92400e;font-weight:600;">Act Fast!</p>
+                <p style="margin:8px 0 0 0;font-size:14px;color:#78350f;line-height:1.5;">
                   Premium leads are first-come, first-served. Other contractors in your area are also being notified about this opportunity.
                 </p>
               </div>
-            </div>
-          </div>
+            </td>
+          </tr>
 
           <!-- Footer -->
-          <div style="border-top: 1px solid #e5e7eb; padding-top: 30px; margin-top: 40px; text-align: center;">
-            <p style="font-size: 15px; color: #6b7280; margin: 0 0 10px 0; line-height: 1.6;">
-              Best regards,<br>
-              <strong style="color: #122E5F; font-size: 16px;">FreeRoofPros Team</strong>
-            </p>
-            <p style="font-size: 12px; color: #9ca3af; margin: 20px 0 0 0;">
-              © ${new Date().getFullYear()} FreeRoofPros. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </div>
-    </body>
-    </html>
+          <tr>
+            <td style="background:#f9fafb;padding:20px 40px;text-align:center;">
+              <p style="font-size:13px;color:#6b7280;margin:0;">
+                Best regards,<br>
+                <strong style="color:#1e40af;font-size:16px;">FreeRoofPros Team</strong>
+              </p>
+              <p style="font-size:12px;color:#9ca3af;margin:10px 0 0 0;">
+                © ${new Date().getFullYear()} FreeRoofPros. All rights reserved.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
   `;
 
   // Send email and SMS to each contractor
@@ -348,7 +349,7 @@ async function sendPremiumLeadNotificationToContractors(
       });
 
       const emailResult = await emailResponse.json();
-      
+
       if (!emailResponse.ok) {
         console.error(`❌ Failed to send email to ${contractor.email}:`, emailResult);
         results.email.error = emailResult;
@@ -388,16 +389,16 @@ async function sendPremiumLeadNotificationToContractors(
     (r) => r.status === "fulfilled" && r.value?.email?.success
   ).length;
   const emailFailed = results.length - emailSuccessful;
-  
+
   const smsSuccessful = results.filter(
     (r) => r.status === "fulfilled" && r.value?.sms?.success
   ).length;
   const smsFailed = results.length - smsSuccessful;
-  
+
   console.log(`📊 Notification summary:`);
   console.log(`   📧 Emails: ${emailSuccessful} sent successfully, ${emailFailed} failed`);
   console.log(`   📱 SMS: ${smsSuccessful} sent successfully, ${smsFailed} failed`);
-  
+
   if (emailFailed > 0 || smsFailed > 0) {
     console.error("Some notifications failed to send. Check logs above for details.");
   }
