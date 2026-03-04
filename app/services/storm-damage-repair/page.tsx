@@ -23,14 +23,14 @@ import {
 export const metadata: Metadata = {
   title: 'Storm Damage Roof Repair | 24-Hour Response | FreeRoofPros',
   description:
-    'Hail, wind, or storm damage? Get emergency roof repair with 24-hour response. Free inspection, insurance claim help, 99.7% approval rate. Call 541-337-5734.',
+    'Hail, wind, or storm damage? Get emergency roof repair with 24-hour response. Free inspection, insurance claim help, 99.7% approval rate. Call 541-728-0266.',
   alternates: {
     canonical: 'https://www.freeroofpros.com/services/storm-damage-repair',
   },
   openGraph: {
     title: 'Storm Damage Roof Repair | 24-Hour Response | FreeRoofPros',
     description:
-      'Hail, wind, or storm damage? Get emergency roof repair with 24-hour response. Free inspection, insurance claim help, 99.7% approval rate. Call 541-337-5734.',
+      'Hail, wind, or storm damage? Get emergency roof repair with 24-hour response. Free inspection, insurance claim help, 99.7% approval rate. Call 541-728-0266.',
     url: 'https://www.freeroofpros.com/services/storm-damage-repair',
     images: [
       {
@@ -60,7 +60,7 @@ export default function StormDamageRepair() {
       '@type': 'LocalBusiness',
       name: 'Free Roof Pros',
       url: 'https://www.freeroofpros.com',
-      telephone: '541-337-5734',
+      telephone: '541-728-0266',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '10801 NW 43rd Street',
@@ -194,11 +194,11 @@ export default function StormDamageRepair() {
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                 <a
-                  href="tel:541-337-5734"
+                  href="tel:541-728-0266"
                   className="inline-flex items-center justify-center gap-2 bg-white text-[#122E5F] font-bold text-lg px-8 py-4 rounded-xl shadow-lg hover:bg-blue-50 transition-colors duration-180"
                 >
                   <Phone className="h-5 w-5" />
-                  541-337-5734
+                  541-728-0266
                 </a>
                 <a
                   href="#lead-form"
@@ -418,11 +418,11 @@ export default function StormDamageRepair() {
                 inspection.
               </p>
               <a
-                href="tel:541-337-5734"
+                href="tel:541-728-0266"
                 className="inline-flex items-center justify-center gap-2 bg-white text-[#122E5F] font-bold text-lg px-8 py-4 rounded-xl w-full hover:bg-blue-50 transition-colors duration-180 mb-4"
               >
                 <Phone className="h-5 w-5" />
-                541-337-5734
+                541-728-0266
               </a>
               <a
                 href="#lead-form"
@@ -720,11 +720,11 @@ export default function StormDamageRepair() {
                 available now for Central Oregon homeowners.
               </p>
               <a
-                href="tel:541-337-5734"
+                href="tel:541-728-0266"
                 className="flex items-center justify-center gap-2 bg-white text-[#122E5F] font-bold px-5 py-3 rounded-xl hover:bg-blue-50 transition-colors duration-180 w-full mb-3 text-sm"
               >
                 <Phone className="h-4 w-4" />
-                Call 541-337-5734
+                Call 541-728-0266
               </a>
               <a
                 href="#lead-form"
@@ -837,7 +837,7 @@ export default function StormDamageRepair() {
 
           <p className="text-blue-300 text-sm mt-8">
             Don't see your city?{' '}
-            <a href="tel:541-337-5734" className="text-white underline hover:no-underline">
+            <a href="tel:541-728-0266" className="text-white underline hover:no-underline">
               Call us
             </a>{' '}
             — we're licensed nationwide and can often mobilize crews to your area.
@@ -855,8 +855,8 @@ export default function StormDamageRepair() {
           </h2>
           <p className="text-gray-600 text-center mb-10">
             Have more questions? Call us at{' '}
-            <a href="tel:541-337-5734" className="text-[#2563eb] font-semibold hover:underline">
-              541-337-5734
+            <a href="tel:541-728-0266" className="text-[#2563eb] font-semibold hover:underline">
+              541-728-0266
             </a>{' '}
             or email{' '}
             <a href="mailto:info@freeroofpros.com" className="text-[#2563eb] font-semibold hover:underline">
@@ -940,11 +940,11 @@ export default function StormDamageRepair() {
           {/* Contact alternatives */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center text-sm text-gray-600">
             <a
-              href="tel:541-337-5734"
+              href="tel:541-728-0266"
               className="inline-flex items-center gap-2 justify-center text-[#2563eb] font-semibold hover:underline"
             >
               <Phone className="h-4 w-4" />
-              541-337-5734
+              541-728-0266
             </a>
             <span className="hidden sm:block text-gray-300">|</span>
             <a
