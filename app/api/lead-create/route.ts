@@ -250,7 +250,7 @@ async function sendPremiumLeadNotificationToContractors(
           <!-- Header -->
           <tr>
             <td style="background:#1e40af;padding:30px;text-align:center;color:#ffffff;">
-              <h1 style="margin:0;font-size:24px;">🔥 Premium Lead Available!</h1>
+              <h1 style="margin:0;font-size:24px; color:white;">🔥 Premium Lead Available!</h1>
               <p style="margin:10px 0 0 0;font-size:16px; color:white;">High-quality lead in your service area</p>
             </td>
           </tr>
