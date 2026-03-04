@@ -22,14 +22,14 @@ import { LeadForm } from '@/components/sections/LeadForm';
 export const metadata: Metadata = {
   title: 'Roof Repair Bend OR | Free Hail Damage Inspection | FreeRoofPros',
   description:
-    'Roof repair in Bend, Oregon. The August 2025 hailstorm left widespread damage across Deschutes County. File your insurance claim before the August 2026 deadline. Free inspection, 99.7% approval rate. Call 541-337-5734.',
+    'Roof repair in Bend, Oregon. The August 2025 hailstorm left widespread damage across Deschutes County. File your insurance claim before the August 2026 deadline. Free inspection, 99.7% approval rate. Call 541-728-0266.',
   alternates: {
     canonical: 'https://www.freeroofpros.com/bend-or',
   },
   openGraph: {
     title: 'Roof Repair Bend OR | Free Hail Damage Inspection | FreeRoofPros',
     description:
-      'Roof repair in Bend, Oregon. The August 2025 hailstorm left widespread damage across Deschutes County. File your insurance claim before the August 2026 deadline. Free inspection, 99.7% approval rate. Call 541-337-5734.',
+      'Roof repair in Bend, Oregon. The August 2025 hailstorm left widespread damage across Deschutes County. File your insurance claim before the August 2026 deadline. Free inspection, 99.7% approval rate. Call 541-728-0266.',
     url: 'https://www.freeroofpros.com/bend-or',
     images: [
       {
@@ -49,7 +49,7 @@ const localBusinessJsonLd = {
   '@type': 'LocalBusiness',
   name: 'Free Roof Pros',
   url: 'https://www.freeroofpros.com',
-  telephone: '541-337-5734',
+  telephone: '541-728-0266',
   email: 'info@freeroofpros.com',
   address: {
     '@type': 'PostalAddress',
@@ -169,11 +169,11 @@ export default function BendOrPage() {
                 Schedule Free Inspection
               </a>
               <a
-                href="tel:541-337-5734"
+                href="tel:541-728-0266"
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg transition-colors border border-white/20"
               >
                 <Phone className="w-5 h-5" />
-                541-337-5734
+                541-728-0266
               </a>
             </div>
           </div>
@@ -258,11 +258,11 @@ export default function BendOrPage() {
               A free inspection costs you nothing. Missing the deadline costs you a new roof.
             </p>
             <a
-              href="tel:541-337-5734"
+              href="tel:541-728-0266"
               className="inline-flex items-center gap-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold px-5 py-3 rounded-lg transition-colors w-full justify-center"
             >
               <Phone className="w-4 h-4" />
-              Call 541-337-5734 Now
+              Call 541-728-0266 Now
             </a>
           </div>
         </div>
@@ -370,7 +370,7 @@ export default function BendOrPage() {
                 {
                   step: '01',
                   title: 'Call or submit the form below',
-                  detail: 'Reach us at 541-337-5734 or use the inspection request form at the bottom of this page. We typically schedule within 24 to 48 hours.',
+                  detail: 'Reach us at 541-728-0266 or use the inspection request form at the bottom of this page. We typically schedule within 24 to 48 hours.',
                 },
                 {
                   step: '02',
@@ -465,7 +465,7 @@ export default function BendOrPage() {
           <p className="text-gray-700 text-sm leading-relaxed">
             <strong className="text-[#122E5F]">Do not attempt a rooftop inspection yourself.</strong>{' '}
             Hail-damaged shingles can be slippery, and determining insurable damage requires trained eyes and calibrated measurement tools.{' '}
-            <a href="tel:541-337-5734" className="text-[#2563eb] hover:underline font-medium">Call 541-337-5734</a>.
+            <a href="tel:541-728-0266" className="text-[#2563eb] hover:underline font-medium">Call 541-728-0266</a>.
           </p>
         </div>
       </section>
@@ -582,7 +582,7 @@ export default function BendOrPage() {
           <p className="mt-6 text-sm text-gray-500">
             More questions?{' '}
             <Link href="/blog/central-oregon-hailstorm-2025" className="text-[#2563eb] hover:underline">Read our Central Oregon hailstorm guide</Link>{' '}or call{' '}
-            <a href="tel:541-337-5734" className="text-[#2563eb] hover:underline">541-337-5734</a>.
+            <a href="tel:541-728-0266" className="text-[#2563eb] hover:underline">541-728-0266</a>.
           </p>
         </div>
       </section>
@@ -623,7 +623,7 @@ export default function BendOrPage() {
           <LeadForm />
           <p className="text-center text-blue-300 text-sm mt-6">
             Prefer to call?{' '}
-            <a href="tel:541-337-5734" className="text-white font-semibold hover:underline">541-337-5734</a>
+            <a href="tel:541-728-0266" className="text-white font-semibold hover:underline">541-728-0266</a>
             &nbsp;|&nbsp; Email:{' '}
             <a href="mailto:info@freeroofpros.com" className="text-white font-semibold hover:underline">info@freeroofpros.com</a>
           </p>
