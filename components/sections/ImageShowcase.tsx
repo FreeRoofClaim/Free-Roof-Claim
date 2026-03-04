@@ -52,7 +52,7 @@ export default function ImageShowcase() {
                 height={384}
                 className="w-full h-96 object-cover transition-transform duration-700 group-hover:scale-110"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                quality={75}
+                quality={85}
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>

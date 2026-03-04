@@ -86,7 +86,7 @@ export default function HowItWorks() {
           fill
           className="object-cover opacity-5"
           sizes="100vw"
-          quality={30}
+          quality={60}
           loading="lazy"
         />
       </div>
