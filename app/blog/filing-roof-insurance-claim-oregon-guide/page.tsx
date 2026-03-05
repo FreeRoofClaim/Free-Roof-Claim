@@ -7,21 +7,23 @@ const DESCRIPTION =
   'An Oregon-specific guide to filing a roof insurance claim — covering documentation requirements, the insurance company process, common pitfalls, and how FreeRoofPros helps Central Oregon homeowners maximize their claim.';
 const PUBLISHED_DATE = 'March 5, 2026';
 const PUBLISHED_DATE_ISO = '2026-03-05';
+const MODIFIED_DATE_ISO = '2026-03-05';
 const CITY = 'Oregon';
 
 export const metadata: Metadata = {
   title: `${TITLE} | FreeRoofPros`,
   description: DESCRIPTION,
   alternates: {
-    canonical: `https://www.freeroofpros.com/blog/${SLUG}`,
+    canonical: `https://freeroofpros.com/blog/${SLUG}`,
   },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: `https://www.freeroofpros.com/blog/${SLUG}`,
+    url: `https://freeroofpros.com/blog/${SLUG}`,
     siteName: 'FreeRoofPros',
     type: 'article',
     publishedTime: PUBLISHED_DATE_ISO,
+    modifiedTime: MODIFIED_DATE_ISO,
     authors: ['FreeRoofPros Team'],
     tags: ['roof insurance claim', 'Oregon', 'hail damage', 'insurance process', 'claim guide'],
   },
@@ -38,65 +40,61 @@ export default function FilingRoofInsuranceClaimOregonGuidePage() {
       slug={SLUG}
       city={CITY}
     >
+      {/* BLUF: Lead with the complete answer */}
       <p className="text-gray-700 leading-relaxed mb-4">
-        Filing a roof insurance claim in Oregon is not as simple as calling your insurer and waiting for a check. The process involves documentation requirements, adjuster negotiations, potential underpayment disputes, and deadlines that, once missed, are nearly impossible to recover. For Central Oregon homeowners affected by the August 5, 2025 hailstorm, the <strong>August 2026 claim filing deadline</strong> makes acting quickly essential.
+        <strong>To file a successful roof insurance claim in Oregon, you need a professional inspection report before you call your insurer, a licensed contractor present during the adjuster&apos;s visit, and your claim submitted before your policy&apos;s one-year deadline.</strong> For Central Oregon homeowners affected by the August 5, 2025 hailstorm, that deadline is <strong>August 2026</strong>. The process involves four phases — documentation, filing, adjuster inspection, and settlement review — each with specific Oregon legal protections that work in your favor if you know how to use them.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        This guide covers the full process from first notice to final payment — including the specific Oregon laws and regulations that work in your favor.
+        This guide covers the complete process from first notice to final payment, including the Oregon statutes and regulations that govern each step.
       </p>
 
       <hr className="my-8 border-gray-200" />
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Phase 1: Before You File — Documentation Is Everything</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Phase 1: What Do I Need Before Filing a Roof Insurance Claim in Oregon?</h2>
 
-      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Get a Professional Roof Inspection</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Why Should I Get a Roof Inspection Before Calling My Insurance Company?</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Before you call your insurance company, schedule a free <a href="/services/storm-damage-repair" className="text-blue-600 hover:underline">storm damage inspection</a> from a licensed Oregon roofing contractor. This accomplishes three things:
+        <strong>Getting a professional inspection before you call your insurer gives you an independent written record with dated photographs that predates the adjuster&apos;s visit — this single step is the most effective way to prevent underpayment.</strong> A licensed Oregon contractor&apos;s inspection accomplishes three specific things: it confirms whether damage meets the threshold for a viable claim, creates a professional record you can compare against your insurer&apos;s estimate, and documents the full scope of damage before any repairs occur. Without it, your claim rests entirely on what the insurer&apos;s adjuster finds.
       </p>
-      <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
-        <li>Determines whether damage exists and meets the threshold for a viable claim</li>
-        <li>Creates a professional written record with dated photographs that predates your insurer&apos;s adjuster visit</li>
-        <li>Gives you an independent estimate to compare against your insurer&apos;s offer</li>
-      </ul>
       <p className="text-gray-700 leading-relaxed mb-4">
-        For details on what this inspection involves, read our guide on <a href="/blog/hail-damage-roof-inspection-what-happens" className="text-blue-600 hover:underline">what happens during a free hail damage roof inspection</a>.
+        Schedule a free <a href="/services/storm-damage-repair" className="text-blue-600 hover:underline">storm damage inspection</a> from a licensed Oregon roofing contractor before you initiate the claim. For details on what this inspection involves, read our guide on <a href="/blog/hail-damage-roof-inspection-what-happens" className="text-blue-600 hover:underline">what happens during a free hail damage roof inspection</a>.
       </p>
 
-      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 2: Gather Supporting Documentation</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">What Documentation Do I Need to File an Oregon Roof Insurance Claim?</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Assemble the following before filing:
+        <strong>You need six types of documentation: a contractor&apos;s inspection report, your own date-stamped photos, a weather record confirming the storm date and hail size, pre-storm documentation if available, emergency repair receipts, and your policy declarations page.</strong> Each serves a specific purpose in the claim process. Assembling all of these before you call your insurer puts you in a strong position from the first contact.
       </p>
       <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
-        <li><strong>Your contractor&apos;s inspection report</strong> with photographs, impact counts, and scope of damage</li>
-        <li><strong>Date-stamped photos</strong> you took yourself after the storm (gutters, AC unit, visible shingle damage)</li>
+        <li><strong>Your contractor&apos;s inspection report</strong> with photographs, impact counts per test square, and full scope of damage</li>
+        <li><strong>Date-stamped photos</strong> you took after the storm — gutters, AC unit, visible shingle damage, metal flashing</li>
         <li><strong>Weather documentation</strong> — the NWS storm report for the August 5, 2025 Deschutes County event, a HailTrace report for your specific address, or both</li>
-        <li><strong>Pre-storm documentation</strong> — if you have photos of your roof from before August 2025 (real estate listing photos, prior inspection reports), these help establish that damage is new</li>
-        <li><strong>Any receipts</strong> for emergency temporary repairs (tarping, emergency water mitigation)</li>
-        <li><strong>Your insurance policy</strong> — particularly the declarations page and the Duties After Loss section</li>
+        <li><strong>Pre-storm documentation</strong> — real estate listing photos or prior inspection reports that establish damage is new, not pre-existing</li>
+        <li><strong>Emergency repair receipts</strong> for any tarping or emergency water mitigation you performed</li>
+        <li><strong>Your insurance policy</strong> — particularly the declarations page and the Duties After Loss section, which governs your filing timeline</li>
       </ul>
 
       <hr className="my-8 border-gray-200" />
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Phase 2: Filing the Claim</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Phase 2: How Do I Actually File the Claim?</h2>
 
-      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">How to Notify Your Insurer</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">How Do I Notify My Insurer and What Should I Say?</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Call your insurer&apos;s claims line — not your agent — to file. Your agent can help, but the claims department handles the actual filing. When you call:
+        <strong>Call your insurer&apos;s claims line — not your agent — state the specific storm date and county, get a claim number, and immediately follow up with a written email confirmation to create a timestamped paper trail.</strong> The claims department handles the actual filing; your agent can assist but cannot file on your behalf. When you call, be specific: &quot;I&apos;m filing a claim for hail damage to my roof from the August 5, 2025 storm in Deschutes County, Oregon.&quot; Specificity about the storm date and location prevents later disputes about whether the damage is from the covered event.
       </p>
       <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
         <li>State clearly: &quot;I&apos;m filing a claim for hail damage to my roof from the August 5, 2025 storm in Deschutes County, Oregon.&quot;</li>
         <li>Provide your policy number, property address, and phone number</li>
-        <li>Note the claim number they give you — every subsequent communication should reference this number</li>
-        <li>Ask for the name and direct contact information of the adjuster assigned to your claim</li>
+        <li>Record the claim number — every subsequent communication must reference this number</li>
+        <li>Get the adjuster&apos;s name and direct contact information</li>
         <li>Ask: &quot;What is the required proof of loss deadline under my policy?&quot;</li>
       </ul>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Follow up your call immediately with an email or letter confirming the filing date and the details of your conversation. This creates a paper trail that protects you if the insurer later disputes the notice date.
+        Follow up your call immediately with an email or letter confirming the filing date and conversation details. This creates a paper trail that protects you if the insurer later disputes the notice date — a common tactic in late-claim disputes.
       </p>
 
-      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">What Oregon Law Requires of Your Insurer After You File</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">What Is Oregon Law Required of My Insurer After I File?</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Under Oregon insurance regulations (OAR Chapter 836), once you file a claim your insurer must:
+        <strong>Under Oregon OAR Chapter 836, your insurer must acknowledge your claim within 30 days, complete their investigation within 45 days, and accept or deny within 30 days of a completed proof of loss — missing any of these deadlines is grounds for a DFR complaint.</strong> These timelines are legally binding on every licensed insurer operating in Oregon. Insurers who miss deadlines or communicate inadequately are subject to regulatory action by the <a href="https://dfr.oregon.gov/insure/home/storm/pages/index.aspx" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Oregon Division of Financial Regulation</a>.
       </p>
       <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
         <li><strong>Acknowledge your claim</strong> within 30 days of receiving notification</li>
@@ -106,114 +104,100 @@ export default function FilingRoofInsuranceClaimOregonGuidePage() {
         <li><strong>Pay undisputed amounts promptly</strong> — Oregon law prohibits unreasonable delay in payment</li>
       </ul>
       <p className="text-gray-700 leading-relaxed mb-4">
-        If your insurer misses any of these deadlines or communicates poorly, document it and file a complaint with the <a href="https://dfr.oregon.gov/insure/home/storm/pages/index.aspx" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Oregon Division of Financial Regulation</a> at 888-877-4894.
+        If your insurer misses any of these deadlines or communicates poorly, document it and file a complaint with the Oregon DFR at 888-877-4894.
       </p>
 
       <hr className="my-8 border-gray-200" />
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Phase 3: The Adjuster Inspection</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Phase 3: How Should I Handle the Adjuster Inspection?</h2>
 
-      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">What to Do Before the Adjuster Arrives</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">What Should I Do Before the Insurance Adjuster Arrives?</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        The adjuster inspection is the most important event in the claim process. Do not treat it as a formality. Before they arrive:
+        <strong>The single most important action before the adjuster arrives is requesting that your licensed roofing contractor be present during the inspection — this is your legal right in Oregon and the most effective way to protect your claim value.</strong> The adjuster inspection is the pivotal event in the entire claim process. How it goes largely determines your final payout. Do not treat it as a formality: have your contractor there, provide them the contractor&apos;s inspection report at the start, and ensure all damage areas are accessible.
       </p>
       <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
-        <li><strong>Request that your roofing contractor be present</strong> — you have the right to have a licensed contractor accompany the adjuster during the inspection. This is perhaps the single most important step you can take to protect your claim value.</li>
+        <li><strong>Request that your roofing contractor be present</strong> — you have the right to have a licensed contractor accompany the adjuster. This is the single most protective step you can take.</li>
         <li><strong>Provide the contractor&apos;s inspection report</strong> to the adjuster at the start of their visit</li>
         <li><strong>Do not make any permanent repairs</strong> before the adjuster has seen the damage — only emergency tarping is acceptable</li>
-        <li><strong>Ensure all previously identified damage areas are accessible</strong></li>
+        <li><strong>Ensure all previously identified damage areas are accessible</strong> — clear any obstructions from roof access points</li>
       </ul>
 
-      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Understanding the Adjuster&apos;s Role</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">What Does the Insurance Adjuster Actually Do, and Why Does It Matter?</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Insurance adjusters are employees or contracted representatives of your insurance company. Their job is to determine the scope of covered damage and produce an estimate — using software called Xactimate that most Oregon insurers use as their standard estimating tool. The adjuster&apos;s goal is accurate assessment, but they are working for the insurer, not for you.
-      </p>
-      <p className="text-gray-700 leading-relaxed mb-4">
-        A common dispute arises over partial replacement vs. full replacement. If the adjuster says only one slope of your roof needs replacement but your contractor says the entire roof must be replaced for consistent material matching (as Oregon courts have upheld), you have grounds to dispute the partial scope.
+        <strong>Insurance adjusters work for the insurance company and use Xactimate software to produce an estimate — their job is accurate assessment, but their employer is the insurer, not you.</strong> Adjusters are trained to count impact marks per 10-square-foot test square to determine whether the damage threshold for approval is met. A common dispute arises over partial versus full roof replacement: if the adjuster says only one slope needs replacing but your contractor says the entire roof must be replaced for consistent material matching (as Oregon courts have upheld), you have grounds to dispute the partial scope.
       </p>
 
       <hr className="my-8 border-gray-200" />
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Phase 4: Reviewing the Settlement Offer</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Phase 4: How Do I Review and Dispute the Settlement Offer?</h2>
 
-      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">ACV vs. RCV: The Most Important Policy Distinction</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">What Is the Difference Between ACV and RCV Coverage, and Why Does It Matter?</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Your policy pays based on either <strong>Actual Cash Value (ACV)</strong> or <strong>Replacement Cost Value (RCV)</strong>. Understanding the difference determines how much you actually receive:
+        <strong>ACV (Actual Cash Value) policies pay only the depreciated value of your roof — potentially 25% of replacement cost on an older roof — while RCV (Replacement Cost Value) policies pay the full cost of new materials, making this the most important distinction in your policy.</strong> Check your declarations page right now to confirm which type you have. For a $20,000 roof replacement, an ACV policy on a 15-year-old roof with a 20-year lifespan might pay only $5,000 minus your deductible. An RCV policy pays the full $20,000, releasing the depreciation holdback after the work is completed and receipts are submitted.
       </p>
       <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
-        <li><strong>ACV policies</strong> pay the depreciated value of your old roof — if your 15-year-old roof has a 20-year lifespan, they may pay only 25% of the replacement cost after depreciation. For a $20,000 roof replacement, that might mean a $5,000 check minus your deductible.</li>
-        <li><strong>RCV policies</strong> pay the full cost to replace the damaged property with new materials of similar quality. The insurer typically pays ACV first, then releases the &quot;recoverable depreciation&quot; after the work is completed and you submit receipts.</li>
+        <li><strong>ACV policies</strong> pay the depreciated value — if your 15-year-old roof has a 20-year lifespan, you may receive only 25% of replacement cost after depreciation</li>
+        <li><strong>RCV policies</strong> pay the full replacement cost with new materials of similar quality; the insurer typically pays ACV first, then releases &quot;recoverable depreciation&quot; after completion</li>
       </ul>
-      <p className="text-gray-700 leading-relaxed mb-4">
-        Check your declarations page right now to confirm which type you have. If you have ACV coverage on a damaged roof, you may want to discuss upgrading to RCV coverage with your agent before the next renewal — though that won&apos;t help with the current claim.
-      </p>
 
-      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">How to Dispute an Underpayment</h3>
+      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">How Do I Dispute an Insurance Underpayment in Oregon?</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        If the adjuster&apos;s estimate is significantly lower than your contractor&apos;s estimate, you have options:
+        <strong>If the adjuster&apos;s estimate is lower than your contractor&apos;s, you have five Oregon-specific options: request a re-inspection with your contractor present, submit a supplemental claim, invoke the appraisal clause, hire a public adjuster, or file a DFR complaint.</strong> Insurance adjuster estimates are opening offers, not final determinations. A significant percentage of initial offers are lower than actual replacement cost because code upgrades, permit costs, drip edge replacement, and ice-and-water shield requirements often go uncounted.
       </p>
       <ol className="list-decimal pl-6 mb-4 space-y-2 text-gray-700">
         <li><strong>Request a re-inspection</strong> with your contractor present if they weren&apos;t there for the first one</li>
-        <li><strong>Submit a supplemental claim</strong> — contractors regularly identify items the adjuster missed (code upgrades, permit costs, drip edge replacement, ice and water shield requirements) that can be added to the original estimate</li>
-        <li><strong>Invoke the appraisal clause</strong> — most Oregon homeowners policies include a dispute resolution mechanism where both parties hire an independent appraiser, and the two appraisers select a neutral umpire whose decision is binding</li>
-        <li><strong>Hire a licensed public adjuster</strong> — a public adjuster works for you (not the insurer) and charges a percentage of the claim settlement; they can be worth it for large or complicated disputes</li>
-        <li><strong>File a complaint with Oregon DFR</strong> — if you believe your insurer is acting in bad faith or violating Oregon&apos;s claims handling regulations</li>
+        <li><strong>Submit a supplemental claim</strong> — contractors regularly identify items the adjuster missed (code upgrades, permit costs, drip edge, ice and water shield) that can be added to the original estimate</li>
+        <li><strong>Invoke the appraisal clause</strong> — most Oregon homeowners policies include a binding dispute resolution mechanism using two independent appraisers and a neutral umpire</li>
+        <li><strong>Hire a licensed public adjuster</strong> — a public adjuster works for you, charges a percentage of the settlement, and can be worth it for large or complicated disputes</li>
+        <li><strong>File a complaint with Oregon DFR</strong> at 888-877-4894 if you believe your insurer is acting in bad faith or violating Oregon&apos;s claims handling regulations</li>
       </ol>
 
       <hr className="my-8 border-gray-200" />
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Common Pitfalls That Reduce or Eliminate Oregon Roof Claims</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">What Are the Most Common Mistakes That Reduce Oregon Roof Claims?</h2>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Missing the Proof of Loss Deadline</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        After you file your initial notice, your insurer will likely ask you to complete a formal &quot;Proof of Loss&quot; document. This sworn statement of the details and value of your claim typically must be filed within 60 days of the insurer&apos;s request. Missing this deadline can result in claim denial even if you filed your initial notice on time.
+        <strong>After your initial notice, your insurer will require a formal Proof of Loss document — typically due within 60 days of their request — and missing this secondary deadline can void your claim even if you filed the initial notice on time.</strong> The Proof of Loss is a sworn statement of the claim details and value. It is separate from your initial notification. Track this deadline carefully after your claim is acknowledged, and submit the completed document well before the deadline.
       </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Making Repairs Before the Adjuster Visits</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Only perform emergency temporary repairs (tarping an active leak) before the adjuster has documented the damage. Permanent repairs made before the insurer&apos;s inspection eliminate their ability to assess the damage — giving them grounds to deny the claim or reduce the payout.
+        <strong>Permanent repairs made before the insurer&apos;s inspection eliminate their ability to assess damage — this gives them grounds to deny the claim or reduce the payout to zero.</strong> Only emergency temporary repairs (tarping an active leak) are appropriate before the adjuster has documented the damage. Document everything with photographs before and after any temporary mitigation work.
       </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Signing an Assignment of Benefits Agreement</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Some contractors ask you to sign an Assignment of Benefits (AOB) agreement, which transfers your insurance claim rights to them. This removes you from the process and can lead to disputes between the contractor and your insurer that delay your project — sometimes for months. Avoid AOB agreements. You have the right to manage your own claim.
-      </p>
-
-      <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Accepting the First Offer Without Review</h3>
-      <p className="text-gray-700 leading-relaxed mb-4">
-        Insurance adjuster estimates are opening offers, not final determinations. A significant percentage of initial offers are lower than the full cost of repair or replacement, particularly when code upgrades or material matching requirements haven&apos;t been accounted for. Always have your contractor review the adjuster&apos;s estimate before accepting.
+        <strong>An Assignment of Benefits (AOB) agreement transfers your insurance claim rights to the contractor, removing you from the process and frequently causing disputes that delay your project by months.</strong> Some contractors ask you to sign AOB agreements as a condition of starting work. Refuse. You have the right to manage your own claim, and removing yourself from the process removes your ability to dispute estimate discrepancies or contractor performance.
       </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Waiting Too Long</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        This is the most common and most costly mistake. For the August 2025 storm, the practical claim deadline is <strong>August 2026</strong>. After that, most insurers will deny the claim as untimely. Review our detailed guide on <a href="/blog/oregon-roof-insurance-claim-deadline" className="text-blue-600 hover:underline">Oregon roof insurance claim deadlines</a> for the full legal framework.
+        <strong>For the August 2025 storm, the practical claim deadline is August 2026 — after which most insurers will deny the claim as untimely, regardless of how well-documented the damage is.</strong> This is the most common and most costly mistake. Review our detailed guide on <a href="/blog/oregon-roof-insurance-claim-deadline" className="text-blue-600 hover:underline">Oregon roof insurance claim deadlines</a> for the full legal framework, including ORS 742.240 and the two-year lawsuit backstop.
       </p>
 
       <hr className="my-8 border-gray-200" />
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">How FreeRoofPros Helps Central Oregon Homeowners</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">How Does FreeRoofPros Help Central Oregon Homeowners File Stronger Claims?</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        FreeRoofPros connects <a href="/bend-or" className="text-blue-600 hover:underline">Bend</a>, <a href="/redmond-or" className="text-blue-600 hover:underline">Redmond</a>, and <a href="/la-pine-or" className="text-blue-600 hover:underline">La Pine</a> homeowners with vetted, licensed Oregon contractors who specialize in the full insurance claim cycle — from initial inspection through adjuster negotiations, supplemental claims, and final <a href="/services/roof-replacement" className="text-blue-600 hover:underline">roof replacement</a>.
+        <strong>FreeRoofPros connects Bend, Redmond, and La Pine homeowners with vetted, licensed Oregon contractors who manage the full insurance claim cycle — from inspection and adjuster negotiations to supplemental claims and final roof replacement.</strong> Our contractors understand Xactimate — the software your insurer&apos;s adjuster uses — and know how to build a documented case that accounts for the full scope of covered damage. They know Oregon-specific requirements: Deschutes County permit costs, required code upgrades, and Class 4 impact-resistant shingle standards that are increasingly the norm in Central Oregon.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Our contractors understand Xactimate — the software your insurer&apos;s adjuster uses — and know how to build a documented case that supports the full scope of covered damage. They know the Oregon-specific requirements: permit costs, code upgrades required by Deschutes County, and the Class 4 impact-resistant shingle standards that are increasingly standard in Central Oregon.
-      </p>
-      <p className="text-gray-700 leading-relaxed mb-4">
-        The <a href="/services/insurance-claims" className="text-blue-600 hover:underline">insurance claims process</a> is complex. Our goal is to make sure you receive every dollar you&apos;re entitled to — without having to become an insurance expert yourself.
+        We connect <a href="/bend-or" className="text-blue-600 hover:underline">Bend</a>, <a href="/redmond-or" className="text-blue-600 hover:underline">Redmond</a>, and <a href="/la-pine-or" className="text-blue-600 hover:underline">La Pine</a> homeowners with contractors who specialize in the complete <a href="/services/insurance-claims" className="text-blue-600 hover:underline">insurance claims process</a> and <a href="/services/roof-replacement" className="text-blue-600 hover:underline">roof replacement</a>. Our goal is to ensure you receive every dollar you&apos;re entitled to — without having to become an insurance expert yourself.
       </p>
 
       <hr className="my-8 border-gray-200" />
 
-      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Start With a Free Inspection</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Start With a Free Inspection — The August 2026 Deadline Is Approaching</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Every successful roof insurance claim in Oregon starts with thorough documentation. A free inspection from a FreeRoofPros contractor gives you the professional report, photographs, and scope assessment you need to file a credible claim — at no cost and with no obligation.
+        <strong>Every successful Oregon roof insurance claim starts with a professional inspection report — schedule yours now before the August 2026 deadline and while contractor availability is still open.</strong> A free inspection from a FreeRoofPros contractor gives you the professional report, photographs, and scope assessment you need to file a credible, fully-documented claim. There is no cost and no obligation.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
         <strong>The August 2026 deadline for the August 2025 storm is approaching. Don&apos;t leave money on the table.</strong>
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
         <strong><a href="/#lead-form" className="text-blue-600 hover:underline">Schedule Your Free Roof Inspection at FreeRoofPros.com</a></strong><br />
-        Call us: <strong>541-728-0266</strong><br />
+        Call us: <strong>(541) 728-0266</strong><br />
         Email: <strong>info@freeroofpros.com</strong>
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
