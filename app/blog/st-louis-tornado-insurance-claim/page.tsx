@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 const SLUG = 'st-louis-tornado-insurance-claim';
