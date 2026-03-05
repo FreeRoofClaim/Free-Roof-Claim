@@ -369,7 +369,7 @@ export default function StormDamageRepair() {
               </p>
               <p className="text-gray-700 mb-8 leading-relaxed">
                 Delaying repairs after storm damage can also void portions of your homeowner's
-                insurance coverage. Most policies require "prompt" action to mitigate further damage
+                insurance coverage. Most policies require &quot;prompt&quot; action to mitigate further damage
                 — failure to do so gives insurers grounds to deny or reduce your claim. Don't let a
                 fixable problem become a financial disaster.
               </p>
@@ -496,7 +496,9 @@ export default function StormDamageRepair() {
           </h2>
           <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
             You don't need to climb on your roof — and you shouldn't. Here's how to safely assess
-            potential damage from the ground before your professional inspection.
+            potential damage from the ground before your professional inspection. Our detailed guide to{' '}
+            <Link href="/blog/signs-of-hail-damage-on-roof" className="text-[#2563eb] hover:underline">signs of hail damage on your roof</Link>
+            {' '}covers every material type.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
@@ -671,7 +673,9 @@ export default function StormDamageRepair() {
                 Oregon's recent history. Hailstones up to the size of golf balls struck communities
                 across the region — Bend, Redmond, La Pine, Terrebonne, Sisters, Prineville, Madras,
                 and Sunriver — causing widespread damage to thousands of roofs, vehicles, and
-                properties.
+                properties. Read our full{' '}
+                <Link href="/blog/central-oregon-hailstorm-2025" className="text-[#2563eb] hover:underline">Central Oregon hailstorm guide</Link>
+                {' '}including the August 2026 claim deadline.
               </p>
 
               <p className="text-gray-700 leading-relaxed mb-4">
@@ -779,7 +783,7 @@ export default function StormDamageRepair() {
                   ))}
                 </div>
                 <p className="text-gray-700 text-sm leading-relaxed mb-4 italic">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </p>
                 <div className="flex items-center gap-2">
                   <div className="w-8 h-8 bg-[#2563eb]/10 rounded-full flex items-center justify-center">
