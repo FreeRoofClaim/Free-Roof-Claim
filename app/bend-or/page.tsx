@@ -128,6 +128,15 @@ const faqJsonLd = {
   ],
 };
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.freeroofpros.com/' },
+    { '@type': 'ListItem', position: 2, name: 'Bend OR Roofing', item: 'https://www.freeroofpros.com/bend-or' },
+  ],
+};
+
 // --- Page component --------------------------------------------------------
 
 export default function BendOrPage() {
@@ -141,6 +150,10 @@ export default function BendOrPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
 
       {/* HERO */}

@@ -13,12 +13,12 @@ export const metadata: Metadata = {
   title: `${TITLE} | FreeRoofPros`,
   description: DESCRIPTION,
   alternates: {
-    canonical: `https://freeroofpros.com/blog/${SLUG}`,
+    canonical: `https://www.freeroofpros.com/blog/${SLUG}`,
   },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: `https://freeroofpros.com/blog/${SLUG}`,
+    url: `https://www.freeroofpros.com/blog/${SLUG}`,
     siteName: 'FreeRoofPros',
     type: 'article',
     publishedTime: PUBLISHED_DATE_ISO,
