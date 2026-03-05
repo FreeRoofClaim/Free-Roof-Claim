@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 const SLUG = 'nashville-storm-damage-claim';
@@ -47,7 +48,7 @@ export default function NashvilleStormDamageClaimPage() {
 
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Nashville&apos;s Growth Story — and the Risk That Comes With It</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        The Nashville metro now surpasses <strong>2.1 million residents</strong>, representing more than <strong>25% growth</strong> over the last 25 years. Many newcomers bought homes without knowing that Tennessee&apos;s insurance policies typically impose a <strong>1-year deadline to file</strong> — significantly shorter than most other states.
+        The Nashville metro now surpasses <strong>2.1 million residents</strong>, representing more than <strong>25% growth</strong> over the last 25 years. Many newcomers bought homes without knowing that Tennessee&apos;s insurance policies typically impose a <strong>1-year deadline to file</strong> — significantly shorter than most other states. For a full breakdown of how claim deadlines work across states, see our guide on <Link href="/blog/how-long-to-file-roof-insurance-claim" className="text-blue-600 hover:underline">how long you have to file a roof insurance claim</Link>.
       </p>
 
       <hr className="my-8 border-gray-200" />
@@ -104,10 +105,10 @@ export default function NashvilleStormDamageClaimPage() {
 
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Get Your Free Nashville Roof Inspection Today</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        FreeRoofPros.com helps Nashville homeowners navigate storm damage insurance claims from inspection through full roof replacement. Our inspections are completely free.
+        FreeRoofPros.com helps Nashville homeowners navigate <Link href="/services/storm-damage-repair" className="text-blue-600 hover:underline">storm damage insurance claims</Link> from inspection through full <Link href="/services/insurance-claims" className="text-blue-600 hover:underline">roof replacement</Link>. Our inspections are completely free.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        <strong><a href="https://freeroofpros.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Schedule Your Free Roof Inspection at FreeRoofPros.com</a></strong><br />
+        <Link href="/" className="text-blue-600 hover:underline font-semibold">Get Your Free Roof Inspection &rarr;</Link><br />
         Call us: <strong>541-728-0266</strong><br />
         Email: <strong>info@freeroofpros.com</strong>
       </p>

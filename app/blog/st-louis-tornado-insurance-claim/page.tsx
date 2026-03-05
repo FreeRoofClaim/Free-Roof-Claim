@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 const SLUG = 'st-louis-tornado-insurance-claim';
@@ -81,7 +82,9 @@ export default function StLouisTornadoInsuranceClaimPage() {
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">How to File Your St. Louis Storm Damage Claim</h2>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Inspect Your Entire Property</h3>
-      <p className="text-gray-700 leading-relaxed mb-4">Document roof shingles, gutters, siding, windows, HVAC units, fencing, and outbuildings with date-stamped photos and video.</p>
+      <p className="text-gray-700 leading-relaxed mb-4">
+        Document roof shingles, gutters, siding, windows, HVAC units, fencing, and outbuildings with date-stamped photos and video. Our guide to <Link href="/blog/signs-of-hail-damage-on-roof" className="text-blue-600 hover:underline">signs of hail damage on your roof</Link> explains what to look for at ground level.
+      </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 2: Call Your Insurer and Open a Claim</h3>
       <p className="text-gray-700 leading-relaxed mb-4">Notify your insurance company promptly. Be specific about the storm date — May 16, 2025 for the tornado.</p>
@@ -99,10 +102,10 @@ export default function StLouisTornadoInsuranceClaimPage() {
 
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Free Roof Inspection for St. Louis Homeowners</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        FreeRoofPros.com specializes in storm damage roof replacement and insurance claim assistance. We understand Missouri&apos;s matching law and our inspections are completely free.
+        FreeRoofPros.com specializes in <Link href="/services/storm-damage-repair" className="text-blue-600 hover:underline">storm damage roof replacement</Link> and <Link href="/services/insurance-claims" className="text-blue-600 hover:underline">insurance claim assistance</Link>. We understand Missouri&apos;s matching law and our inspections are completely free.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        <strong><a href="https://freeroofpros.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Schedule Your Free Roof Inspection at FreeRoofPros.com</a></strong><br />
+        <Link href="/" className="text-blue-600 hover:underline font-semibold">Get Your Free Roof Inspection &rarr;</Link><br />
         Call us: <strong>541-728-0266</strong><br />
         Email: <strong>info@freeroofpros.com</strong>
       </p>

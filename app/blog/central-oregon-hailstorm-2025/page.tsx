@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 const SLUG = 'central-oregon-hailstorm-2025';
@@ -39,7 +40,7 @@ export default function CentralOregonHailstorm2025Page() {
       city={CITY}
     >
       <p className="text-gray-700 leading-relaxed mb-4">
-        If your home in Bend, Redmond, Sunriver, La Pine, or Tumalo took a hit from the August 3, 2025 hailstorm, you may still have time to file an insurance claim - but that window is closing fast. Based on the standard one-year policy deadline used by most homeowners insurers, <strong>your practical deadline to file a claim is August 3, 2026</strong>, now approximately five months away.
+        If your home in <Link href="/bend-or" className="text-blue-600 hover:underline">Bend</Link>, <Link href="/redmond-or" className="text-blue-600 hover:underline">Redmond</Link>, Sunriver, <Link href="/la-pine-or" className="text-blue-600 hover:underline">La Pine</Link>, or Tumalo took a hit from the August 3, 2025 hailstorm, you may still have time to file an insurance claim - but that window is closing fast. Based on the standard one-year policy deadline used by most homeowners insurers, <strong>your practical deadline to file a claim is August 3, 2026</strong>, now approximately five months away.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
         This article explains exactly what happened, what the law says, what mistakes to avoid, and how to protect yourself before time runs out.
@@ -117,7 +118,7 @@ export default function CentralOregonHailstorm2025Page() {
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">3. Relying Solely on the Insurance Company&apos;s Adjuster</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Insurance adjusters work for the insurance company. Under Oregon law, you have the right to have a licensed roofing contractor present during any inspection. If the contractor&apos;s estimate and the adjuster&apos;s estimate differ significantly, you can dispute it - and you should.
+        Insurance adjusters work for the insurance company. Under Oregon law, you have the right to have a licensed roofing contractor present during any inspection. If the contractor&apos;s estimate and the adjuster&apos;s estimate differ significantly, you can dispute it - and you should. Our <Link href="/services/storm-damage-repair" className="text-blue-600 hover:underline">storm damage repair specialists</Link> know how to document hail damage so nothing gets missed.
       </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">4. Missing Non-Visible Damage</h3>
@@ -137,7 +138,7 @@ export default function CentralOregonHailstorm2025Page() {
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">7. Assuming a Denial Is Final</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Oregon homeowners have multiple tools to fight a denial: submitting additional documentation, filing a complaint with the DFR, hiring a licensed public adjuster, or filing suit within 2 years of the loss. A denial letter is not the end of the road.
+        Oregon homeowners have multiple tools to fight a denial: submitting additional documentation, filing a complaint with the DFR, hiring a licensed public adjuster, or filing suit within 2 years of the loss. A denial letter is not the end of the road. Our guide to <Link href="/services/insurance-claims" className="text-blue-600 hover:underline">filing a roof insurance claim</Link> walks through each step of the appeal process.
       </p>
 
       <hr className="my-8 border-gray-200" />
@@ -195,13 +196,13 @@ export default function CentralOregonHailstorm2025Page() {
 
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Get Your Free Roof Inspection Today</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        FreeRoofPros.com specializes in storm damage roof replacement and insurance claim assistance for Central Oregon homeowners. We know the August 3 storm. We know Oregon insurance law. And we know how to document hail damage so your claim gets the full payout you&apos;re owed.
+        FreeRoofPros.com specializes in <Link href="/services/storm-damage-repair" className="text-blue-600 hover:underline">storm damage roof replacement</Link> and <Link href="/services/insurance-claims" className="text-blue-600 hover:underline">insurance claim assistance</Link> for Central Oregon homeowners. We know the August 3 storm. We know Oregon insurance law. And we know how to document hail damage so your claim gets the full payout you&apos;re owed.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
         <strong>Don&apos;t leave money on the table - and don&apos;t miss your deadline.</strong>
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        <strong><a href="https://freeroofpros.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Schedule Your Free Roof Inspection at FreeRoofPros.com</a></strong><br />
+        <Link href="/" className="text-blue-600 hover:underline font-semibold">Get Your Free Roof Inspection &rarr;</Link><br />
         Call us: <strong>541-728-0266</strong><br />
         Email: <strong>info@freeroofpros.com</strong>
       </p>

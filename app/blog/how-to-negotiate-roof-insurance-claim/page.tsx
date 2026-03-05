@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 const SLUG = 'how-to-negotiate-roof-insurance-claim';
@@ -142,7 +143,7 @@ export default function NegotiateRoofClaimPage() {
         <li>The insurer assigns the supplement to an adjuster who reviews the additional documentation and either approves, partially approves, or denies the supplement within 15-30 days.</li>
       </ol>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Most supplements involving clearly documented, standard line items are approved on the first submission. More complex supplements - involving full replacement vs. repair disputes or significant scope increases - may require multiple rounds and escalation.
+        Most supplements involving clearly documented, standard line items are approved on the first submission. More complex supplements - involving full replacement vs. repair disputes or significant scope increases - may require multiple rounds and escalation. For a full walkthrough of the entire claim process, read our <Link href="/blog/roof-insurance-claim-process-step-by-step" className="text-blue-600 hover:underline">step-by-step roof insurance claim guide</Link>.
       </p>
 
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Public Adjusters vs. Attorneys: Which Do You Need?</h2>
@@ -182,7 +183,7 @@ export default function NegotiateRoofClaimPage() {
         <li><strong>Days 60-90:</strong> If supplement is denied or insufficient, escalate to public adjuster, state complaint, or appraisal clause invocation.</li>
       </ul>
       <p className="text-gray-700 leading-relaxed mb-4">
-        For more information on navigating the claims process from start to finish, visit our <a href="/faq" className="text-blue-600 hover:underline">FreeRoofPros FAQ</a>. If you need a qualified contractor to produce a supplement-ready estimate in your area, <a href="/#contact" className="text-blue-600 hover:underline">contact FreeRoofPros</a> for a free referral.
+        For more information on navigating the <Link href="/services/insurance-claims" className="text-blue-600 hover:underline">insurance claims process</Link> from start to finish, visit our <a href="/faq" className="text-blue-600 hover:underline">FreeRoofPros FAQ</a>. If you need a qualified contractor to produce a supplement-ready estimate in your area, <a href="/#contact" className="text-blue-600 hover:underline">contact FreeRoofPros</a> for a free referral.
       </p>
 
       <hr className="my-8 border-gray-200" />
