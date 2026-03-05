@@ -143,56 +143,66 @@ async function sendLeadNotification(leadData: {
 }
 
 // Send SMS via Twilio
-// async function sendSMSViaTwilio(
-//   to: string,
-//   message: string
-// ): Promise<{ success: boolean; error?: any }> {
-//   const accountSid = process.env.TWILIO_ACCOUNT_SID;
-//   const authToken = process.env.TWILIO_AUTH_TOKEN;
-//   const fromNumber = process.env.TWILIO_PHONE_NUMBER;
+async function sendSMSViaTwilio(
+  to: string,
+  message: string
+): Promise<{ success: boolean; error?: any }> {
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const fromNumber = process.env.TWILIO_PHONE_NUMBER;
 
-//   if (!accountSid || !authToken || !fromNumber) {
-//     console.warn("Twilio credentials not set, skipping SMS");
-//     return { success: false, error: "Twilio credentials not configured" };
-//   }
+  if (!accountSid || !authToken || !fromNumber) {
+    console.warn("Twilio credentials not set, skipping SMS");
+    return { success: false, error: "Twilio credentials not configured" };
+  }
 
-//   // Normalize phone number: remove non-digits, ensure country code
-//   const normalizedPhone = to.replace(/\D/g, "");
-//   const phoneWithCountryCode = normalizedPhone.startsWith("1") 
-//     ? `+${normalizedPhone}` 
-//     : `+1${normalizedPhone}`;
+  // Normalize phone number: remove non-digits, ensure country code
+  // const normalizedPhone = to.replace(/\D/g, "");
+  // const phoneWithCountryCode = normalizedPhone.startsWith("1") 
+  //   ? `+${normalizedPhone}` 
+  //   : `+1${normalizedPhone}`;
 
-//   try {
-//     const response = await fetch(
-//       `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`,
-//       {
-//         method: "POST",
-//         headers: {
-//           "Content-Type": "application/x-www-form-urlencoded",
-//           Authorization: `Basic ${Buffer.from(`${accountSid}:${authToken}`).toString("base64")}`,
-//         },
-//         body: new URLSearchParams({
-//           From: fromNumber,
-//           To: phoneWithCountryCode,
-//           Body: message,
-//         }),
-//       }
-//     );
+  let phoneWithCountryCode = to.trim();
 
-//     const result = await response.json();
+// remove spaces, dashes etc
+phoneWithCountryCode = phoneWithCountryCode.replace(/[^\d+]/g, "");
 
-//     if (!response.ok) {
-//       console.error(`❌ Twilio SMS failed to ${phoneWithCountryCode}:`, result);
-//       return { success: false, error: result };
-//     }
+// if number does not start with +, assume US
+if (!phoneWithCountryCode.startsWith("+")) {
+  phoneWithCountryCode = "+1" + phoneWithCountryCode;
+}
 
-//     console.log(`✅ SMS sent successfully to ${phoneWithCountryCode}`);
-//     return { success: true };
-//   } catch (err) {
-//     console.error(`❌ Error sending SMS to ${phoneWithCountryCode}:`, err);
-//     return { success: false, error: err };
-//   }
-// }
+  try {
+    const response = await fetch(
+      `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Authorization: `Basic ${Buffer.from(`${accountSid}:${authToken}`).toString("base64")}`,
+        },
+        body: new URLSearchParams({
+          From: fromNumber,
+          To: phoneWithCountryCode,
+          Body: message,
+        }),
+      }
+    );
+
+    const result = await response.json();
+
+    if (!response.ok) {
+      console.error(`❌ Twilio SMS failed to ${phoneWithCountryCode}:`, result);
+      return { success: false, error: result };
+    }
+
+    console.log(`✅ SMS sent successfully to ${phoneWithCountryCode}`);
+    return { success: true };
+  } catch (err) {
+    console.error(`❌ Error sending SMS to ${phoneWithCountryCode}:`, err);
+    return { success: false, error: err };
+  }
+}
 
 // Send premium lead notification to contractors within service radius (Email + SMS)
 async function sendPremiumLeadNotificationToContractors(
@@ -365,13 +375,13 @@ async function sendPremiumLeadNotificationToContractors(
     // Send SMS (if phone number is available)
     if (contractor.phone) {
       try {
-        // const smsResult = await sendSMSViaTwilio(contractor.phone, smsMessage);
-        // if (smsResult.success) {
-        //   console.log(`✅ SMS sent to ${contractor.fullName} (${contractor.phone})`);
-        //   results.sms.success = true;
-        // } else {
-        //   results.sms.error = smsResult.error;
-        // }
+        const smsResult = await sendSMSViaTwilio(contractor.phone, smsMessage);
+        if (smsResult.success) {
+          console.log(`✅ SMS sent to ${contractor.fullName} (${contractor.phone})`);
+          results.sms.success = true;
+        } else {
+          results.sms.error = smsResult.error;
+        }
       } catch (err) {
         console.error(`❌ Error sending SMS to ${contractor.phone}:`, err);
         results.sms.error = err;
