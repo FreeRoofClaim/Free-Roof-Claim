@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import BlogLayout from '@/components/blog/BlogLayout';
+import Link from 'next/link';
 
 const SLUG = 'roof-replacement-cost-by-state';
 const TITLE = 'How Much Does a Roof Replacement Cost in 2026? Average Prices by State';
@@ -45,8 +46,11 @@ export default function RoofReplacementCostByState() {
         storm demand can push the price substantially higher or lower depending on where you live.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        For homeowners with an active insurance claim, understanding what your roof replacement should
-        cost - and how the insurer&apos;s Xactimate estimate compares to real market pricing - is the
+        For homeowners with an active insurance claim, understanding what your{' '}
+        <Link href="/services/roof-replacement" className="text-blue-600 hover:underline">
+          insurance-covered roof replacement
+        </Link>{' '}
+        should cost - and how the insurer&apos;s Xactimate estimate compares to real market pricing - is the
         foundation of a fair settlement. This guide provides a comprehensive state-by-state cost
         breakdown and explains every factor that affects the final price.
       </p>
@@ -277,9 +281,9 @@ export default function RoofReplacementCostByState() {
       <p className="text-gray-700 leading-relaxed mb-4">
         For a full breakdown of how depreciation and the RCV vs. ACV calculation affects your
         settlement, see our guide on{' '}
-        <a href="/blog/rcv-vs-acv-roof-insurance" className="text-blue-600 hover:underline">
+        <Link href="/blog/rcv-vs-acv-roof-insurance" className="text-blue-600 hover:underline">
           RCV vs. ACV roof insurance
-        </a>
+        </Link>
         .
       </p>
 
@@ -299,7 +303,7 @@ export default function RoofReplacementCostByState() {
       <p className="text-gray-700 leading-relaxed mb-4">
         Have questions about whether your insurance settlement covers your actual replacement cost?
         Visit the{' '}
-        <a href="/faq" className="text-blue-600 hover:underline">FreeRoofPros FAQ</a>{' '}
+        <Link href="/faq" className="text-blue-600 hover:underline">FreeRoofPros FAQ</Link>{' '}
         or get a free professional estimate to compare.
       </p>
 
@@ -316,9 +320,9 @@ export default function RoofReplacementCostByState() {
         <li>Check your policy for Ordinance or Law coverage to see if code upgrades are reimbursable.</li>
         <li>If your insurer&apos;s estimate is lower than your contractor&apos;s, ask your contractor about filing a supplement.</li>
         <li>
-          <a href="/#contact" className="text-blue-600 hover:underline">
-            Connect with a FreeRoofPros contractor
-          </a>{' '}
+          <Link href="/" className="text-blue-600 hover:underline">
+            Get Your Free Inspection
+          </Link>{' '}
           for a free estimate and comparison against your insurance adjuster&apos;s offer.
         </li>
       </ul>

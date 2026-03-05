@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 const SLUG = 'kansas-city-hail-insurance-claim';
@@ -41,7 +42,7 @@ export default function KansasCityHailInsuranceClaimPage() {
     >
       <p className="text-gray-700 leading-relaxed mb-4">Most cities have one set of insurance rules. Kansas City has two.</p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        If your home sits in Overland Park, Lenexa, or Shawnee, you&apos;re in Kansas. If you live in Lee&apos;s Summit, Liberty, or Independence, you&apos;re in Missouri. These are different legal frameworks for how your insurance claim works.
+        If your home sits in Overland Park, Lenexa, or Shawnee, you&apos;re in Kansas. If you live in Lee&apos;s Summit, Liberty, or Independence, you&apos;re in Missouri. These are different legal frameworks for how your <Link href="/services/insurance-claims" className="text-blue-600 hover:underline">insurance claim</Link> works.
       </p>
 
       <hr className="my-8 border-gray-200" />
@@ -118,10 +119,13 @@ export default function KansasCityHailInsuranceClaimPage() {
 
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Schedule Your Free Roof Inspection Today</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Whether you&apos;re in Lee&apos;s Summit or Lenexa, FreeRoofPros.com can help. We know the Kansas City storm history and understand the cross-border insurance complexity.
+        Whether you&apos;re in Lee&apos;s Summit or Lenexa, FreeRoofPros.com can help. We know the Kansas City storm history and understand the cross-border insurance complexity. Not sure if you have hail damage? Read our guide to <Link href="/blog/signs-of-hail-damage-on-roof" className="text-blue-600 hover:underline">signs of hail damage on your roof</Link> before your free inspection.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        <strong><a href="https://freeroofpros.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Schedule Your Free Roof Inspection at FreeRoofPros.com</a></strong><br />
+        Our <Link href="/services/storm-damage-repair" className="text-blue-600 hover:underline">storm damage repair specialists</Link> serve both the Missouri and Kansas sides of the metro.
+      </p>
+      <p className="text-gray-700 leading-relaxed mb-4">
+        <Link href="/" className="text-blue-600 hover:underline font-semibold">Get Your Free Roof Inspection &rarr;</Link><br />
         Call us: <strong>541-728-0266</strong><br />
         Email: <strong>info@freeroofpros.com</strong>
       </p>

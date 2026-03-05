@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 const SLUG = 'dfw-hailstorm-insurance-claim';
@@ -50,7 +51,7 @@ export default function DfwHailstormInsuranceClaimPage() {
         If you live in the Dallas-Fort Worth Metroplex, you know the drill by now. The sky turns green, the hail hammers down, and within 48 hours your neighborhood is swarming with roofing contractors handing out business cards. The problem is, not all of them are there to help you.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        DFW is the most storm-chaser-saturated roofing market in the entire country — and the June 2025 storms gave those contractors another enormous hunting ground. Here&apos;s what every DFW homeowner needs to know right now about filing their insurance claim the right way.
+        DFW is the most storm-chaser-saturated roofing market in the entire country — and the June 2025 storms gave those contractors another enormous hunting ground. Here&apos;s what every DFW homeowner needs to know right now about filing their <Link href="/services/insurance-claims" className="text-blue-600 hover:underline">insurance claim</Link> the right way.
       </p>
 
       <hr className="my-8 border-gray-200" />
@@ -112,6 +113,9 @@ export default function DfwHailstormInsuranceClaimPage() {
         <li>High-pressure tactics: &quot;This offer is only good today&quot;</li>
         <li>No verifiable Texas license or insurance certificate</li>
       </ul>
+      <p className="text-gray-700 leading-relaxed mb-4">
+        For a deeper look at how these scams work and how to protect yourself, read our guide on <Link href="/blog/storm-chaser-roofer-scams" className="text-blue-600 hover:underline">storm-chaser roofer scams</Link>.
+      </p>
 
       <hr className="my-8 border-gray-200" />
 
@@ -119,7 +123,7 @@ export default function DfwHailstormInsuranceClaimPage() {
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Document Before You Do Anything Else</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Walk around your property with your phone and take date-stamped photos and video of every piece of damage you can see: roof shingles, gutters, siding, window screens, AC units, wood fencing, and vehicles.
+        Walk around your property with your phone and take date-stamped photos and video of every piece of damage you can see: roof shingles, gutters, siding, window screens, AC units, wood fencing, and vehicles. Our guide to <Link href="/blog/signs-of-hail-damage-on-roof" className="text-blue-600 hover:underline">signs of hail damage on your roof</Link> explains what to look for at ground level.
       </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 2: Call Your Insurance Company</h3>
@@ -144,10 +148,10 @@ export default function DfwHailstormInsuranceClaimPage() {
 
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Get a Free Roof Inspection — No Strings Attached</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        FreeRoofPros.com serves DFW homeowners with professional storm damage inspections, insurance claim documentation, and full roof replacement services.
+        FreeRoofPros.com serves DFW homeowners with professional <Link href="/services/storm-damage-repair" className="text-blue-600 hover:underline">storm damage inspections</Link>, insurance claim documentation, and full roof replacement services.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        <strong><a href="https://freeroofpros.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Schedule Your Free Roof Inspection at FreeRoofPros.com</a></strong><br />
+        <Link href="/" className="text-blue-600 hover:underline font-semibold">Get Your Free Roof Inspection &rarr;</Link><br />
         Call us: <strong>541-728-0266</strong><br />
         Email: <strong>info@freeroofpros.com</strong>
       </p>
