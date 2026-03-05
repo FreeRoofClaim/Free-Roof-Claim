@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 const SLUG = 'indianapolis-hail-damage-claim';
@@ -84,7 +85,9 @@ export default function IndianapolisHailDamageClaimPage() {
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">How to File Your Indianapolis Hail Damage Claim</h2>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 1: Document All Damage Now</h3>
-      <p className="text-gray-700 leading-relaxed mb-4">Walk your property and photograph everything with date-stamped photos and video.</p>
+      <p className="text-gray-700 leading-relaxed mb-4">
+        Walk your property and photograph everything with date-stamped photos and video. Our guide to <Link href="/blog/signs-of-hail-damage-on-roof" className="text-blue-600 hover:underline">signs of hail damage on your roof</Link> will help you identify what to look for at ground level before calling a professional.
+      </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 2: Schedule a Free Professional Inspection</h3>
       <p className="text-gray-700 leading-relaxed mb-4">Have a licensed Indiana roofing contractor assess your roof before calling your insurer.</p>
@@ -102,10 +105,10 @@ export default function IndianapolisHailDamageClaimPage() {
 
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">Act Before Your Deadline</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        <strong>FreeRoofPros.com</strong> serves Indianapolis homeowners with expert storm damage inspections, thorough insurance claim documentation, and complete roof replacement services.
+        <strong>FreeRoofPros.com</strong> serves Indianapolis homeowners with expert <Link href="/services/storm-damage-repair" className="text-blue-600 hover:underline">storm damage inspections</Link>, thorough <Link href="/services/insurance-claims" className="text-blue-600 hover:underline">insurance claim documentation</Link>, and complete roof replacement services.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        <strong><a href="https://freeroofpros.com" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">Schedule Your Free Roof Inspection at FreeRoofPros.com</a></strong><br />
+        <Link href="/" className="text-blue-600 hover:underline font-semibold">Get Your Free Roof Inspection &rarr;</Link><br />
         Call us: <strong>541-728-0266</strong><br />
         Email: <strong>info@freeroofpros.com</strong>
       </p>

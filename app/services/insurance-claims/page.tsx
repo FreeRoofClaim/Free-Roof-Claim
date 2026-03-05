@@ -259,6 +259,13 @@ export default function InsuranceClaims() {
               material estimates using industry-standard pricing software. DIY claims that lack this
               documentation are frequently denied or dramatically reduced.
             </p>
+            <p className="text-gray-700 text-lg leading-relaxed mb-5">
+              Not sure what your policy covers? Read our guide on{' '}
+              <Link href="/blog/does-homeowners-insurance-cover-roof-replacement" className="text-[#2563eb] hover:underline">
+                whether homeowners insurance covers roof replacement
+              </Link>{' '}
+              before you file.
+            </p>
             <p className="text-gray-700 text-lg leading-relaxed mb-8">
               FreeRoofPros exists to level the playing field. Our licensed inspectors know exactly
               what evidence insurers require, how adjusters evaluate claims, and where most
@@ -531,11 +538,11 @@ export default function InsuranceClaims() {
                 },
                 {
                   title: 'Covered Perils',
-                  body: 'Standard homeowners policies cover sudden, accidental damage from named perils: hail, wind, falling objects, fire, and others. Gradual deterioration, wear and tear, and damage resulting from neglect are consistently excluded. The key phrase insurers look for is “sudden and accidental.”',
+                  body: 'Standard homeowners policies cover sudden, accidental damage from named perils: hail, wind, falling objects, fire, and others. Gradual deterioration, wear and tear, and damage resulting from neglect are consistently excluded. The key phrase insurers look for is "sudden and accidental."',
                 },
                 {
                   title: 'Filing Deadline',
-                  body: 'Most policies require you to notify your insurer within a “reasonable” time after a loss — typically 30–90 days. Oregon allows up to two years to file a lawsuit against an insurer, but waiting that long to file the claim itself is almost always a mistake. The sooner you report damage, the stronger your claim.',
+                  body: 'Most policies require you to notify your insurer within a "reasonable" time after a loss — typically 30–90 days. Oregon allows up to two years to file a lawsuit against an insurer, but waiting that long to file the claim itself is almost always a mistake. The sooner you report damage, the stronger your claim.',
                 },
                 {
                   title: 'Proof of Loss',
@@ -548,6 +555,12 @@ export default function InsuranceClaims() {
                 </div>
               ))}
             </div>
+            <p className="text-sm text-gray-600 mt-6">
+              Want to understand your policy better? Read our guide on{' '}
+              <Link href="/blog/rcv-vs-acv-roof-insurance" className="text-[#2563eb] hover:underline">RCV vs. ACV roof insurance</Link>
+              {' '}or follow our{' '}
+              <Link href="/blog/roof-insurance-claim-process-step-by-step" className="text-[#2563eb] hover:underline">step-by-step claim filing guide</Link>.
+            </p>
           </div>
         </div>
       </section>
@@ -617,7 +630,7 @@ export default function InsuranceClaims() {
                     <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed mb-4 italic">“{t.quote}”</p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-4 italic">"{t.quote}"</p>
                 <p className="text-sm font-semibold text-[#122E5F]">
                   – {t.author}, <span className="font-normal text-gray-500">{t.location}</span>
                 </p>

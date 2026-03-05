@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import { LeadForm } from '@/components/sections/LeadForm';
 
-// ─── Metadata (server component — no 'use client') ─────────────────────────────────────────────
+// ─── Metadata (server component — no 'use client') ──────────────────────────────────────────────────
 
 export const metadata: Metadata = {
   title: 'Insurance-Covered Roof Replacement | Free Inspection | FreeRoofPros',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
 };
 
-// ─── JSON-LD schemas ──────────────────────────────────────────────────────────────────────────
+// ─── JSON-LD schemas ──────────────────────────────────────────────────────────────
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
@@ -143,7 +143,7 @@ const faqJsonLd = {
   ],
 };
 
-// ─── Page component ─────────────────────────────────────────────────────────────────────────────
+// ─── Page component ─────────────────────────────────────────────────────────────────────────────────────────
 
 export default function RoofReplacement() {
   return (
@@ -158,7 +158,7 @@ export default function RoofReplacement() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
       />
 
-      {/* ── HERO ────────────────────────────────────────────────────────────────── */}
+      {/* ── HERO ──────────────────────────────────────────────────────────────────────── */}
       <section className="bg-[#122E5F] text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">
           <div className="max-w-3xl">
@@ -194,7 +194,7 @@ export default function RoofReplacement() {
         </div>
       </section>
 
-      {/* ── TRUST BAR ────────────────────────────────────────────────────────────────── */}
+      {/* ── TRUST BAR ──────────────────────────────────────────────────────────────────── */}
       <section className="border-b border-gray-200 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
@@ -213,7 +213,7 @@ export default function RoofReplacement() {
         </div>
       </section>
 
-      {/* ── WHEN DOES INSURANCE PAY? ─────────────────────────────────────────────────────── */}
+      {/* ── WHEN DOES INSURANCE PAY? ───────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           <div>
@@ -289,7 +289,7 @@ export default function RoofReplacement() {
         </div>
       </section>
 
-      {/* ── COST SECTION ──────────────────────────────────────────────────────────────────── */}
+      {/* ── COST SECTION ────────────────────────────────────────────────────────────────────────── */}
       <section className="bg-gray-50 border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#122E5F] mb-4">
@@ -360,10 +360,17 @@ export default function RoofReplacement() {
             </Link>{' '}
             and review your Declaration Page with you at no charge.
           </p>
+          <p className="text-sm text-gray-500 mt-4">
+            For a full state-by-state breakdown, see our{' '}
+            <Link href="/blog/roof-replacement-cost-by-state" className="text-[#2563eb] hover:underline">2026 roof replacement cost guide</Link>
+            {' '}or read about{' '}
+            <Link href="/blog/rcv-vs-acv-roof-insurance" className="text-[#2563eb] hover:underline">RCV vs. ACV coverage</Link>
+            {' '}to understand your insurance payout.
+          </p>
         </div>
       </section>
 
-      {/* ── 5-STEP PROCESS ────────────────────────────────────────────────────────────────── */}
+      {/* ── 5-STEP PROCESS ──────────────────────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#122E5F] mb-2">
           Our 5-Step Roof Replacement Process
@@ -436,13 +443,13 @@ export default function RoofReplacement() {
         </div>
       </section>
 
-      {/* ── MATERIALS ──────────────────────────────────────────────────────────────────── */}
+      {/* ── MATERIALS ──────────────────────────────────────────────────────────────────────── */}
       <section className="bg-[#122E5F] text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
           <h2 className="text-2xl sm:text-3xl font-bold mb-2">Roofing Materials We Install</h2>
           <p className="text-blue-200 mb-10 max-w-2xl">
             We work with all major shingle manufacturers so you can choose materials that match your
-            home, your climate, and your insurance coverage. Central Oregon’s hail exposure makes
+            home, your climate, and your insurance coverage. Central Oregon's hail exposure makes
             Class 4 impact-resistant shingles a particularly smart choice.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -487,7 +494,7 @@ export default function RoofReplacement() {
         </div>
       </section>
 
-      {/* ── WARRANTIES ─────────────────────────────────────────────────────────────────── */}
+      {/* ── WARRANTIES ───────────────────────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           <div>
@@ -507,7 +514,7 @@ export default function RoofReplacement() {
                   <p className="text-gray-600 text-sm leading-relaxed">
                     Depending on the shingle line, manufacturer warranties range from{' '}
                     <strong>25 to 50 years</strong> and cover defects in materials including
-                    premature granule loss, cracking, and manufacturing flaws. Enhanced "system"
+                    premature granule loss, cracking, and manufacturing flaws. Enhanced &quot;system&quot;
                     warranties (e.g., GAF Golden Pledge, Owens Corning Platinum) are available when
                     all roofing components come from the same manufacturer.
                   </p>
@@ -531,7 +538,7 @@ export default function RoofReplacement() {
                   <h3 className="font-semibold text-[#122E5F] mb-1">Licensed &amp; Insured in All 50 States</h3>
                   <p className="text-gray-600 text-sm leading-relaxed">
                     Free Roof Pros holds active contractor licenses and carries general liability and
-                    workers’ compensation insurance in every state we operate. Your homeowners
+                    workers' compensation insurance in every state we operate. Your homeowners
                     insurance requires this — and we are always compliant.
                   </p>
                 </div>
@@ -568,7 +575,7 @@ export default function RoofReplacement() {
                     <Star key={s} className="w-4 h-4 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed mb-3 italic">"{t.quote}"</p>
+                <p className="text-gray-700 text-sm leading-relaxed mb-3 italic">&quot;{t.quote}&quot;</p>
                 <p className="text-sm font-semibold text-[#122E5F]">
                   – {t.author},{' '}
                   <span className="font-normal text-gray-500">{t.location}</span>
@@ -579,7 +586,7 @@ export default function RoofReplacement() {
         </div>
       </section>
 
-      {/* ── AREAS WE SERVE ────────────────────────────────────────────────────────────────── */}
+      {/* ── AREAS WE SERVE ──────────────────────────────────────────────────────────────────────── */}
       <section className="bg-gray-50 border-y border-gray-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#122E5F] mb-3">Areas We Serve</h2>
@@ -641,7 +648,7 @@ export default function RoofReplacement() {
         </div>
       </section>
 
-      {/* ── FAQ ACCORDION ────────────────────────────────────────────────────────────────── */}
+      {/* ── FAQ ACCORDION ──────────────────────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
         <h2 className="text-2xl sm:text-3xl font-bold text-[#122E5F] mb-2">
           Frequently Asked Questions
@@ -708,7 +715,7 @@ export default function RoofReplacement() {
         </p>
       </section>
 
-      {/* ── LEAD FORM ──────────────────────────────────────────────────────────────────── */}
+      {/* ── LEAD FORM ──────────────────────────────────────────────────────────────────────── */}
       <section
         id="lead-form"
         className="bg-[#122E5F] text-white py-14 sm:py-16 scroll-mt-16"
@@ -737,7 +744,7 @@ export default function RoofReplacement() {
         </div>
       </section>
 
-      {/* ── BOTTOM CTA / NAV LINKS ─────────────────────────────────────────────────────────────────────── */}
+      {/* ── BOTTOM CTA / NAV LINKS ───────────────────────────────────────────────────────────────────────────────────── */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         <div className="grid sm:grid-cols-2 gap-4 max-w-2xl">
           <Link
