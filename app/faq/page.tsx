@@ -6,13 +6,13 @@ export const metadata: Metadata = {
   description:
     'Get answers to the most common questions about storm damage insurance claims, roof repair and replacement, costs, coverage, and how FreeRoofPros can help you get a free roof through your homeowners insurance.',
   alternates: {
-    canonical: 'https://freeroofpros.com/faq',
+    canonical: 'https://www.freeroofpros.com/faq',
   },
   openGraph: {
     title: 'FAQ: Storm Damage Roof Insurance Claims | FreeRoofPros',
     description:
       'Answers to the most common questions about storm damage insurance claims, roof repair, costs, and coverage.',
-    url: 'https://freeroofpros.com/faq',
+    url: 'https://www.freeroofpros.com/faq',
     siteName: 'FreeRoofPros',
     type: 'website',
   },
@@ -29,11 +29,11 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'How long do I have to file a roof insurance claim after a storm?',
-        a: 'Every state and insurance policy has different deadlines. Most policies require you to file within 1–2 years of the storm event, but some states like Tennessee enforce a strict 1-year deadline. Oregon has a 2-year window. We strongly recommend filing as soon as possible — delays can result in denied claims.',
+        a: 'Every state and insurance policy has different deadlines. Most policies require you to file within 1\u20132 years of the storm event, but some states like Tennessee enforce a strict 1-year deadline. Oregon has a 2-year window. We strongly recommend filing as soon as possible \u2014 delays can result in denied claims.',
       },
       {
         q: 'Does homeowners insurance cover roof replacement?',
-        a: 'In most cases, yes — if the damage was caused by a covered peril such as hail, wind, or a fallen tree. Standard homeowners policies (HO-3) typically cover sudden storm damage. However, damage from neglect or normal wear and tear is generally not covered.',
+        a: 'In most cases, yes \u2014 if the damage was caused by a covered peril such as hail, wind, or a fallen tree. Standard homeowners policies (HO-3) typically cover sudden storm damage. However, damage from neglect or normal wear and tear is generally not covered.',
       },
       {
         q: 'What is the difference between actual cash value and replacement cost value for roofs?',
@@ -49,7 +49,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'Is it worth filing an insurance claim for roof damage?',
-        a: 'Yes, if the damage was caused by a covered event like hail or wind. Storm damage claims are often the most valuable insurance claims a homeowner can file — in many cases resulting in a full roof replacement at little or no out-of-pocket cost beyond your deductible.',
+        a: 'Yes, if the damage was caused by a covered event like hail or wind. Storm damage claims are often the most valuable insurance claims a homeowner can file \u2014 in many cases resulting in a full roof replacement at little or no out-of-pocket cost beyond your deductible.',
       },
       {
         q: 'Do I need to get multiple roof estimates for insurance?',
@@ -63,7 +63,7 @@ const FAQ_SECTIONS = [
     faqs: [
       {
         q: 'How fast can you repair storm-damaged roofs?',
-        a: 'We typically schedule inspections within 24–48 hours of your request. Once your insurance claim is approved, most roof replacements are completed in one to two days.',
+        a: 'We typically schedule inspections within 24\u201348 hours of your request. Once your insurance claim is approved, most roof replacements are completed in one to two days.',
       },
       {
         q: 'What types of roofs do you repair or replace?',
@@ -83,11 +83,11 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'What should I do immediately after a hailstorm?',
-        a: 'First, stay safe. Then: (1) Document — photograph any exterior damage you can see safely from the ground. (2) Do not attempt DIY repairs yet. (3) Call us to schedule a free inspection. (4) Review your insurance policy and locate your policy number.',
+        a: 'First, stay safe. Then: (1) Document \u2014 photograph any exterior damage you can see safely from the ground. (2) Do not attempt DIY repairs yet. (3) Call us to schedule a free inspection. (4) Review your insurance policy and locate your policy number.',
       },
       {
         q: 'What is the best roofing material for storm-prone areas?',
-        a: 'For hail-prone regions, Class 4 impact-resistant asphalt shingles are the gold standard — they can also earn you a premium discount from your insurer. Standing seam metal roofing offers excellent wind resistance.',
+        a: 'For hail-prone regions, Class 4 impact-resistant asphalt shingles are the gold standard \u2014 they can also earn you a premium discount from your insurer. Standing seam metal roofing offers excellent wind resistance.',
       },
     ],
   },
@@ -105,11 +105,11 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'Do you offer warranties on your work?',
-        a: 'Yes. All of our roof replacements come with the manufacturer\'s product warranty on materials (typically 25–50 years) plus our workmanship warranty.',
+        a: 'Yes. All of our roof replacements come with the manufacturer\'s product warranty on materials (typically 25\u201350 years) plus our workmanship warranty.',
       },
       {
         q: 'Can I get a new roof for free through insurance?',
-        a: 'In many cases, yes — minus your deductible. If a covered storm event damaged your roof and you have a Replacement Cost Value (RCV) policy, your insurer is responsible for paying to replace your roof.',
+        a: 'In many cases, yes \u2014 minus your deductible. If a covered storm event damaged your roof and you have a Replacement Cost Value (RCV) policy, your insurer is responsible for paying to replace your roof.',
       },
       {
         q: 'Will my insurance rates go up if I file a roof claim?',
@@ -143,7 +143,7 @@ const FAQ_SECTIONS = [
       },
       {
         q: 'How can I tell if a roofing contractor is legitimate?',
-        a: 'Verify their state roofing license, ask for their general liability and workers\' comp certificates, check their BBB rating and online reviews, confirm they have a local office, and ask for references. Be wary of contractors who promise to waive your deductible — that is insurance fraud.',
+        a: 'Verify their state roofing license, ask for their general liability and workers\' comp certificates, check their BBB rating and online reviews, confirm they have a local office, and ask for references. Be wary of contractors who promise to waive your deductible \u2014 that is insurance fraud.',
       },
     ],
   },
@@ -170,9 +170,27 @@ const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://freeroofpros.com' },
-    { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://freeroofpros.com/faq' },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.freeroofpros.com' },
+    { '@type': 'ListItem', position: 2, name: 'FAQ', item: 'https://www.freeroofpros.com/faq' },
   ],
+};
+
+// Speakable schema — marks key Q&A content as voice-assistant readable
+const speakableSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': 'https://www.freeroofpros.com/faq',
+  name: 'Frequently Asked Questions About Storm Damage Roof Claims',
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: [
+      'h1',
+      '#insurance-claims',
+      '#roof-damage-repair',
+      '#costs-coverage',
+      '#about-freeroofpros',
+    ],
+  },
 };
 
 export default function FAQPage() {
@@ -187,6 +205,11 @@ export default function FAQPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      {/* Speakable JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }}
       />
 
       <div className="bg-white">
@@ -204,7 +227,7 @@ export default function FAQPage() {
               Frequently Asked Questions About Storm Damage Roof Claims
             </h1>
             <p className="text-blue-100 text-lg max-w-2xl mx-auto leading-relaxed">
-              Everything homeowners need to know about storm damage roof insurance claims —
+              Everything homeowners need to know about storm damage roof insurance claims \u2014
               from filing deadlines to contractor selection to what your policy actually covers.
             </p>
           </div>
@@ -287,7 +310,7 @@ export default function FAQPage() {
               href="/#contact"
               className="inline-block bg-white text-blue-700 font-bold px-10 py-4 rounded-xl hover:bg-blue-50 transition-colors shadow-md text-sm sm:text-base"
             >
-              Get My Free Roof Inspection →
+              Get My Free Roof Inspection \u2192
             </a>
             <Link
               href="/blog"

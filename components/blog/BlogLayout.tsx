@@ -114,7 +114,7 @@ const ALL_ARTICLES: RelatedArticle[] = [
   {
     title: 'What to Expect When the Insurance Adjuster Inspects Your Roof',
     slug: 'what-to-expect-insurance-adjuster-roof-inspection',
-    description: 'A complete guide to the insurance adjuster roof inspection process, what they look for, how long it takes, what to have ready, and what to do if they miss damage or offer too little.',
+    description: 'A complete guide to the insurance adjuster roof inspection process, what they look for, how long it takes, what you should have ready, and what to do if they miss damage or offer too little.',
     city: 'Nationwide',
   },
 ];
@@ -139,26 +139,27 @@ export default function BlogLayout({
   children,
   relatedArticles,
 }: BlogLayoutProps) {
-  const articleUrl = `https://freeroofpros.com/blog/${slug}`;
+  const articleUrl = `https://www.freeroofpros.com/blog/${slug}`;
   const related = relatedArticles ?? ALL_ARTICLES.filter((a) => a.slug !== slug).slice(0, 3);
 
-  const articleSchema = {
+  // BlogPosting JSON-LD — structured data for each blog post
+  const blogPostingSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
     headline: title,
     description: description,
     author: {
       '@type': 'Organization',
-      name: 'FreeRoofPros Team',
-      url: 'https://freeroofpros.com',
+      name: 'FreeRoofPros',
+      url: 'https://www.freeroofpros.com',
     },
     publisher: {
       '@type': 'Organization',
       name: 'FreeRoofPros',
-      url: 'https://freeroofpros.com',
+      url: 'https://www.freeroofpros.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://freeroofpros.com/logo.png',
+        url: 'https://www.freeroofpros.com/og-image.png',
       },
     },
     datePublished: publishedDateISO,
@@ -168,8 +169,10 @@ export default function BlogLayout({
       '@id': articleUrl,
     },
     url: articleUrl,
+    image: 'https://www.freeroofpros.com/og-image.png',
   };
 
+  // BreadcrumbList JSON-LD — Home > Blog > [Post Title]
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -178,13 +181,13 @@ export default function BlogLayout({
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://freeroofpros.com',
+        item: 'https://www.freeroofpros.com',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Blog',
-        item: 'https://freeroofpros.com/blog',
+        item: 'https://www.freeroofpros.com/blog',
       },
       {
         '@type': 'ListItem',
@@ -201,10 +204,10 @@ export default function BlogLayout({
 
   return (
     <>
-      {/* Article JSON-LD */}
+      {/* BlogPosting JSON-LD */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
       />
       {/* Breadcrumb JSON-LD */}
       <script

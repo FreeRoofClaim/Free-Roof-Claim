@@ -64,11 +64,21 @@ const faqJsonLd = {
   ],
 };
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.freeroofpros.com/' },
+    { '@type': 'ListItem', position: 2, name: 'La Pine OR Roofing', item: 'https://www.freeroofpros.com/la-pine-or' },
+  ],
+};
+
 export default function LaPineOR() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* HERO */}
       <section className="bg-[#122E5F] text-white">
