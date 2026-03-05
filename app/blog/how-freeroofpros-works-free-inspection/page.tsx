@@ -28,76 +28,6 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'BlogPosting',
-      headline: TITLE,
-      description: DESCRIPTION,
-      datePublished: PUBLISHED_DATE_ISO,
-      dateModified: PUBLISHED_DATE_ISO,
-      author: {
-        '@type': 'Organization',
-        name: 'FreeRoofPros',
-        url: 'https://www.freeroofpros.com',
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'FreeRoofPros',
-        url: 'https://www.freeroofpros.com',
-      },
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': `https://www.freeroofpros.com/blog/${SLUG}`,
-      },
-      keywords: 'how FreeRoofPros works, free roof inspection Central Oregon, insurance claim help Bend Oregon',
-    },
-    {
-      '@type': 'HowTo',
-      name: 'How FreeRoofPros Helps You Get a New Roof Through Insurance',
-      description: 'Step-by-step process for getting a free roof inspection and insurance claim assistance from FreeRoofPros in Central Oregon.',
-      step: [
-        {
-          '@type': 'HowToStep',
-          position: 1,
-          name: 'Schedule Your Free Inspection',
-          text: 'Call (541) 728-0266 or submit a request online. A licensed FreeRoofPros inspector will contact you within 24 hours to schedule a convenient time.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 2,
-          name: 'Professional Roof Inspection',
-          text: 'A licensed Oregon contractor inspects your roof for storm damage — hail bruising, granule loss, wind damage, and flashing issues. You receive a written inspection report at no charge.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 3,
-          name: 'Insurance Claim Filing Assistance',
-          text: 'If damage is found, FreeRoofPros helps you notify your insurer and prepare documentation. We attend the adjuster meeting with you to make sure nothing is missed.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 4,
-          name: 'Claim Approval and Contractor Selection',
-          text: 'Once your claim is approved, FreeRoofPros provides a detailed replacement scope and timeline. You review and approve everything before work begins.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 5,
-          name: 'Roof Replacement',
-          text: 'Your new roof is installed by FreeRoofPros\' licensed Oregon crew using materials covered by your insurance settlement. Work is completed to manufacturer specifications.',
-        },
-        {
-          '@type': 'HowToStep',
-          position: 6,
-          name: 'Recoverable Depreciation Submission',
-          text: 'FreeRoofPros submits your completion documentation to the insurer to release any held depreciation (if you have RCV coverage), maximizing your total payout.',
-        },
-      ],
-    },
-  ],
-};
 
 export default function HowFreeRoofProsWorksPage() {
   return (
@@ -110,11 +40,6 @@ export default function HowFreeRoofProsWorksPage() {
       slug={SLUG}
       city={CITY}
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* BLUF */}
       <p className="text-gray-700 leading-relaxed mb-4">
         <strong>FreeRoofPros provides free professional roof inspections to Central Oregon homeowners and gets paid by your insurance company when a covered claim is approved — not by you.</strong> There is no catch. Homeowners pay nothing out of pocket beyond their standard insurance deductible for a complete roof replacement through an approved claim. If your roof doesn&apos;t have insurable damage, the inspection is still free and there is zero obligation.

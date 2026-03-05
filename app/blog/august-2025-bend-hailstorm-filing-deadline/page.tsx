@@ -28,29 +28,6 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: TITLE,
-  description: DESCRIPTION,
-  datePublished: PUBLISHED_DATE_ISO,
-  dateModified: PUBLISHED_DATE_ISO,
-  author: {
-    '@type': 'Organization',
-    name: 'FreeRoofPros',
-    url: 'https://www.freeroofpros.com',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'FreeRoofPros',
-    url: 'https://www.freeroofpros.com',
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': `https://www.freeroofpros.com/blog/${SLUG}`,
-  },
-  keywords: 'August 2025 Bend hailstorm, Oregon roof insurance claim deadline, hail damage roof repair Bend',
-};
 
 export default function AugustBendHailstormDeadlinePage() {
   return (
@@ -63,11 +40,6 @@ export default function AugustBendHailstormDeadlinePage() {
       slug={SLUG}
       city={CITY}
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* BLUF — Answer First */}
       <p className="text-gray-700 leading-relaxed mb-4">
         <strong>Bottom line:</strong> If your home in <Link href="/bend-or" className="text-blue-600 hover:underline">Bend</Link>, <Link href="/redmond-or" className="text-blue-600 hover:underline">Redmond</Link>, Sunriver, or <Link href="/la-pine-or" className="text-blue-600 hover:underline">La Pine</Link> was in the path of the August 5, 2025 hailstorm, your practical insurance claim deadline is <strong>August 5, 2026</strong> — less than five months away. Oregon&apos;s 2-year statute of limitations (ORS 742.240) gives you until August 5, 2027 to file a lawsuit, but your policy&apos;s one-year claims window closes a full year earlier. Missing that window almost certainly means leaving a full roof replacement on the table.

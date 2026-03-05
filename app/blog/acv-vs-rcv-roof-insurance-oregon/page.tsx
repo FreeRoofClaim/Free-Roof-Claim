@@ -28,29 +28,6 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'BlogPosting',
-  headline: TITLE,
-  description: DESCRIPTION,
-  datePublished: PUBLISHED_DATE_ISO,
-  dateModified: PUBLISHED_DATE_ISO,
-  author: {
-    '@type': 'Organization',
-    name: 'FreeRoofPros',
-    url: 'https://www.freeroofpros.com',
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'FreeRoofPros',
-    url: 'https://www.freeroofpros.com',
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': `https://www.freeroofpros.com/blog/${SLUG}`,
-  },
-  keywords: 'ACV vs RCV roof insurance Oregon, actual cash value replacement cost value roof claim, Oregon homeowners insurance depreciation',
-};
 
 export default function AcvVsRcvRoofInsuranceOregonPage() {
   return (
@@ -63,11 +40,6 @@ export default function AcvVsRcvRoofInsuranceOregonPage() {
       slug={SLUG}
       city={CITY}
     >
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-
       {/* BLUF */}
       <p className="text-gray-700 leading-relaxed mb-4">
         <strong>If your policy is ACV, your insurance payout will be reduced by depreciation — meaning you&apos;ll pay more out of pocket. RCV policies pay the full replacement cost.</strong> For Oregon homeowners filing a claim after the August 5, 2025 Bend hailstorm, this distinction can mean the difference between a $6,000 check and a $15,000 check for the same roof on the same house. Most homeowners don&apos;t know which coverage they have until they file — and by then, it&apos;s too late to change it.
