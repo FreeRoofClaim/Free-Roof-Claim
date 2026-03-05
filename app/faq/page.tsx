@@ -262,6 +262,18 @@ export default function FAQPage() {
           ))}
         </div>
 
+        {/* Related Articles */}
+        <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+          <h2 className="text-xl font-bold text-gray-900 mb-4">Deep-Dive Guides</h2>
+          <ul className="space-y-2 text-blue-600">
+            <li><Link href="/blog/roof-insurance-claim-process-step-by-step" className="hover:underline">The Complete Roof Insurance Claim Process, Step by Step</Link></li>
+            <li><Link href="/blog/rcv-vs-acv-roof-insurance" className="hover:underline">RCV vs. ACV: What It Means for Your Claim Payout</Link></li>
+            <li><Link href="/blog/signs-of-hail-damage-on-roof" className="hover:underline">Signs of Hail Damage on Your Roof: A Visual Guide</Link></li>
+            <li><Link href="/blog/how-long-to-file-roof-insurance-claim" className="hover:underline">How Long Do You Have to File a Roof Insurance Claim?</Link></li>
+            <li><Link href="/blog/roof-insurance-claim-denied" className="hover:underline">What to Do When Your Roof Insurance Claim Is Denied</Link></li>
+          </ul>
+        </section>
+
         {/* CTA Banner */}
         <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-14 px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-2xl sm:text-3xl font-extrabold mb-3">

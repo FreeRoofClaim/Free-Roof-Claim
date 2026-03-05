@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import BlogLayout from '@/components/blog/BlogLayout';
+import Link from 'next/link';
 
 const SLUG = 'signs-of-hail-damage-on-roof';
 const TITLE = 'Signs of Hail Damage on Your Roof: A Complete Visual Guide';
@@ -172,7 +173,7 @@ export default function HailDamageSignsPage() {
         Insurers increasingly apply cosmetic damage exclusions that exclude coverage for damage that does not impair waterproofing, even if it affects appearance and accelerates long-term deterioration. To establish functional damage, your inspection report should document: exposed mat on asphalt shingles (waterproofing layer compromised), cracks or fractures in any material (water infiltration pathway created), or denting that has broken sealant integrity on metal roofing.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        For more guidance on evaluating your specific situation, visit our <a href="/faq" className="text-blue-600 hover:underline">FreeRoofPros FAQ</a>. For a real-world example of how hail damage plays out in a claim scenario, read our report on the <a href="/blog/central-oregon-hailstorm-2025" className="text-blue-600 hover:underline">Central Oregon Hailstorm 2025</a>, where 1.75-inch hail caused widespread functional damage to both asphalt and metal roofing across a three-county area.
+        For more guidance on evaluating your specific situation, visit our <Link href="/faq" className="text-blue-600 hover:underline">FreeRoofPros FAQ</Link>. For a real-world example of how hail damage plays out in a claim scenario, read our report on the <Link href="/blog/central-oregon-hailstorm-2025" className="text-blue-600 hover:underline">Central Oregon Hailstorm 2025</Link>, where 1.75-inch hail caused widespread functional damage to both asphalt and metal roofing across a three-county area. Our <Link href="/services/storm-damage-repair" className="text-blue-600 hover:underline">storm damage repair team</Link> provides free professional inspections to document hail impacts for your insurance claim.
       </p>
 
       <hr className="my-8 border-gray-200" />

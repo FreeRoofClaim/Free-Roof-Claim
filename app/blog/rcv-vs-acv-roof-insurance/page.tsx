@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import BlogLayout from '@/components/blog/BlogLayout';
+import Link from 'next/link';
 
 const SLUG = 'rcv-vs-acv-roof-insurance';
 const TITLE = 'RCV vs. ACV Roof Insurance: What It Means for Your Claim Payout';
@@ -144,7 +145,7 @@ export default function RcvVsAcvPage() {
         <li><strong>Most other states:</strong> Insurers have broad latitude to classify roof coverage, but must disclose the policy type clearly in writing at renewal.</li>
       </ul>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Always review your policy&apos;s &quot;Roof Coverage Endorsement&quot; section - not just the declarations page - to confirm whether depreciation is recoverable on your specific roof claim. See our <a href="/faq" className="text-blue-600 hover:underline">FreeRoofPros FAQ</a> for common policy questions homeowners ask before filing.
+        Always review your policy&apos;s &quot;Roof Coverage Endorsement&quot; section - not just the declarations page - to confirm whether depreciation is recoverable on your specific roof claim. See our <Link href="/faq" className="text-blue-600 hover:underline">FreeRoofPros FAQ</Link> for common policy questions homeowners ask before filing.
       </p>
 
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">The Two-Check RCV Process: Step by Step</h2>
@@ -156,7 +157,7 @@ export default function RcvVsAcvPage() {
         <li>If the actual repair cost exceeds the original estimate, you may be entitled to a supplement (additional payment) - always ask.</li>
       </ol>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Supplemental claims are common in roofing because hidden damage is often discovered during tear-off. A good contractor will document any additional damage and submit a supplement to your insurer on your behalf. To understand how this played out in a real storm event, read our coverage of the <a href="/blog/central-oregon-hailstorm-2025" className="text-blue-600 hover:underline">Central Oregon Hailstorm 2025</a>, where many homeowners discovered their ACV vs. RCV designation only after their claims were settled.
+        Supplemental claims are common in roofing because hidden damage is often discovered during tear-off. A good contractor will document any additional damage and submit a supplement to your insurer on your behalf. To understand how this played out in a real storm event, read our coverage of the <Link href="/blog/central-oregon-hailstorm-2025" className="text-blue-600 hover:underline">Central Oregon Hailstorm 2025</Link>, where many homeowners discovered their ACV vs. RCV designation only after their claims were settled.
       </p>
 
       <h2 className="text-2xl font-bold text-gray-900 mt-10 mb-4">How to Check Which Coverage You Have Right Now</h2>
@@ -178,7 +179,7 @@ export default function RcvVsAcvPage() {
         <li>If you have ACV coverage and your roof is under 15 years old, contact your insurer or agent to ask about upgrading to RCV. The premium difference is often $100-$300 per year.</li>
         <li>If your roof is over 15 years old and still under RCV coverage, check your renewal documents carefully - insurers sometimes downgrade roof coverage at renewal without prominent notice.</li>
         <li>Document your current roof condition with dated photos stored in cloud storage. This is invaluable if a future claim involves pre-existing damage disputes.</li>
-        <li>After any storm event, get a free inspection from a licensed local roofer before calling your insurer - understanding the scope of damage puts you in a much stronger negotiating position.</li>
+        <li>After any storm event, get a free inspection from <Link href="/services/insurance-claims" className="text-blue-600 hover:underline">our insurance claim specialists</Link> before calling your insurer - understanding the scope of damage puts you in a much stronger negotiating position.</li>
         <li>If your claim involves recoverable depreciation, track the submission deadline carefully and submit repair documentation at least 30 days before it expires.</li>
       </ol>
     </BlogLayout>
