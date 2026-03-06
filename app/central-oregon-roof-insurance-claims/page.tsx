@@ -94,7 +94,7 @@ const organizationJsonLd = {
     { '@type': 'County', name: 'Deschutes County', addressRegion: 'OR' },
   ],
   description:
-    'Free Roof Pros provides free roof inspections, full insurance claim management, and roof replacement services to Central Oregon homeowners. We handle the entire storm damage claim process at no out-of-pocket cost to the homeowner beyond their deductible.',
+    'Free Roof Pros connects Central Oregon homeowners with trusted, licensed local contractors who provide free roof inspections, full insurance claim management, and roof replacement services. The entire storm damage claim process is managed at no out-of-pocket cost to the homeowner beyond their deductible.',
   sameAs: ['https://www.freeroofpros.com'],
   aggregateRating: {
     '@type': 'AggregateRating',
@@ -709,9 +709,9 @@ export default function CentralOregonRoofInsuranceClaimsPage() {
                 renewal.
               </p>
               <p className="text-gray-700 leading-relaxed">
-                FreeRoofPros holds an active Oregon CCB license, carries full general liability and
-                workers&apos; compensation coverage, and installs manufacturer-certified shingle lines
-                with matching material warranties. We handle all material selection and color coordination
+                FreeRoofPros works exclusively with licensed Oregon CCB contractors who carry full general liability and
+                workers&apos; compensation coverage and install manufacturer-certified shingle lines
+                with matching material warranties. Your contractor handles all material selection and color coordination
                 with your insurer so the approved scope matches the final installation scope.
               </p>
             </div>
@@ -1106,9 +1106,9 @@ export default function CentralOregonRoofInsuranceClaimsPage() {
             { q: 'What is the difference between ACV and RCV roof insurance coverage?', a: 'Replacement Cost Value (RCV) pays the full cost to replace your roof with comparable materials at today\'s prices, with no depreciation reduction. Actual Cash Value (ACV) pays the depreciated value of your old roof — meaning an older roof receives a smaller payout because the insurer accounts for age and wear. If you have ACV coverage, your insurer will initially pay a reduced amount and release the held depreciation after you submit proof of completed repairs. Your coverage type is listed on your policy\'s declarations page.' },
             { q: 'How long does the roof insurance claim process take in Central Oregon?', a: 'The full timeline from inspection to completed roof is typically two to four weeks. The free inspection takes one to two days to complete and produce a written report. FreeRoofPros files your claim the same day as your report. Adjuster scheduling typically takes five to ten business days. Under Oregon regulations, insurers must complete their investigation and issue a decision within 30 days of receiving proofs of loss. Once approved, most Central Oregon residential roofs are installed in one to three days.' },
             { q: 'What are the visible signs of hail damage on a roof?', a: 'Common hail damage signs include: circular areas of granule loss on asphalt shingles exposing the dark fiberglass mat beneath; soft, bruised impact points on shingles that feel like a bruise on fruit when pressed; circular dent patterns on aluminum gutters, downspouts, and AC condenser fins; cracked or split ridge cap shingles; and dented or cracked plastic roof vents. Most hail damage is only visible from the rooftop itself — it is not detectable from the ground or street level. Do not attempt your own rooftop inspection; hail-damaged shingles can be slippery and determining insurance-grade damage requires trained eyes and measurement tools.' },
-            { q: 'Is FreeRoofPros actually free for homeowners?', a: 'Yes. The inspection, claim documentation, adjuster meeting attendance, supplement negotiations, and all project management are provided at no charge to the homeowner. FreeRoofPros is compensated through the insurance claim settlement — the same contractor labor and materials line items your insurer allocates in every approved claim. You pay only your deductible, which you would owe to any licensed roofing contractor regardless. There are no hidden fees, no markups beyond the insurer-approved scope, and no obligation after the free inspection.' },
+            { q: 'Is FreeRoofPros actually free for homeowners?', a: 'Yes. The inspection, claim documentation, adjuster meeting attendance, supplement negotiations, and all project management are provided at no charge to the homeowner. Your contractor is compensated through the insurance claim settlement — the same contractor labor and materials line items your insurer allocates in every approved claim. You pay only your deductible, which you would owe to any licensed roofing contractor regardless. There are no hidden fees, no markups beyond the insurer-approved scope, and no obligation after the free inspection.' },
             { q: 'What happens if my roof insurance claim is denied?', a: 'A denied claim is not necessarily final. You have several options: (1) Request a written explanation of the denial and review it against your policy language. (2) Provide additional documentation — supplemental inspection reports, weather data, or photo evidence. (3) Request a re-inspection with your contractor present. (4) File a complaint with the Oregon Department of Consumer and Business Services, Division of Financial Regulation, which regulates insurer claims handling. (5) Hire a licensed Oregon public adjuster to independently evaluate and re-present your claim. FreeRoofPros has experience navigating denied claims and can advise you on the appropriate next step for your specific situation.' },
-            { q: 'Can I choose my own roofing contractor for an insurance claim in Oregon?', a: 'Yes — absolutely. Oregon homeowners have the legal right to select any licensed, bonded, and insured roofing contractor for their insurance claim repair work. Your insurer cannot require you to use their preferred vendor list. If your insurer\'s adjuster or representative recommends a specific contractor, you may accept or decline that recommendation freely. FreeRoofPros holds an active Oregon Construction Contractors Board (CCB) license, carries full general liability insurance, and maintains workers\' compensation coverage on every crew member.' },
+            { q: 'Can I choose my own roofing contractor for an insurance claim in Oregon?', a: 'Yes — absolutely. Oregon homeowners have the legal right to select any licensed, bonded, and insured roofing contractor for their insurance claim repair work. Your insurer cannot require you to use their preferred vendor list. If your insurer\'s adjuster or representative recommends a specific contractor, you may accept or decline that recommendation freely. FreeRoofPros works exclusively with licensed Oregon Construction Contractors Board (CCB) contractors who carry full general liability insurance and maintain workers\' compensation coverage on every crew member.' },
             { q: 'What does the FreeRoofPros free roof inspection include?', a: 'Our free inspection includes: a complete rooftop walk of every field section, hip, valley, and ridge line; hail impact counting and measurement per roofing square (a standard 100 sq ft unit); flashing inspection at all chimneys, skylights, pipe boots, and valleys; gutter and downspout assessment for hail denting; soffit and fascia review for wind or water damage; attic moisture and ventilation check; and timestamped photo documentation of every identified damage point. A written inspection report is delivered within 24 hours of the inspection date. The inspection is 100% free with no obligation to proceed.' },
             { q: 'What is ORS 742.240 and how does it affect my Oregon roof insurance claim?', a: 'ORS 742.240 is Oregon\'s primary insurance claim statute of limitations law. It establishes that an action on an insurance policy must be commenced within two years after the insurer denies the claim, and that late notice alone cannot be used as the sole basis for denial unless the insurer can demonstrate actual prejudice from the delay. This provides some protection for homeowners who discover damage late — but it does not override the specific reporting deadlines in your policy contract. Most Oregon homeowners policies require notice within one year of the loss date, which is separately and contractually enforceable. File before August 2026 to avoid this issue entirely.' },
             { q: 'Why should I have FreeRoofPros present at the adjuster inspection?', a: 'The adjuster inspection is the single most important meeting in the claims process — it determines your payout scope and amount. Adjusters process hundreds of claims and sometimes miss covered items: soft metal components, full ridge cap replacement, skylights, drip edge, pipe boots, and the actual extent of granule loss per square. Having your contractor present ensures every covered item is documented and included in the scope of loss. FreeRoofPros attends every adjuster inspection in person, walks the roof alongside the adjuster, and immediately initiates the supplement process if any covered items are excluded.' },
@@ -1148,8 +1148,8 @@ export default function CentralOregonRoofInsuranceClaimsPage() {
               from that same allocation.
             </p>
             <p className="text-blue-100 text-sm leading-relaxed mb-3">
-              Because we handle the documentation, claim filing, adjuster coordination, supplement
-              negotiations, and installation in-house, we eliminate the fragmented process most homeowners
+              Because we coordinate the documentation, claim filing, adjuster meetings, supplement
+              negotiations, and installation through our vetted local contractors, we eliminate the fragmented process most homeowners
               experience when managing inspectors, claim consultants, and contractors separately. That
               efficiency allows us to provide the full service at no additional cost to you beyond the
               deductible you owe regardless.
@@ -1163,7 +1163,7 @@ export default function CentralOregonRoofInsuranceClaimsPage() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
             {[
-              { icon: ShieldCheck, title: 'Oregon CCB Licensed', body: 'Active Oregon Construction Contractors Board (CCB) license, verified current. License number available upon request.' },
+              { icon: ShieldCheck, title: 'CCB Licensed Contractors', body: 'Every contractor in our network holds an active Oregon Construction Contractors Board (CCB) license, verified current.' },
               { icon: FileText, title: 'Fully Insured', body: 'General liability insurance and workers\' compensation coverage on every crew member. Certificates provided on request.' },
               { icon: Star, title: 'Manufacturer Certified', body: 'Certified installer for major shingle manufacturers. Manufacturer warranty on materials plus our workmanship warranty.' },
               { icon: MapPin, title: 'Central Oregon Based', body: 'Our Terrebonne office at 10801 NW 43rd St puts us 20 minutes from Bend — responsive scheduling, local accountability.' },
@@ -1181,8 +1181,8 @@ export default function CentralOregonRoofInsuranceClaimsPage() {
               { step: '01', icon: Search, title: 'Free Inspection', body: 'Full rooftop inspection with timestamped photos and written report within 24 hours. No cost, no obligation.' },
               { step: '02', icon: FileText, title: 'Damage Report', body: 'Professional damage report using insurance-standard formats. Storm data correlation for your specific address.' },
               { step: '03', icon: ClipboardList, title: 'Claim Filing', body: 'We file your claim with all required documentation. All insurer communication handled by our specialists.' },
-              { step: '04', icon: Users, title: 'Adjuster Meeting', body: 'We attend the adjuster inspection in person to ensure complete scope documentation and coverage.' },
-              { step: '05', icon: Hammer, title: 'Installation', body: 'Licensed crew installs your new roof. Full cleanup, warranty documentation, and final walkthrough included.' },
+              { step: '04', icon: Users, title: 'Adjuster Meeting', body: 'Your contractor attends the adjuster inspection in person to ensure complete scope documentation and coverage.' },
+              { step: '05', icon: Hammer, title: 'Installation', body: 'Your licensed contractor installs your new roof. Full cleanup, warranty documentation, and final walkthrough included.' },
             ].map((item) => (
               <div key={item.step} className="relative">
                 <div className="bg-[#2563eb] text-white text-xs font-bold w-8 h-8 rounded-full flex items-center justify-center mb-4">{item.step}</div>
@@ -1298,7 +1298,7 @@ export default function CentralOregonRoofInsuranceClaimsPage() {
               August 2026 deadline — act before it closes
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold mb-3">Schedule Your Free Central Oregon Roof Inspection</h2>
-            <p className="text-blue-200 leading-relaxed">No cost, no obligation. Find out within 24 hours whether your home qualifies for insurance-covered roof replacement. Our team serves Bend, Redmond, La Pine, and all of Central Oregon.</p>
+            <p className="text-blue-200 leading-relaxed">No cost, no obligation. Find out within 24 hours whether your home qualifies for insurance-covered roof replacement. We serve homeowners in Bend, Redmond, La Pine, and all of Central Oregon.</p>
           </div>
           <LeadForm />
           <p className="text-center text-blue-300 text-sm mt-6">

@@ -56,13 +56,13 @@ export default function HowFreeRoofProsWorksPage() {
         This is the first question most homeowners ask, and it deserves a direct answer.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        FreeRoofPros is a licensed roofing contractor. When a homeowner&apos;s insurance claim is approved and we complete the roof replacement, we are paid by the insurance settlement — the same way any contractor is paid by any client. The difference is that <strong>you don&apos;t write us a personal check</strong>. Your insurer does.
+        FreeRoofPros connects homeowners with trusted, verified, licensed local roofing contractors. When your insurance claim is approved and your contractor completes the roof replacement, the contractor is paid by the insurance settlement — the same way any contractor is paid by any client. The difference is that <strong>you don&apos;t write a personal check</strong>. Your insurer pays the contractor directly.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        We offer free inspections because we know that most Central Oregon homeowners don&apos;t realize they have a valid insurance claim sitting unused. The August 5, 2025 hailstorm damaged an estimated 24,000+ properties in the Bend area alone. Thousands of those homeowners have never gotten a professional inspection. The free inspection is how we find homeowners who need us — and how we create relationships built on trust rather than pressure.
+        We offer free inspections because we know that most Central Oregon homeowners don&apos;t realize they have a valid insurance claim sitting unused. The August 5, 2025 hailstorm damaged an estimated 24,000+ properties in the Bend area alone. Thousands of those homeowners have never gotten a professional inspection. The free inspection is how we connect homeowners with the contractors who can help — and how we create relationships built on trust rather than pressure.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        <strong>If your roof has no insurable damage, we tell you that, give you our written inspection report, and that is the end of it.</strong> No follow-up calls, no sales pressure, no invoice.
+        <strong>If your roof has no insurable damage, your contractor tells you that, gives you a written inspection report, and that is the end of it.</strong> No follow-up calls, no sales pressure, no invoice.
       </p>
 
       <hr className="my-8 border-gray-200" />
@@ -84,12 +84,12 @@ export default function HowFreeRoofProsWorksPage() {
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">How FreeRoofPros Is Different</h3>
       <ul className="list-disc pl-6 mb-4 space-y-2 text-gray-700">
-        <li>We are a <strong>licensed Oregon contractor</strong> with a verifiable CCB number, local offices, and a permanent presence in the Bend area</li>
+        <li>We only work with <strong>licensed Oregon contractors</strong> — each with a verifiable CCB number, local offices, and a permanent presence in Central Oregon</li>
         <li>We <strong>never ask you to sign an Assignment of Benefits</strong> — you remain in control of your claim at all times</li>
         <li>We <strong>never offer to waive your deductible</strong> — if a contractor makes this offer, walk away</li>
-        <li>We provide <strong>written inspection reports</strong> you can keep, share with your insurer, or use to get a second opinion</li>
+        <li>Our contractors provide <strong>written inspection reports</strong> you can keep, share with your insurer, or use to get a second opinion</li>
         <li>We give you time to think — no same-day pressure to commit</li>
-        <li>Our work carries a <strong>manufacturer warranty</strong> backed by our presence as a permanent local business</li>
+        <li>All work carries a <strong>manufacturer warranty</strong> backed by the contractor&apos;s presence as a permanent local business</li>
       </ul>
 
       <hr className="my-8 border-gray-200" />
@@ -107,35 +107,35 @@ export default function HowFreeRoofProsWorksPage() {
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 2 — Professional Roof Inspection (Free)</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        A licensed Oregon contractor climbs your roof and conducts a thorough inspection — not a walk-around from the driveway. We assess hail bruising and granule loss on all roof planes, wind damage to flashing and ridge caps, condition of pipe boots and vents, gutter damage, and any soft metal surfaces that confirm hail size and impact density.
+        A licensed Oregon contractor climbs your roof and conducts a thorough inspection — not a walk-around from the driveway. Your contractor assesses hail bruising and granule loss on all roof planes, wind damage to flashing and ridge caps, condition of pipe boots and vents, gutter damage, and any soft metal surfaces that confirm hail size and impact density.
       </p>
       <p className="text-gray-700 leading-relaxed mb-4">
-        You receive a <strong>written inspection report</strong> documenting everything we found, with photographs. This report is yours regardless of what you decide to do next.
+        You receive a <strong>written inspection report</strong> documenting everything the contractor found, with photographs. This report is yours regardless of what you decide to do next.
       </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 3 — We Review Your Findings Together</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        After the inspection, we walk through the findings with you in plain language. If there is insurable damage, we explain what we found, what the replacement scope would look like, and what the insurance process involves. <strong>If there is no insurable damage, we tell you that directly</strong> — and you&apos;re done, with a free professional inspection report in hand.
+        After the inspection, your contractor walks through the findings with you in plain language. If there is insurable damage, they explain what was found, what the replacement scope would look like, and what the insurance process involves. <strong>If there is no insurable damage, they tell you that directly</strong> — and you&apos;re done, with a free professional inspection report in hand.
       </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 4 — Insurance Claim Filing Assistance</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        If you decide to proceed with a claim, we help you prepare and submit the initial documentation to your insurer. We attend the adjuster&apos;s inspection with you, ensuring nothing is missed and that our written findings are formally incorporated into the claim record. If the adjuster&apos;s estimate comes in below the documented scope, we file a supplement on your behalf.
+        If you decide to proceed with a claim, your contractor helps you prepare and submit the initial documentation to your insurer. Your contractor attends the adjuster&apos;s inspection with you, ensuring nothing is missed and that the written findings are formally incorporated into the claim record. If the adjuster&apos;s estimate comes in below the documented scope, your contractor files a supplement on your behalf.
       </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 5 — Claim Approval and Scope Agreement</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Once your claim is approved, we provide a detailed replacement scope — materials, timeline, and process — for your review and approval. <strong>You approve every detail before work begins.</strong> We use materials covered by your insurance settlement; you choose the color and style within those parameters.
+        Once your claim is approved, your contractor provides a detailed replacement scope — materials, timeline, and process — for your review and approval. <strong>You approve every detail before work begins.</strong> Your contractor uses materials covered by your insurance settlement; you choose the color and style within those parameters.
       </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 6 — Roof Replacement</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Our licensed Oregon crew installs your new roof to manufacturer specifications. We handle full tear-off, proper underlayment installation, and code-compliant flashing. Deschutes County prohibits wood shake roofing under its 2001 fire mitigation code, so all replacements use asphalt or metal materials. If your insurer&apos;s estimate used wood shake pricing, we flag it and fight it.
+        Your licensed Oregon contractor installs your new roof to manufacturer specifications — including full tear-off, proper underlayment installation, and code-compliant flashing. Deschutes County prohibits wood shake roofing under its 2001 fire mitigation code, so all replacements use asphalt or metal materials. If your insurer&apos;s estimate used wood shake pricing, your contractor flags it and fights it.
       </p>
 
       <h3 className="text-xl font-semibold text-gray-900 mt-8 mb-3">Step 7 — Final Documentation and Depreciation Recovery</h3>
       <p className="text-gray-700 leading-relaxed mb-4">
-        After completion, we submit all documentation to your insurer — final invoice, completion certificate, and photos — to trigger the release of any held depreciation (if you have RCV coverage). We also handle any supplement claims if hidden damage was discovered during tear-off. Most RCV homeowners receive a second check within 15–30 days of our documentation submission.
+        After completion, your contractor submits all documentation to your insurer — final invoice, completion certificate, and photos — to trigger the release of any held depreciation (if you have RCV coverage). Your contractor also handles any supplement claims if hidden damage was discovered during tear-off. Most RCV homeowners receive a second check within 15–30 days of documentation submission.
       </p>
 
       <hr className="my-8 border-gray-200" />
