@@ -23,7 +23,6 @@ declare global {
 }
 
 // Timer durations (milliseconds)
-const STEP1_TIMER_MS = 15 * 60 * 1000; // 15 minutes — address only
 const STEP3_IDLE_TIMER_MS = 10 * 60 * 1000; // 10 minutes — step 3 idle
 const STEP3_ACTIVE_TIMER_MS = 15 * 60 * 1000; // 15 minutes — extended when user types
 
@@ -46,7 +45,6 @@ export const LeadForm = () => {
   const [savedLeadType, setSavedLeadType] = useState<LeadType | null>(null);
 
   // Timer refs (using refs to avoid stale closure issues in callbacks)
-  const step1TimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const step3TimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const step3ActiveRef = useRef(false); // tracks if user has typed in step 3
 
@@ -148,13 +146,6 @@ export const LeadForm = () => {
   // =========================================================================
   // Timer management helpers
   // =========================================================================
-  const clearStep1Timer = useCallback(() => {
-    if (step1TimerRef.current) {
-      clearTimeout(step1TimerRef.current);
-      step1TimerRef.current = null;
-    }
-  }, []);
-
   const clearStep3Timer = useCallback(() => {
     if (step3TimerRef.current) {
       clearTimeout(step3TimerRef.current);
@@ -176,14 +167,64 @@ export const LeadForm = () => {
   }, [clearStep3Timer, savePartialLead]);
 
   // =========================================================================
-  // Cleanup all timers on unmount
+  // Cleanup timers on unmount
   // =========================================================================
   useEffect(() => {
     return () => {
-      clearStep1Timer();
       clearStep3Timer();
     };
-  }, [clearStep1Timer, clearStep3Timer]);
+  }, [clearStep3Timer]);
+
+  // =========================================================================
+  // beforeunload — save partial data if user closes / navigates away
+  // Uses navigator.sendBeacon for reliable delivery during page unload.
+  // =========================================================================
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      const currentSavedLeadType = savedLeadTypeRef.current;
+      // If we already have a complete lead, nothing to do
+      if (currentSavedLeadType === "complete") return;
+
+      const data = getValues();
+      const currentCoords = coordsRef.current;
+      const currentSavedLeadId = savedLeadIdRef.current;
+
+      // Determine what type to save based on available data
+      let beaconType: LeadType | null = null;
+      if (data.firstName && data.email) {
+        beaconType = "partial";
+      } else if (data.address && currentCoords) {
+        beaconType = "address_only";
+      }
+
+      // Don't downgrade
+      if (!beaconType) return;
+      const typeOrder: Record<LeadType, number> = { address_only: 1, partial: 2, complete: 3 };
+      if (currentSavedLeadType && typeOrder[currentSavedLeadType] >= typeOrder[beaconType]) return;
+
+      const payload = {
+        ...(currentSavedLeadId ? { leadId: currentSavedLeadId } : {}),
+        address: data.address || "",
+        firstName: data.firstName || "",
+        lastName: data.lastName || "",
+        phoneNumber: data.phoneNumber || "",
+        email: data.email || "",
+        insuredBy: data.insuredBy || "",
+        policyNumber: data.policyNumber || "",
+        coords: currentCoords,
+        lead_type: beaconType,
+        lead_price: LEAD_PRICES[beaconType],
+      };
+
+      // sendBeacon is the only reliable way to fire a request during unload
+      const endpoint = currentSavedLeadId ? "/api/lead-update" : "/api/lead-create";
+      navigator.sendBeacon(endpoint, new Blob([JSON.stringify(payload)], { type: "application/json" }));
+      console.log(`[beforeunload] Beacon sent — ${beaconType} lead`);
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [getValues]);
 
   // =========================================================================
   // Form helpers (unchanged from original)
@@ -290,19 +331,11 @@ export const LeadForm = () => {
     if (isValid && currentStep < 3) {
       const nextStepNum = currentStep + 1;
 
-      if (currentStep === 1) {
-        // Moving from step 1 → step 2: clear step 1 timer (no longer needed)
-        clearStep1Timer();
-        console.log("[step1-timer] Cleared — user advanced to step 2");
-      }
-
       if (currentStep === 2) {
         // Moving from step 2 → step 3:
-        // 1. Clear step 1 timer (safety — should already be cleared)
-        clearStep1Timer();
-        // 2. Immediately save as 'partial' lead (or upgrade existing address_only)
+        // 1. Immediately save as 'partial' lead (or upgrade existing address_only)
         await savePartialLead("partial");
-        // 3. Start step 3 idle timer (10 min)
+        // 2. Start step 3 idle timer (10 min)
         step3ActiveRef.current = false;
         startStep3Timer(STEP3_IDLE_TIMER_MS);
         console.log("[step3-timer] Step 3 entered — started 10-min idle timer");
@@ -319,7 +352,7 @@ export const LeadForm = () => {
   };
 
   // =========================================================================
-  // Address select — starts the 15-minute step 1 timer
+  // Address select — immediately saves as address_only lead
   // =========================================================================
   const handleAddressSelect = async (prediction: PlacePrediction) => {
     try {
@@ -336,17 +369,41 @@ export const LeadForm = () => {
         console.warn("No coordinates found for selected address");
       }
 
-      // Start (or restart) the 15-minute step 1 timer
-      clearStep1Timer();
-      step1TimerRef.current = setTimeout(async () => {
-        // Timer fired — auto-save as address_only if no lead saved yet (or only address_only)
-        const currentSavedLeadType = savedLeadTypeRef.current;
-        if (!currentSavedLeadType || currentSavedLeadType === "address_only") {
-          await savePartialLead("address_only");
-          console.log("[step1-timer] Fired — saved address_only lead");
+      // Immediately save as address_only — no timer needed.
+      // coordsRef won't be updated yet (setCoords is async), so pass coords directly.
+      const currentSavedLeadType = savedLeadTypeRef.current;
+      if (!currentSavedLeadType) {
+        // Build payload manually since coordsRef hasn't updated yet
+        const coordsForSave = (data.lat && data.lng) ? { lat: data.lat, lng: data.lng } : null;
+        try {
+          const res = await fetch("/api/lead-create", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              address: prediction.description,
+              firstName: "",
+              lastName: "",
+              phoneNumber: "",
+              email: "",
+              insuredBy: "",
+              policyNumber: "",
+              coords: coordsForSave,
+              lead_type: "address_only",
+              lead_price: LEAD_PRICES.address_only,
+            }),
+          });
+          if (res.ok) {
+            const { lead } = await res.json();
+            setSavedLeadId(lead.id);
+            setSavedLeadType("address_only");
+            console.log(`[address-save] Immediately saved address_only lead with id ${lead.id}`);
+          } else {
+            console.error("[address-save] lead-create failed:", await res.text());
+          }
+        } catch (err) {
+          console.error("[address-save] Error saving address_only lead:", err);
         }
-      }, STEP1_TIMER_MS);
-      console.log("[step1-timer] Started 15-min timer after address selection");
+      }
     } catch (error) {
       console.error("Error fetching address coordinates:", error);
     }

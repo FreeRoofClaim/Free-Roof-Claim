@@ -527,3 +527,10 @@ export async function PUT(request: Request) {
     autoAssigned: finalStatus === "close",
   });
 }
+
+// POST handler — alias for PUT.
+// navigator.sendBeacon (used in beforeunload) can only send POST requests,
+// so we need this alias so beacon-based lead updates work.
+export async function POST(request: Request) {
+  return PUT(request);
+}
