@@ -29,6 +29,8 @@ export interface PlacePrediction {
     policyNumber: string;
   }
 
+  export type LeadType = 'address_only' | 'partial' | 'complete';
+
   export type City = {
     name: string;
     state: string;

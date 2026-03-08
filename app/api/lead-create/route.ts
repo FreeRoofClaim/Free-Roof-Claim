@@ -3,6 +3,24 @@ import { supabaseAdmin } from "@/lib/supabase";
 import haversineDistance from "@/utils/haversineDistance";
 import { createHash } from "crypto";
 
+// =============================================================================
+// SUPABASE MIGRATION REQUIRED
+// Before deploying this feature, run the following SQL in Supabase SQL editor:
+//
+//   ALTER TABLE "Leads_Data" ADD COLUMN IF NOT EXISTS lead_type TEXT DEFAULT 'complete';
+//   ALTER TABLE "Leads_Data" ADD COLUMN IF NOT EXISTS lead_price INTEGER DEFAULT 150;
+//   UPDATE "Leads_Data" SET lead_type = 'complete', lead_price = 150 WHERE lead_type IS NULL;
+//
+// See: supabase/add-lead-type-columns.sql
+// =============================================================================
+
+// Lead type price map
+const LEAD_PRICES: Record<string, number> = {
+  address_only: 30,
+  partial: 100,
+  complete: 150,
+};
+
 // SHA-256 hash helper for Facebook CAPI (required for user data)
 function sha256(value: string): string {
   return createHash("sha256").update(value.trim().toLowerCase()).digest("hex");
@@ -85,6 +103,7 @@ async function sendLeadNotification(leadData: {
   policyNumber?: string;
   status?: string;
   assignedTo?: string | null;
+  leadType?: string;
 }) {
   const resendKey = process.env.RESEND_API_KEY;
   if (!resendKey) return;
@@ -94,9 +113,13 @@ async function sendLeadNotification(leadData: {
     ? leadData.fullName
     : `${leadData.firstName} ${leadData.lastName}`;
 
+  const leadTypeLabel = leadData.leadType
+    ? ` (${leadData.leadType.replace("_", " ")})`
+    : "";
+
   const subject = isContractor
-    ? `\ud83d\udd27 New Contractor Signup: ${name}`
-    : `\ud83c\udfe0 New Homeowner Lead: ${name}`;
+    ? `🔧 New Contractor Signup: ${name}`
+    : `🏠 New Homeowner Lead${leadTypeLabel}: ${name}`;
 
   const htmlBody = isContractor
     ? `
@@ -106,10 +129,10 @@ async function sendLeadNotification(leadData: {
         <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #ddd;">${leadData.email}</td></tr>
         <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Phone</td><td style="padding:8px;border:1px solid #ddd;">${leadData.phone}</td></tr>
       </table>
-      <p style="margin-top:16px;"><a href="https://freeroofpros.twenty.com">View in Twenty CRM \u2192</a></p>
+      <p style="margin-top:16px;"><a href="https://freeroofpros.twenty.com">View in Twenty CRM →</a></p>
     `
     : `
-      <h2>New Homeowner Lead</h2>
+      <h2>New Homeowner Lead${leadTypeLabel}</h2>
       <table style="border-collapse:collapse;width:100%;max-width:600px;">
         <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Name</td><td style="padding:8px;border:1px solid #ddd;">${name}</td></tr>
         <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Email</td><td style="padding:8px;border:1px solid #ddd;">${leadData.email}</td></tr>
@@ -117,10 +140,11 @@ async function sendLeadNotification(leadData: {
         <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Address</td><td style="padding:8px;border:1px solid #ddd;">${leadData.address || "N/A"}</td></tr>
         <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Insurance</td><td style="padding:8px;border:1px solid #ddd;">${leadData.insurance || "N/A"}</td></tr>
         <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Policy #</td><td style="padding:8px;border:1px solid #ddd;">${leadData.policyNumber || "N/A"}</td></tr>
+        <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Lead Type</td><td style="padding:8px;border:1px solid #ddd;">${leadData.leadType || "complete"}</td></tr>
         <tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Status</td><td style="padding:8px;border:1px solid #ddd;">${leadData.status || "open"}</td></tr>
         ${leadData.assignedTo ? `<tr><td style="padding:8px;border:1px solid #ddd;font-weight:bold;">Assigned To</td><td style="padding:8px;border:1px solid #ddd;">${leadData.assignedTo}</td></tr>` : ""}
       </table>
-      <p style="margin-top:16px;"><a href="https://freeroofpros.twenty.com">View in Twenty CRM \u2192</a></p>
+      <p style="margin-top:16px;"><a href="https://freeroofpros.twenty.com">View in Twenty CRM →</a></p>
     `;
 
   try {
@@ -155,12 +179,6 @@ async function sendSMSViaTwilio(
     console.warn("Twilio credentials not set, skipping SMS");
     return { success: false, error: "Twilio credentials not configured" };
   }
-
-  // Normalize phone number: remove non-digits, ensure country code
-  // const normalizedPhone = to.replace(/\D/g, "");
-  // const phoneWithCountryCode = normalizedPhone.startsWith("1") 
-  //   ? `+${normalizedPhone}` 
-  //   : `+1${normalizedPhone}`;
 
   let phoneWithCountryCode = to.trim();
 
@@ -417,21 +435,27 @@ async function sendPremiumLeadNotificationToContractors(
 export async function POST(request: Request) {
   const body = await request.json();
 
-  // 1\ufe0f\u20e3 Prepare payload for DB
+  // Determine lead type (defaults to 'complete' for backwards compatibility)
+  const leadType: string = body.lead_type || "complete";
+  const leadPrice: number = body.lead_price ?? LEAD_PRICES[leadType] ?? 150;
+
+  // 1️⃣ Prepare payload for DB
   const payload = {
     "Property Address": body.address,
-    "First Name": body.firstName,
-    "Last Name": body.lastName,
-    "Phone Number": body.phoneNumber,
-    "Email Address": body.email,
-    "Insurance Company": body.insuredBy,
-    "Policy Number": body.policyNumber,
+    "First Name": body.firstName || "",
+    "Last Name": body.lastName || "",
+    "Phone Number": body.phoneNumber || "",
+    "Email Address": body.email || "",
+    "Insurance Company": body.insuredBy || "",
+    "Policy Number": body.policyNumber || "",
     Status: "open",
     Latitude: body.coords?.lat ?? null,
     Longitude: body.coords?.lng ?? null,
+    lead_type: leadType,
+    lead_price: leadPrice,
   };
 
-  // 2\ufe0f\u20e3 Insert lead
+  // 2️⃣ Insert lead
   const { data: lead, error } = await supabaseAdmin
     .from("Leads_Data")
     .insert([payload])
@@ -442,11 +466,36 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
+  // For address_only and partial leads: send admin notification but skip
+  // contractor matching/notifications (those go through the contractor portal paywall).
+  if (leadType === "address_only" || leadType === "partial") {
+    // Send admin notification so info@freeroofpros.com knows about the partial lead
+    await sendLeadNotification({
+      type: "new_homeowner_lead",
+      firstName: lead["First Name"],
+      lastName: lead["Last Name"],
+      email: lead["Email Address"],
+      phone: lead["Phone Number"],
+      address: lead["Property Address"],
+      insurance: lead["Insurance Company"],
+      policyNumber: lead["Policy Number"],
+      status: "open",
+      assignedTo: null,
+      leadType,
+    });
+
+    return NextResponse.json({ lead, autoAssigned: false });
+  }
+
+  // =====================================================================
+  // COMPLETE LEAD FLOW — contractor matching, notifications, CAPI, etc.
+  // =====================================================================
+
   // Track FINAL status
   let finalStatus: "open" | "close" = "open";
   let assignedContractorName: string | null = null;
 
-  // 3\ufe0f\u20e3 Fetch pending requests
+  // 3️⃣ Fetch pending requests
   const { data: pendingRequests, error: requestError } = await supabaseAdmin
     .from("Leads_Request")
     .select("*")
@@ -457,7 +506,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: requestError.message }, { status: 500 });
   }
 
-  // 4\ufe0f\u20e3 Auto-assign logic
+  // 4️⃣ Auto-assign logic
   if (pendingRequests && pendingRequests.length > 0) {
     for (const requestRow of pendingRequests) {
       const contractorId = requestRow.contractor_id;
@@ -539,7 +588,7 @@ export async function POST(request: Request) {
     }
   }
 
-  // 4.5\ufe0f\u20e3 If no pending request matched, notify all verified contractors within radius
+  // 4.5️⃣ If no pending request matched, notify all verified contractors within radius
   if (finalStatus === "open" && lead["Latitude"] && lead["Longitude"]) {
     try {
       // Fetch all verified contractors
@@ -609,7 +658,7 @@ export async function POST(request: Request) {
     }
   }
 
-  // 5\ufe0f\u20e3 Send email notification to info@freeroofpros.com
+  // 5️⃣ Send email notification to info@freeroofpros.com
   await sendLeadNotification({
     type: "new_homeowner_lead",
     firstName: lead["First Name"],
@@ -621,9 +670,10 @@ export async function POST(request: Request) {
     policyNumber: lead["Policy Number"],
     status: finalStatus,
     assignedTo: assignedContractorName,
+    leadType,
   });
 
-  // 6\ufe0f\u20e3 Send server-side Lead event to Facebook CAPI (fire-and-forget)
+  // 6️⃣ Send server-side Lead event to Facebook CAPI (fire-and-forget)
   sendFacebookCAPIEvent({
     email: body.email,
     phone: body.phoneNumber,
