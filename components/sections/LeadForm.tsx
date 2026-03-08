@@ -1,5 +1,5 @@
 'use client';
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { validationSchema } from "@/validations/schema";
@@ -10,11 +10,9 @@ import {
   CheckCircle,
   Shield,
 } from "lucide-react";
-import { supabase } from "@/lib/supabase";
 import { toast } from "react-toastify";
 import { AddressSuggestion } from "./ui/AddressSuggestion";
-import { PlacePrediction } from "@/types/AuthType";
-import { FormData } from "@/types/AuthType";
+import { PlacePrediction, FormData, LeadType } from "@/types/AuthType";
 import { useRouter } from "next/navigation";
 
 // Declare fbq for TypeScript
@@ -24,12 +22,44 @@ declare global {
   }
 }
 
+// Timer durations (milliseconds)
+const STEP1_TIMER_MS = 15 * 60 * 1000; // 15 minutes — address only
+const STEP3_IDLE_TIMER_MS = 10 * 60 * 1000; // 10 minutes — step 3 idle
+const STEP3_ACTIVE_TIMER_MS = 15 * 60 * 1000; // 15 minutes — extended when user types
+
+// Lead prices
+const LEAD_PRICES: Record<LeadType, number> = {
+  address_only: 30,
+  partial: 100,
+  complete: 150,
+};
+
 export const LeadForm = () => {
   const router = useRouter();
   const [currentStep, setCurrentStep] = useState(1);
   const [coords, setCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [isAddressSelected, setIsAddressSelected] = useState(false);
   const [attemptedSteps, setAttemptedSteps] = useState<Set<number>>(new Set());
+
+  // Partial lead tracking state
+  const [savedLeadId, setSavedLeadId] = useState<number | null>(null);
+  const [savedLeadType, setSavedLeadType] = useState<LeadType | null>(null);
+
+  // Timer refs (using refs to avoid stale closure issues in callbacks)
+  const step1TimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const step3TimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const step3ActiveRef = useRef(false); // tracks if user has typed in step 3
+
+  // We also keep a ref to coords/savedLeadId/savedLeadType to use inside timer callbacks
+  // without causing re-renders or stale closures
+  const coordsRef = useRef<{ lat: number; lng: number } | null>(null);
+  const savedLeadIdRef = useRef<number | null>(null);
+  const savedLeadTypeRef = useRef<LeadType | null>(null);
+
+  // Keep refs in sync with state
+  useEffect(() => { coordsRef.current = coords; }, [coords]);
+  useEffect(() => { savedLeadIdRef.current = savedLeadId; }, [savedLeadId]);
+  useEffect(() => { savedLeadTypeRef.current = savedLeadType; }, [savedLeadType]);
 
   const {
     register,
@@ -39,6 +69,8 @@ export const LeadForm = () => {
     watch,
     trigger,
     getValues,
+    setError,
+    clearErrors,
   } = useForm<FormData>({
     resolver: yupResolver(validationSchema),
     mode: "onBlur",
@@ -46,6 +78,116 @@ export const LeadForm = () => {
 
   const formData = watch();
 
+  // =========================================================================
+  // Silent auto-save helper
+  // Saves a partial lead without disrupting the form UX.
+  // Uses refs instead of state for coords/savedLeadId to avoid stale closures
+  // in timer callbacks.
+  // =========================================================================
+  const savePartialLead = useCallback(async (type: LeadType) => {
+    const data = getValues();
+    const currentCoords = coordsRef.current;
+    const currentSavedLeadId = savedLeadIdRef.current;
+    const currentSavedLeadType = savedLeadTypeRef.current;
+
+    // Don't downgrade an existing lead
+    const typeOrder: Record<LeadType, number> = { address_only: 1, partial: 2, complete: 3 };
+    if (currentSavedLeadType && typeOrder[currentSavedLeadType] >= typeOrder[type]) {
+      console.log(`[partial-save] Skipping — already saved as '${currentSavedLeadType}', not downgrading to '${type}'`);
+      return;
+    }
+
+    const leadPayload = {
+      address: data.address || "",
+      firstName: data.firstName || "",
+      lastName: data.lastName || "",
+      phoneNumber: data.phoneNumber || "",
+      email: data.email || "",
+      insuredBy: data.insuredBy || "",
+      policyNumber: data.policyNumber || "",
+      coords: currentCoords,
+      lead_type: type,
+      lead_price: LEAD_PRICES[type],
+    };
+
+    try {
+      if (currentSavedLeadId) {
+        // Update existing lead
+        const res = await fetch("/api/lead-update", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ leadId: currentSavedLeadId, ...leadPayload }),
+        });
+        if (res.ok) {
+          setSavedLeadType(type);
+          console.log(`[partial-save] Lead ${currentSavedLeadId} upgraded to '${type}'`);
+        } else {
+          console.error("[partial-save] lead-update failed:", await res.text());
+        }
+      } else {
+        // Create new lead
+        const res = await fetch("/api/lead-create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(leadPayload),
+        });
+        if (res.ok) {
+          const { lead } = await res.json();
+          setSavedLeadId(lead.id);
+          setSavedLeadType(type);
+          console.log(`[partial-save] New '${type}' lead created with id ${lead.id}`);
+        } else {
+          console.error("[partial-save] lead-create failed:", await res.text());
+        }
+      }
+    } catch (err) {
+      console.error("[partial-save] Error saving partial lead:", err);
+    }
+  }, [getValues]);
+
+  // =========================================================================
+  // Timer management helpers
+  // =========================================================================
+  const clearStep1Timer = useCallback(() => {
+    if (step1TimerRef.current) {
+      clearTimeout(step1TimerRef.current);
+      step1TimerRef.current = null;
+    }
+  }, []);
+
+  const clearStep3Timer = useCallback(() => {
+    if (step3TimerRef.current) {
+      clearTimeout(step3TimerRef.current);
+      step3TimerRef.current = null;
+    }
+  }, []);
+
+  const startStep3Timer = useCallback((durationMs: number) => {
+    clearStep3Timer();
+    step3TimerRef.current = setTimeout(async () => {
+      // Timer fired — save whatever insurance data the user typed (updates the partial lead)
+      const currentSavedLeadType = savedLeadTypeRef.current;
+      // Only act if the lead isn't already complete
+      if (currentSavedLeadType !== "complete") {
+        await savePartialLead("partial");
+        console.log("[step3-timer] Step 3 timer fired — saved partial lead with any insurance data");
+      }
+    }, durationMs);
+  }, [clearStep3Timer, savePartialLead]);
+
+  // =========================================================================
+  // Cleanup all timers on unmount
+  // =========================================================================
+  useEffect(() => {
+    return () => {
+      clearStep1Timer();
+      clearStep3Timer();
+    };
+  }, [clearStep1Timer, clearStep3Timer]);
+
+  // =========================================================================
+  // Form helpers (unchanged from original)
+  // =========================================================================
   const shouldShowError = (fieldName: keyof FormData) => {
     if (fieldName === "address" && currentStep === 1) {
       const addressValue = watch("address");
@@ -93,6 +235,24 @@ export const LeadForm = () => {
     setValue(field, processedValue);
   };
 
+  // =========================================================================
+  // Step 3 field change handler — manages the extended active timer
+  // =========================================================================
+  const handleStep3FieldChange = (field: "insuredBy" | "policyNumber", value: string) => {
+    handleInputChange(field, value);
+
+    // On first keystroke in step 3, extend the timer to 15 minutes
+    if (!step3ActiveRef.current) {
+      step3ActiveRef.current = true;
+      console.log("[step3-timer] User started typing in step 3 — extending timer to 15 min");
+    }
+    // Always reset the timer to the extended duration while they're actively typing
+    startStep3Timer(STEP3_ACTIVE_TIMER_MS);
+  };
+
+  // =========================================================================
+  // Step validation
+  // =========================================================================
   const isStepValid = async () => {
     switch (currentStep) {
       case 1:
@@ -101,7 +261,8 @@ export const LeadForm = () => {
       case 2:
         return await trigger(["firstName", "lastName", "phoneNumber", "email"]);
       case 3:
-        return await trigger(["insuredBy", "policyNumber"]);
+        // Insurance fields are validated manually before submit — not via yup
+        return true;
       default:
         return false;
     }
@@ -109,9 +270,9 @@ export const LeadForm = () => {
 
   const nextStep = async () => {
     setAttemptedSteps(prev => new Set([...Array.from(prev), currentStep]));
-    
+
     let fieldsToValidate: (keyof FormData)[] = [];
-    
+
     switch (currentStep) {
       case 1:
         fieldsToValidate = ["address"];
@@ -119,15 +280,35 @@ export const LeadForm = () => {
       case 2:
         fieldsToValidate = ["firstName", "lastName", "phoneNumber", "email"];
         break;
-      case 3:
-        fieldsToValidate = ["insuredBy", "policyNumber"];
-        break;
     }
-    await trigger(fieldsToValidate);
-    
+
+    if (fieldsToValidate.length > 0) {
+      await trigger(fieldsToValidate);
+    }
+
     const isValid = await isStepValid();
     if (isValid && currentStep < 3) {
-      setCurrentStep(currentStep + 1);
+      const nextStepNum = currentStep + 1;
+
+      if (currentStep === 1) {
+        // Moving from step 1 → step 2: clear step 1 timer (no longer needed)
+        clearStep1Timer();
+        console.log("[step1-timer] Cleared — user advanced to step 2");
+      }
+
+      if (currentStep === 2) {
+        // Moving from step 2 → step 3:
+        // 1. Clear step 1 timer (safety — should already be cleared)
+        clearStep1Timer();
+        // 2. Immediately save as 'partial' lead (or upgrade existing address_only)
+        await savePartialLead("partial");
+        // 3. Start step 3 idle timer (10 min)
+        step3ActiveRef.current = false;
+        startStep3Timer(STEP3_IDLE_TIMER_MS);
+        console.log("[step3-timer] Step 3 entered — started 10-min idle timer");
+      }
+
+      setCurrentStep(nextStepNum);
     }
   };
 
@@ -137,63 +318,148 @@ export const LeadForm = () => {
     }
   };
 
+  // =========================================================================
+  // Address select — starts the 15-minute step 1 timer
+  // =========================================================================
   const handleAddressSelect = async (prediction: PlacePrediction) => {
     try {
       setValue("address", prediction.description);
       setIsAddressSelected(true);
       trigger("address");
-  
+
       const response = await fetch(`/api/place-details?place_id=${prediction.place_id}`);
       const data = await response.json();
       if (data.lat && data.lng) {
         console.log("Selected Address Coordinates:", data.lat, data.lng);
         setCoords({ lat: data.lat, lng: data.lng });
-        
       } else {
         console.warn("No coordinates found for selected address");
       }
+
+      // Start (or restart) the 15-minute step 1 timer
+      clearStep1Timer();
+      step1TimerRef.current = setTimeout(async () => {
+        // Timer fired — auto-save as address_only if no lead saved yet (or only address_only)
+        const currentSavedLeadType = savedLeadTypeRef.current;
+        if (!currentSavedLeadType || currentSavedLeadType === "address_only") {
+          await savePartialLead("address_only");
+          console.log("[step1-timer] Fired — saved address_only lead");
+        }
+      }, STEP1_TIMER_MS);
+      console.log("[step1-timer] Started 15-min timer after address selection");
     } catch (error) {
       console.error("Error fetching address coordinates:", error);
     }
   };
 
+  // =========================================================================
+  // Continue button click handler
+  // =========================================================================
   const handleContinueClick = () => {
     if (currentStep === 3) {
+      // Manually validate insurance fields before allowing final submit
+      const { insuredBy, policyNumber } = getValues();
+      let hasInsuranceErrors = false;
+
+      if (!insuredBy || insuredBy.trim().length === 0) {
+        setError("insuredBy", { type: "manual", message: "Insurance company is required" });
+        hasInsuranceErrors = true;
+      } else {
+        clearErrors("insuredBy");
+      }
+
+      if (!policyNumber || policyNumber.trim().length === 0) {
+        setError("policyNumber", { type: "manual", message: "Policy number is required" });
+        hasInsuranceErrors = true;
+      } else {
+        clearErrors("policyNumber");
+      }
+
+      if (hasInsuranceErrors) {
+        setAttemptedSteps(prev => new Set([...Array.from(prev), 3]));
+        return;
+      }
+
       handleSubmit(onSubmit)();
     } else {
       nextStep();
     }
   };
 
+  // =========================================================================
+  // Final form submission (step 3 complete)
+  // =========================================================================
   const onSubmit = async (data: FormData) => {
+    // Extra safety check for insurance fields (in case schema doesn't catch it)
+    if (!data.insuredBy || !data.policyNumber) {
+      setError("insuredBy", { type: "manual", message: "Insurance company is required" });
+      setError("policyNumber", { type: "manual", message: "Policy number is required" });
+      return;
+    }
+
     try {
-      const res = await fetch("/api/lead-create", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          address: data.address,
-          firstName: data.firstName,
-          lastName: data.lastName,
-          phoneNumber: data.phoneNumber,
-          email: data.email,
-          insuredBy: data.insuredBy,
-          policyNumber: data.policyNumber,
-          coords,
-        }),
-      });
-      if (!res.ok) throw new Error("Lead create failed");
-      const { lead } = await res.json();
+      // Clear step 3 timer — form is being submitted
+      clearStep3Timer();
+
+      const currentSavedLeadId = savedLeadIdRef.current;
+
+      if (currentSavedLeadId) {
+        // Upgrade existing partial lead to complete
+        const res = await fetch("/api/lead-update", {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            leadId: currentSavedLeadId,
+            address: data.address,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            phoneNumber: data.phoneNumber,
+            email: data.email,
+            insuredBy: data.insuredBy,
+            policyNumber: data.policyNumber,
+            coords,
+            lead_type: "complete",
+            lead_price: LEAD_PRICES.complete,
+          }),
+        });
+        if (!res.ok) throw new Error("Lead update failed");
+        const { lead } = await res.json();
+        setSavedLeadType("complete");
+        console.log("✅ Existing lead upgraded to complete:", lead);
+      } else {
+        // No partial lead saved yet — create a new complete lead directly
+        const res = await fetch("/api/lead-create", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            address: data.address,
+            firstName: data.firstName,
+            lastName: data.lastName,
+            phoneNumber: data.phoneNumber,
+            email: data.email,
+            insuredBy: data.insuredBy,
+            policyNumber: data.policyNumber,
+            coords,
+            lead_type: "complete",
+            lead_price: LEAD_PRICES.complete,
+          }),
+        });
+        if (!res.ok) throw new Error("Lead create failed");
+        const { lead } = await res.json();
+        setSavedLeadId(lead.id);
+        setSavedLeadType("complete");
+        console.log("✅ New complete lead inserted:", lead);
+      }
 
       // Fire Facebook Pixel Lead event for conversion tracking
-      if (typeof window !== 'undefined' && window.fbq) {
-        window.fbq('track', 'Lead', {
-          content_name: 'Homeowner Lead Form',
-          content_category: 'roof_inspection',
+      if (typeof window !== "undefined" && window.fbq) {
+        window.fbq("track", "Lead", {
+          content_name: "Homeowner Lead Form",
+          content_category: "roof_inspection",
         });
       }
 
       toast.success("Lead submitted successfully!");
-      console.log("\u2705 New lead inserted:", lead);
       // Redirect to dedicated thank-you page for Google Ads conversion tracking
       router.push("/thank-you");
     } catch (err: any) {
@@ -264,7 +530,7 @@ export const LeadForm = () => {
             }}
             className="space-y-6"
           >
-            {/* Step 1: ZIP Code */}
+            {/* Step 1: Property Address */}
             {currentStep === 1 && (
               <div className="space-y-2">
               <AddressSuggestion
@@ -389,7 +655,7 @@ export const LeadForm = () => {
                       shouldShowError("insuredBy") ? "border-red-500" : "border-gray-300"
                     }`}
                     onChange={(e) =>
-                      handleInputChange("insuredBy", e.target.value)
+                      handleStep3FieldChange("insuredBy", e.target.value)
                     }
                   />
                   {shouldShowError("insuredBy") && (
@@ -411,7 +677,7 @@ export const LeadForm = () => {
                       shouldShowError("policyNumber") ? "border-red-500" : "border-gray-300"
                     }`}
                     onChange={(e) =>
-                      handleInputChange("policyNumber", e.target.value)
+                      handleStep3FieldChange("policyNumber", e.target.value)
                     }
                   />
                   {shouldShowError("policyNumber") && (
