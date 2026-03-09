@@ -569,29 +569,31 @@ export async function POST(request: Request) {
     }
   }
 
-  // 4.5️⃣ If no pending request matched, notify all verified contractors within radius
+  // 4.5️⃣ If no pending request matched, directly assign to ALL verified contractors within radius
   if (finalStatus === "open" && lead["Latitude"] && lead["Longitude"]) {
     try {
       // Fetch all verified contractors
       const { data: allContractors, error: contractorsError } = await supabaseAdmin
         .from("Roofing_Auth")
-        .select('"Latitude", "Longitude", "Service Radius", "Full Name", "Email Address", "Phone Number", "Is Verified"')
+        .select('"user_id", "Latitude", "Longitude", "Service Radius", "Full Name", "Email Address", "Phone Number", "Business Address", "Is Verified"')
         .in("Is Verified", ["confirmed", "assigned"]);
 
       if (contractorsError) {
         console.error("Error fetching contractors:", contractorsError);
       } else {
         const matchingContractors: Array<{ email: string; fullName: string; phone: string }> = [];
+        const assignedContractorNames: string[] = [];
 
-        // Check each contractor's service radius
+        // Check each contractor's service radius and auto-assign
         for (const contractor of allContractors) {
           if (
             !contractor["Latitude"] ||
             !contractor["Longitude"] ||
             !contractor["Email Address"] ||
-            !contractor["Service Radius"]
+            !contractor["Service Radius"] ||
+            !contractor["user_id"]
           ) {
-            console.log(`⚠️ Skipping contractor ${contractor["Full Name"]} - missing location/email/radius data`);
+            console.log(`⚠️ Skipping contractor ${contractor["Full Name"]} - missing location/email/radius/user_id data`);
             continue;
           }
 
@@ -609,16 +611,52 @@ export async function POST(request: Request) {
           }
 
           if (distance <= serviceRadius) {
+            const contractorId = contractor["user_id"];
+            console.log(`✅ Contractor ${contractor["Full Name"]} is within service radius (${distance.toFixed(2)} miles) — auto-assigning`);
+
+            // Directly assign lead to this contractor's Contractor_Leads
+            await supabaseAdmin.from("Contractor_Leads").insert([
+              {
+                contractor_id: contractorId,
+                lead_id: lead.id,
+                "First Name": lead["First Name"],
+                "Last Name": lead["Last Name"],
+                "Phone Number": lead["Phone Number"],
+                "Email Address": lead["Email Address"],
+                "Property Address": lead["Property Address"],
+                "Insurance Company": lead["Insurance Company"],
+                "Policy Number": lead["Policy Number"],
+                Latitude: lead["Latitude"],
+                Longitude: lead["Longitude"],
+                status: "open",
+                lead_type: lead.lead_type || "complete",
+                lead_price: lead.lead_price || 150,
+              },
+            ]);
+
+            assignedContractorNames.push(contractor["Full Name"] || "Contractor");
+
             matchingContractors.push({
               email: contractor["Email Address"],
               fullName: contractor["Full Name"] || "Contractor",
               phone: contractor["Phone Number"] || "",
             });
-            console.log(`✅ Contractor ${contractor["Full Name"]} is within service radius (${distance.toFixed(2)} miles)`);
           }
         }
 
-        // Send premium lead notifications to matching contractors
+        // Mark lead as closed and record assignment
+        if (assignedContractorNames.length > 0) {
+          await supabaseAdmin
+            .from("Leads_Data")
+            .update({ Status: "close" })
+            .eq("id", lead.id);
+
+          finalStatus = "close";
+          assignedContractorName = assignedContractorNames.join(", ");
+          console.log(`📋 Lead auto-assigned to: ${assignedContractorName}`);
+        }
+
+        // Send notifications to matching contractors
         if (matchingContractors.length > 0) {
           await sendPremiumLeadNotificationToContractors(matchingContractors, {
             firstName: lead["First Name"],
@@ -630,12 +668,12 @@ export async function POST(request: Request) {
         }
       }
     } catch (err) {
-      console.error("Error finding contractors for premium lead notification:", err);
-      // Don't fail the request if notification fails
+      console.error("Error auto-assigning to contractors:", err);
+      // Don't fail the request if assignment fails
     }
   } else {
     if (finalStatus !== "open") {
-      console.log("Lead was auto-assigned, skipping premium lead notifications");
+      console.log("Lead was auto-assigned via pending request, skipping radius check");
     }
   }
 

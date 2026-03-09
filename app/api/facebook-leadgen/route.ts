@@ -525,22 +525,24 @@ async function processLead(leadgenId: string) {
     }
   }
 
-  // If no pending request matched, notify all verified contractors within radius
+  // If no pending request matched, directly assign to ALL verified contractors within radius
   if (finalStatus === "open" && lead["Latitude"] && lead["Longitude"]) {
     try {
       const { data: allContractors } = await supabaseAdmin
         .from("Roofing_Auth")
-        .select('"Latitude", "Longitude", "Service Radius", "Full Name", "Email Address", "Phone Number", "Is Verified"')
+        .select('"user_id", "Latitude", "Longitude", "Service Radius", "Full Name", "Email Address", "Phone Number", "Business Address", "Is Verified"')
         .in("Is Verified", ["confirmed", "assigned"]);
 
       const matchingContractors: Array<{ email: string; fullName: string; phone: string }> = [];
+      const assignedContractorNames: string[] = [];
 
       for (const contractor of allContractors || []) {
         if (
           !contractor["Latitude"] ||
           !contractor["Longitude"] ||
           !contractor["Email Address"] ||
-          !contractor["Service Radius"]
+          !contractor["Service Radius"] ||
+          !contractor["user_id"]
         )
           continue;
 
@@ -553,6 +555,31 @@ async function processLead(leadgenId: string) {
 
         const serviceRadius = parseFloat(contractor["Service Radius"]);
         if (!isNaN(serviceRadius) && distance <= serviceRadius) {
+          const contractorId = contractor["user_id"];
+          console.log(`[fb-leadgen] ✅ Contractor ${contractor["Full Name"]} within radius (${distance.toFixed(2)} mi) — auto-assigning`);
+
+          // Directly assign lead to this contractor
+          await supabaseAdmin.from("Contractor_Leads").insert([
+            {
+              contractor_id: contractorId,
+              lead_id: lead.id,
+              "First Name": lead["First Name"],
+              "Last Name": lead["Last Name"],
+              "Phone Number": lead["Phone Number"],
+              "Email Address": lead["Email Address"],
+              "Property Address": lead["Property Address"],
+              "Insurance Company": lead["Insurance Company"],
+              "Policy Number": lead["Policy Number"],
+              Latitude: lead["Latitude"],
+              Longitude: lead["Longitude"],
+              status: "open",
+              lead_type: lead.lead_type || "complete",
+              lead_price: lead.lead_price || 150,
+            },
+          ]);
+
+          assignedContractorNames.push(contractor["Full Name"] || "Contractor");
+
           matchingContractors.push({
             email: contractor["Email Address"],
             fullName: contractor["Full Name"] || "Contractor",
@@ -561,6 +588,19 @@ async function processLead(leadgenId: string) {
         }
       }
 
+      // Mark lead as closed if assigned
+      if (assignedContractorNames.length > 0) {
+        await supabaseAdmin
+          .from("Leads_Data")
+          .update({ Status: "close" })
+          .eq("id", lead.id);
+
+        finalStatus = "close";
+        assignedContractorName = assignedContractorNames.join(", ");
+        console.log(`[fb-leadgen] 📋 Lead auto-assigned to: ${assignedContractorName}`);
+      }
+
+      // Send notifications to matching contractors
       if (matchingContractors.length > 0) {
         await sendPremiumLeadNotificationToContractors(matchingContractors, {
           firstName,
@@ -572,7 +612,7 @@ async function processLead(leadgenId: string) {
         console.log(`[fb-leadgen] Notified ${matchingContractors.length} contractors`);
       }
     } catch (err) {
-      console.error("[fb-leadgen] Contractor notification error:", err);
+      console.error("[fb-leadgen] Contractor auto-assign error:", err);
     }
   }
 

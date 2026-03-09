@@ -498,22 +498,24 @@ export async function POST(request: NextRequest) {
     }
   }
 
-  // Notify contractors within radius if no pending request matched
+  // Directly assign to ALL verified contractors within radius if no pending request matched
   if (finalStatus === "open" && lead["Latitude"] && lead["Longitude"]) {
     try {
       const { data: allContractors } = await supabaseAdmin
         .from("Roofing_Auth")
-        .select('"Latitude", "Longitude", "Service Radius", "Full Name", "Email Address", "Phone Number", "Is Verified"')
+        .select('"user_id", "Latitude", "Longitude", "Service Radius", "Full Name", "Email Address", "Phone Number", "Business Address", "Is Verified"')
         .in("Is Verified", ["confirmed", "assigned"]);
 
       const matchingContractors: Array<{ email: string; fullName: string; phone: string }> = [];
+      const assignedContractorNames: string[] = [];
 
       for (const contractor of allContractors || []) {
         if (
           !contractor["Latitude"] ||
           !contractor["Longitude"] ||
           !contractor["Email Address"] ||
-          !contractor["Service Radius"]
+          !contractor["Service Radius"] ||
+          !contractor["user_id"]
         )
           continue;
 
@@ -526,6 +528,31 @@ export async function POST(request: NextRequest) {
 
         const serviceRadius = parseFloat(contractor["Service Radius"]);
         if (!isNaN(serviceRadius) && distance <= serviceRadius) {
+          const contractorId = contractor["user_id"];
+          console.log(`[zapier-lead] ✅ Contractor ${contractor["Full Name"]} within radius (${distance.toFixed(2)} mi) — auto-assigning`);
+
+          // Directly assign lead to this contractor
+          await supabaseAdmin.from("Contractor_Leads").insert([
+            {
+              contractor_id: contractorId,
+              lead_id: lead.id,
+              "First Name": lead["First Name"],
+              "Last Name": lead["Last Name"],
+              "Phone Number": lead["Phone Number"],
+              "Email Address": lead["Email Address"],
+              "Property Address": lead["Property Address"],
+              "Insurance Company": lead["Insurance Company"],
+              "Policy Number": lead["Policy Number"],
+              Latitude: lead["Latitude"],
+              Longitude: lead["Longitude"],
+              status: "open",
+              lead_type: lead.lead_type || "complete",
+              lead_price: lead.lead_price || 150,
+            },
+          ]);
+
+          assignedContractorNames.push(contractor["Full Name"] || "Contractor");
+
           matchingContractors.push({
             email: contractor["Email Address"],
             fullName: contractor["Full Name"] || "Contractor",
@@ -534,6 +561,19 @@ export async function POST(request: NextRequest) {
         }
       }
 
+      // Mark lead as closed if assigned
+      if (assignedContractorNames.length > 0) {
+        await supabaseAdmin
+          .from("Leads_Data")
+          .update({ Status: "close" })
+          .eq("id", lead.id);
+
+        finalStatus = "close";
+        assignedContractorName = assignedContractorNames.join(", ");
+        console.log(`[zapier-lead] 📋 Lead auto-assigned to: ${assignedContractorName}`);
+      }
+
+      // Send notifications to matching contractors
       if (matchingContractors.length > 0) {
         await sendPremiumLeadNotificationToContractors(matchingContractors, {
           firstName: finalFirstName,
@@ -544,7 +584,7 @@ export async function POST(request: NextRequest) {
         });
       }
     } catch (err) {
-      console.error("[zapier-lead] Contractor notification error:", err);
+      console.error("[zapier-lead] Contractor auto-assign error:", err);
     }
   }
 
