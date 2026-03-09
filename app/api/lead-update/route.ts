@@ -325,8 +325,12 @@ export async function PUT(request: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  // For address_only and partial upgrades: send admin email only, no contractor matching
-  if (leadType === "address_only" || leadType === "partial") {
+  // For address_only updates: skip contractor matching UNLESS the 10-minute
+  // abandon timer has fired (indicated by run_assignment = true from the frontend).
+  // This ensures address-only leads that sit idle for 10 min still get assigned.
+  const runAssignment: boolean = body.run_assignment === true;
+
+  if (leadType === "address_only" && !runAssignment) {
     await sendLeadUpdateNotification({
       firstName: lead["First Name"],
       lastName: lead["Last Name"],
@@ -344,7 +348,7 @@ export async function PUT(request: Request) {
   }
 
   // =====================================================================
-  // COMPLETE LEAD UPGRADE — run full contractor matching + notifications
+  // PARTIAL + COMPLETE LEAD UPGRADE — run full contractor matching + notifications
   // =====================================================================
 
   let finalStatus: "open" | "close" = "open";
@@ -441,25 +445,27 @@ export async function PUT(request: Request) {
     }
   }
 
-  // 4.5️⃣ If no pending request matched, notify all verified contractors within radius
+  // 4.5️⃣ If no pending request matched, directly assign to ALL verified contractors within radius
   if (finalStatus === "open" && lead["Latitude"] && lead["Longitude"]) {
     try {
       const { data: allContractors, error: contractorsError } = await supabaseAdmin
         .from("Roofing_Auth")
-        .select('"Latitude", "Longitude", "Service Radius", "Full Name", "Email Address", "Phone Number", "Is Verified"')
+        .select('"user_id", "Latitude", "Longitude", "Service Radius", "Full Name", "Email Address", "Phone Number", "Business Address", "Is Verified"')
         .in("Is Verified", ["confirmed", "assigned"]);
 
       if (contractorsError) {
         console.error("Error fetching contractors:", contractorsError);
       } else {
         const matchingContractors: Array<{ email: string; fullName: string; phone: string }> = [];
+        const assignedContractorNames: string[] = [];
 
         for (const contractor of allContractors) {
           if (
             !contractor["Latitude"] ||
             !contractor["Longitude"] ||
             !contractor["Email Address"] ||
-            !contractor["Service Radius"]
+            !contractor["Service Radius"] ||
+            !contractor["user_id"]
           ) {
             continue;
           }
@@ -475,6 +481,31 @@ export async function PUT(request: Request) {
           if (isNaN(serviceRadius)) continue;
 
           if (distance <= serviceRadius) {
+            const contractorId = contractor["user_id"];
+            console.log(`[lead-update] ✅ Contractor ${contractor["Full Name"]} within radius (${distance.toFixed(2)} mi) — auto-assigning`);
+
+            // Directly assign lead to this contractor
+            await supabaseAdmin.from("Contractor_Leads").insert([
+              {
+                contractor_id: contractorId,
+                lead_id: lead.id,
+                "First Name": lead["First Name"],
+                "Last Name": lead["Last Name"],
+                "Phone Number": lead["Phone Number"],
+                "Email Address": lead["Email Address"],
+                "Property Address": lead["Property Address"],
+                "Insurance Company": lead["Insurance Company"],
+                "Policy Number": lead["Policy Number"],
+                Latitude: lead["Latitude"],
+                Longitude: lead["Longitude"],
+                status: "open",
+                lead_type: lead.lead_type || "complete",
+                lead_price: lead.lead_price || 150,
+              },
+            ]);
+
+            assignedContractorNames.push(contractor["Full Name"] || "Contractor");
+
             matchingContractors.push({
               email: contractor["Email Address"],
               fullName: contractor["Full Name"] || "Contractor",
@@ -483,6 +514,19 @@ export async function PUT(request: Request) {
           }
         }
 
+        // Mark lead as closed if assigned
+        if (assignedContractorNames.length > 0) {
+          await supabaseAdmin
+            .from("Leads_Data")
+            .update({ Status: "close" })
+            .eq("id", lead.id);
+
+          finalStatus = "close";
+          assignedContractorName = assignedContractorNames.join(", ");
+          console.log(`[lead-update] 📋 Lead auto-assigned to: ${assignedContractorName}`);
+        }
+
+        // Send notifications to matching contractors
         if (matchingContractors.length > 0) {
           await sendPremiumLeadNotificationToContractors(matchingContractors, {
             firstName: lead["First Name"],
@@ -494,7 +538,7 @@ export async function PUT(request: Request) {
         }
       }
     } catch (err) {
-      console.error("Error finding contractors for premium lead notification:", err);
+      console.error("[lead-update] Error auto-assigning to contractors:", err);
     }
   }
 

@@ -23,6 +23,7 @@ declare global {
 }
 
 // Timer durations (milliseconds)
+const STEP1_ABANDON_TIMER_MS = 10 * 60 * 1000; // 10 minutes — address-only abandon
 const STEP3_IDLE_TIMER_MS = 10 * 60 * 1000; // 10 minutes — step 3 idle
 const STEP3_ACTIVE_TIMER_MS = 15 * 60 * 1000; // 15 minutes — extended when user types
 
@@ -45,6 +46,7 @@ export const LeadForm = () => {
   const [savedLeadType, setSavedLeadType] = useState<LeadType | null>(null);
 
   // Timer refs (using refs to avoid stale closure issues in callbacks)
+  const step1TimerRef = useRef<ReturnType<typeof setTimeout> | null>(null); // address-only abandon timer
   const step3TimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const step3ActiveRef = useRef(false); // tracks if user has typed in step 3
 
@@ -146,6 +148,13 @@ export const LeadForm = () => {
   // =========================================================================
   // Timer management helpers
   // =========================================================================
+  const clearStep1Timer = useCallback(() => {
+    if (step1TimerRef.current) {
+      clearTimeout(step1TimerRef.current);
+      step1TimerRef.current = null;
+    }
+  }, []);
+
   const clearStep3Timer = useCallback(() => {
     if (step3TimerRef.current) {
       clearTimeout(step3TimerRef.current);
@@ -167,13 +176,56 @@ export const LeadForm = () => {
   }, [clearStep3Timer, savePartialLead]);
 
   // =========================================================================
+  // Step 1 abandon timer: if address_only lead sits for 10 min without
+  // the user moving to step 2, trigger contractor assignment.
+  // =========================================================================
+  const startStep1AbandonTimer = useCallback(() => {
+    clearStep1Timer();
+    step1TimerRef.current = setTimeout(async () => {
+      const currentSavedLeadType = savedLeadTypeRef.current;
+      const currentSavedLeadId = savedLeadIdRef.current;
+
+      // Only trigger if the lead is still address_only (user never moved to step 2)
+      if (currentSavedLeadType === "address_only" && currentSavedLeadId) {
+        console.log("[step1-timer] 10-min abandon timer fired — triggering assignment for address_only lead");
+        try {
+          const data = getValues();
+          const currentCoords = coordsRef.current;
+          await fetch("/api/lead-update", {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              leadId: currentSavedLeadId,
+              address: data.address || "",
+              firstName: data.firstName || "",
+              lastName: data.lastName || "",
+              phoneNumber: data.phoneNumber || "",
+              email: data.email || "",
+              insuredBy: data.insuredBy || "",
+              policyNumber: data.policyNumber || "",
+              coords: currentCoords,
+              lead_type: "address_only",
+              lead_price: LEAD_PRICES.address_only,
+              run_assignment: true,
+            }),
+          });
+        } catch (err) {
+          console.error("[step1-timer] Error triggering address_only assignment:", err);
+        }
+      }
+    }, STEP1_ABANDON_TIMER_MS);
+    console.log("[step1-timer] Started 10-min abandon timer for address_only lead");
+  }, [clearStep1Timer, getValues]);
+
+  // =========================================================================
   // Cleanup timers on unmount
   // =========================================================================
   useEffect(() => {
     return () => {
+      clearStep1Timer();
       clearStep3Timer();
     };
-  }, [clearStep3Timer]);
+  }, [clearStep1Timer, clearStep3Timer]);
 
   // =========================================================================
   // beforeunload — save partial data if user closes / navigates away
@@ -331,11 +383,16 @@ export const LeadForm = () => {
     if (isValid && currentStep < 3) {
       const nextStepNum = currentStep + 1;
 
+      if (currentStep === 1) {
+        // Moving from step 1 → step 2: user is engaged, clear abandon timer
+        clearStep1Timer();
+      }
+
       if (currentStep === 2) {
         // Moving from step 2 → step 3:
-        // 1. Immediately save as 'partial' lead (or upgrade existing address_only)
+        // 2. Immediately save as 'partial' lead (or upgrade existing address_only)
         await savePartialLead("partial");
-        // 2. Start step 3 idle timer (10 min)
+        // 3. Start step 3 idle timer (10 min)
         step3ActiveRef.current = false;
         startStep3Timer(STEP3_IDLE_TIMER_MS);
         console.log("[step3-timer] Step 3 entered — started 10-min idle timer");
@@ -397,6 +454,8 @@ export const LeadForm = () => {
             setSavedLeadId(lead.id);
             setSavedLeadType("address_only");
             console.log(`[address-save] Immediately saved address_only lead with id ${lead.id}`);
+            // Start 10-min abandon timer — if user doesn't move to step 2, assign the lead
+            startStep1AbandonTimer();
           } else {
             console.error("[address-save] lead-create failed:", await res.text());
           }

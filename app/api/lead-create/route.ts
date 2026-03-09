@@ -466,10 +466,30 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
+  // For address_only leads: just send admin notification, skip contractor matching.
+  // These are auto-saved when the user selects an address on step 1 of the form.
+  // Contractor matching happens later when the lead is upgraded to partial/complete
+  // via the lead-update route.
+  if (leadType === "address_only") {
+    await sendLeadNotification({
+      type: "new_homeowner_lead",
+      firstName: lead["First Name"],
+      lastName: lead["Last Name"],
+      email: lead["Email Address"],
+      phone: lead["Phone Number"],
+      address: lead["Property Address"],
+      insurance: lead["Insurance Company"],
+      policyNumber: lead["Policy Number"],
+      status: "open",
+      assignedTo: null,
+      leadType,
+    });
+
+    return NextResponse.json({ lead, autoAssigned: false });
+  }
+
   // =====================================================================
-  // ALL LEAD TYPES — contractor matching, notifications, CAPI, etc.
-  // All leads (address_only, partial, complete) within a contractor's
-  // service radius are now auto-assigned.
+  // PARTIAL + COMPLETE LEADS — contractor matching, notifications, CAPI
   // =====================================================================
 
   // Track FINAL status
