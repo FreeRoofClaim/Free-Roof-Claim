@@ -466,29 +466,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: error.message }, { status: 500 });
   }
 
-  // For address_only and partial leads: send admin notification but skip
-  // contractor matching/notifications (those go through the contractor portal paywall).
-  if (leadType === "address_only" || leadType === "partial") {
-    // Send admin notification so info@freeroofpros.com knows about the partial lead
-    await sendLeadNotification({
-      type: "new_homeowner_lead",
-      firstName: lead["First Name"],
-      lastName: lead["Last Name"],
-      email: lead["Email Address"],
-      phone: lead["Phone Number"],
-      address: lead["Property Address"],
-      insurance: lead["Insurance Company"],
-      policyNumber: lead["Policy Number"],
-      status: "open",
-      assignedTo: null,
-      leadType,
-    });
-
-    return NextResponse.json({ lead, autoAssigned: false });
-  }
-
   // =====================================================================
-  // COMPLETE LEAD FLOW — contractor matching, notifications, CAPI, etc.
+  // ALL LEAD TYPES — contractor matching, notifications, CAPI, etc.
+  // All leads (address_only, partial, complete) within a contractor's
+  // service radius are now auto-assigned.
   // =====================================================================
 
   // Track FINAL status

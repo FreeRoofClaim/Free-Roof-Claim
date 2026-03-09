@@ -427,25 +427,9 @@ async function processLead(leadgenId: string) {
 
   console.log(`[fb-leadgen] Lead ${lead.id} inserted as '${leadType}' ($${leadPrice})`);
 
-  // 5️⃣ For address_only / partial: admin notification only, no contractor matching
-  if (leadType === "address_only" || leadType === "partial") {
-    await sendAdminNotification({
-      firstName,
-      lastName,
-      email,
-      phone,
-      address: fullAddress,
-      insurance,
-      policyNumber,
-      leadType,
-      status: "open",
-      assignedTo: null,
-      source: "Facebook LeadGen",
-    });
-    return;
-  }
-
-  // 6️⃣ COMPLETE LEAD — run full contractor matching (same logic as lead-create)
+  // 5️⃣ ALL LEAD TYPES — run full contractor matching
+  // All leads (address_only, partial, complete) within a contractor's
+  // service radius are now auto-assigned.
   let finalStatus: "open" | "close" = "open";
   let assignedContractorName: string | null = null;
 

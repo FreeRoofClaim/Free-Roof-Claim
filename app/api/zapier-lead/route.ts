@@ -407,31 +407,9 @@ export async function POST(request: NextRequest) {
 
   console.log(`[zapier-lead] Lead ${lead.id} inserted as '${leadType}' ($${leadPrice}) from ${source}`);
 
-  // 6️⃣ For address_only / partial: admin notification only
-  if (leadType === "address_only" || leadType === "partial") {
-    await sendAdminNotification({
-      firstName: finalFirstName,
-      lastName: finalLastName,
-      email,
-      phone,
-      address,
-      insurance,
-      policyNumber,
-      leadType,
-      status: "open",
-      assignedTo: null,
-      source,
-    });
-
-    return NextResponse.json({
-      success: true,
-      lead_id: lead.id,
-      lead_type: leadType,
-      lead_price: leadPrice,
-    });
-  }
-
-  // 7️⃣ COMPLETE LEAD — full contractor matching pipeline
+  // 6️⃣ ALL LEAD TYPES — full contractor matching pipeline
+  // All leads (address_only, partial, complete) within a contractor's
+  // service radius are now auto-assigned.
   let finalStatus: "open" | "close" = "open";
   let assignedContractorName: string | null = null;
 
